@@ -169,6 +169,12 @@
             .col-sidebar { width: 100%; position: static; }
         }
         @media (max-width: 768px) {
+            /* AJUSTE DA IMAGEM DE FUNDO NO MOBILE AQUI */
+            .hero { 
+                background-position: center right; 
+                background-size: cover; 
+                padding: 40px 15px 60px; 
+            }
             .hero h1 { font-size: 2.2rem; }
             .dia-data::after { display: none; }
             .dia-timeline { flex-direction: column; border-left: 3px solid var(--azul-escuro); padding-left: 15px; margin-left: 20px; position: relative;}
@@ -406,33 +412,62 @@
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
                 <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações de confirmação e acesso.</p>
                 
-                <form action="#" method="POST">
-                    <input type="text" placeholder="Nome Completo" required>
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="tel" placeholder="WhatsApp" required>
+                <form id="form-inscricao">
+                    <input type="text" name="nome" placeholder="Nome Completo" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
                     
-                    <select required>
+                    <select name="interesse" required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
-                        <option value="saude">Saúde / Psicanálise</option>
-                        <option value="ciencia">Física / Ciência (Keppe Motor)</option>
-                        <option value="educacao">Educação / Pedagogia</option>
-                        <option value="negocios">Empreendedorismo / Negócios</option>
-                        <option value="arte">Artes / Estética</option>
+                        <option value="Saude">Saúde / Psicanálise</option>
+                        <option value="Ciencia">Física / Ciência (Keppe Motor)</option>
+                        <option value="Educacao">Educação / Pedagogia</option>
+                        <option value="Negocios">Empreendedorismo / Negócios</option>
+                        <option value="Arte">Artes / Estética</option>
                     </select>
 
-                    <select required>
+                    <select name="origem" required>
                         <option value="" disabled selected>Como ficou sabendo?</option>
-                        <option value="redes">Redes Sociais (Instagram/Facebook)</option>
-                        <option value="email">E-mail</option>
-                        <option value="amigo">Indicação de um amigo</option>
-                        <option value="site">Pesquisa no Google</option>
-                        <option value="outros">Outros</option>
+                        <option value="Redes Sociais">Redes Sociais (Instagram/Facebook)</option>
+                        <option value="Email">E-mail</option>
+                        <option value="Indicacao">Indicação de um amigo</option>
+                        <option value="Google">Pesquisa no Google</option>
+                        <option value="Outros">Outros</option>
                     </select>
 
-                    <button type="submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
+                    <button type="submit" id="btn-submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
+                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Inscrição recebida com sucesso! Entraremos em contato.</p>
                     <p class="form-disclaimer">Ao se inscrever, você receberá informações detalhadas sobre valores, local e confirmação de vaga.</p>
                 </form>
-            </div>
+
+                <script>
+                    const form = document.getElementById('form-inscricao');
+                    const btnSubmit = document.getElementById('btn-submit');
+                    const msgSucesso = document.getElementById('msg-sucesso');
+                    
+                    // COLOQUE AQUI A URL GERADA NO GOOGLE APPS SCRIPT
+                    const scriptURL = 'COLE_A_URL_DO_GOOGLE_AQUI';
+
+                    form.addEventListener('submit', e => {
+                        e.preventDefault();
+                        btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
+                        btnSubmit.disabled = true;
+
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response => {
+                                msgSucesso.style.display = 'block'; 
+                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
+                                btnSubmit.disabled = false;
+                                form.reset(); 
+                            })
+                            .catch(error => {
+                                alert('Houve um erro ao enviar. Tente novamente.');
+                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
+                                btnSubmit.disabled = false;
+                            });
+                    });
+                </script>
+                </div>
 
         </div>
     </main>
@@ -477,13 +512,4 @@
         <div class="footer-logos">
             <img src="logo-stop.png" alt="STOP a Destruição do Mundo">
             <img src="logo-keppe.png" alt="Faculdade Trilógica">
-            <img src="logo-nsra.png" alt="N Sra Todos os Povos">
-            <img src="logo-proton.png" alt="Proton Editora">
-            <img src="logo-motor.png" alt="Keppe Motor">
-            <img src="logo-millennium.png" alt="Millennium">
-        </div>
-        <p>&copy; 2024 STOP a Destruição do Mundo. Todos os direitos reservados. | Privacidade e Termos de Uso.</p>
-    </footer>
-
-</body>
-</html>
+            <img src
