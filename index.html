@@ -121,7 +121,6 @@
         .box-credibilidade { border: 2px solid #ddd; border-radius: 15px; padding: 25px; text-align: center; background: #fff; }
         .box-credibilidade h3 { color: var(--texto-escuro); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; }
         
-        /* GRID DE LOGOS (4 Colunas, 30% Maiores) */
         .logos-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -196,7 +195,6 @@
             .dia-data span { display: inline-block; margin-left: 55px; margin-top: -30px; font-size: 1rem; color: var(--azul-escuro); }
             .dia-eventos { padding-left: 0; padding-top: 35px; }
             
-            /* Ajuste da grade de logos para mobile (2 colunas) */
             .logos-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
@@ -212,7 +210,12 @@
         </div>
         <h1>STOP À INVERSÃO</h1>
         <p>Um marco histórico: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
-        <span class="hero-data">14 a 16 de Agosto | Fazenda Santa Branca</span>
+        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto |Ecovilla Santa Branca</span>
+        
+        <p style="font-weight: bold; color: var(--dourado); font-size: 1.4rem; margin-bottom: 30px;">
+            Inscrição Valor Sugerido: R$ 90,00
+        </p>
+
         <div class="btn-container">
             <a href="#inscricao" class="btn-dourado">Quero garantir minha inscrição agora</a>
         </div>
@@ -428,6 +431,12 @@
 
             <div class="box-form" id="inscricao">
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 15px 0; text-align: center; border-left: 4px solid var(--dourado);">
+                    <span style="font-size: 0.9rem; display: block; color: #ccc;">Inscrição Valor Sugerido:</span>
+                    <strong style="font-size: 1.3rem; color: var(--dourado);">R$ 90,00</strong>
+                </div>
+
                 <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações de confirmação e acesso.</p>
                 
                 <form id="form-inscricao">
@@ -470,7 +479,6 @@
                         btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
                         btnSubmit.disabled = true;
 
-                        /* CORREÇÃO DO ERRO CORS AQUI: mode 'no-cors' */
                         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form)})
                             .then(response => {
                                 msgSucesso.style.display = 'block'; 
