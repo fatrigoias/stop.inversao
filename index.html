@@ -121,6 +121,7 @@
         .box-credibilidade { border: 2px solid #ddd; border-radius: 15px; padding: 25px; text-align: center; background: #fff; }
         .box-credibilidade h3 { color: var(--texto-escuro); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; }
         
+        /* GRID DE LOGOS */
         .logos-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
@@ -157,6 +158,20 @@
         .section-local h3 { color: var(--verde-card); font-size: 1.5rem; margin-bottom: 20px; }
         .section-local h4 { color: var(--bordo-card); font-size: 1.2rem; margin-bottom: 20px; }
         .section-local p { max-width: 800px; margin: 0 auto 15px; font-size: 1.1rem; color: #555; }
+        
+        /* Container do Mapa Responsivo */
+        .map-container {
+            max-width: 800px;
+            margin: 40px auto 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            display: block;
+        }
 
         /* --- FAQ --- */
         .section-faq { background: var(--fundo-cinza); padding: 80px 20px; }
@@ -195,9 +210,14 @@
             .dia-data span { display: inline-block; margin-left: 55px; margin-top: -30px; font-size: 1rem; color: var(--azul-escuro); }
             .dia-eventos { padding-left: 0; padding-top: 35px; }
             
+            /* Ajuste da grade de logos para mobile (2 colunas) */
             .logos-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+            }
+            /* Ajuste do mapa no mobile */
+            .map-container iframe {
+                height: 300px;
             }
         }
     </style>
@@ -210,7 +230,7 @@
         </div>
         <h1>STOP À INVERSÃO</h1>
         <p>Um marco histórico: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
-        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto | Ecovilla Santa Branca</span>
+        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto | Fazenda Santa Branca</span>
         
         <p style="font-weight: bold; color: var(--dourado); font-size: 1.4rem; margin-bottom: 30px;">
             Inscrição Valor Sugerido: R$ 90,00
@@ -222,7 +242,7 @@
     </header>
 
     <div class="faixa-alerta">
-        Vivemos invertidos. É hora de desinverter.
+        Vivemos invertidos. É hora de despertar.
     </div>
 
     <section class="eixos-section">
@@ -326,7 +346,7 @@
                     <div class="evento-bloco">
                         <strong class="hora">10:15 – 11:30</strong>
                         <strong class="titulo">Workshop de Desinversão Interior</strong>
-                        <p>Técnica de Interiorização: reverter o mecanismo de projeção. Aceitar a verdade para restaurar o sistema imunológico.</p>
+                        <p>Técnica de Interiorização: reverter o mechanism de projeção. Aceitar a verdade para restaurar o sistema imunológico.</p>
                     </div>
                     <div class="evento-bloco" style="border-left-color: #7f8c8d;">
                         <strong class="hora">11:30 – 13:00</strong>
@@ -504,6 +524,11 @@
         <h4>Casarão da Cultura Nicolau Lunardelli</h4>
         <p><strong>Ambiente Natural e Contemplativo.</strong> Um espaço de beleza e silêncio que convida à interiorização — o cenário perfeito para três dias de transformação profunda.</p>
         <p>Ao final do evento, os participantes serão convidados a um passeio guiado para contemplação da estética natural como vivência direta do que será ensinado.</p>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.9268950311703!2d-49.08908234504866!3d-16.43431181540264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e979f16ce2b37%3A0x943b8ba50f8f3ac4!2sEcovila%20Santa%20Branca!5e1!3m2!1spt-BR!2sbr!4v1775593227399!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
         <p style="font-size: 0.95rem; margin-top: 20px;"><em>Mais informações sobre hospedagem e acesso serão enviadas após a sua inscrição.</em></p>
     </section>
 
