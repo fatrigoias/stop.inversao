@@ -160,7 +160,7 @@
 
         /* --- Footer --- */
         footer { background-color: #111; color: #aaa; padding: 40px 20px 20px; text-align: center; }
-        .footer-logos { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+        .footer-logos { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
         .footer-logos img { max-height: 40px; filter: grayscale(100%) brightness(200%); opacity: 0.5; }
 
         /* --- Responsividade --- */
@@ -169,12 +169,6 @@
             .col-sidebar { width: 100%; position: static; }
         }
         @media (max-width: 768px) {
-            /* AJUSTE DA IMAGEM DE FUNDO NO MOBILE AQUI */
-            .hero { 
-                background-position: center right; 
-                background-size: cover; 
-                padding: 40px 15px 60px; 
-            }
             .hero h1 { font-size: 2.2rem; }
             .dia-data::after { display: none; }
             .dia-timeline { flex-direction: column; border-left: 3px solid var(--azul-escuro); padding-left: 15px; margin-left: 20px; position: relative;}
@@ -261,10 +255,11 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">14/08</div>
-                   </div>
+                    <span>Sexta</span>
+                </div>
                 <div class="dia-eventos">
                     <h3>EIXO 1 — Desinversão da Física</h3>
-                    <h4>Sexta - Trazendo Deus de Volta à Ciência</h4>
+                    <h4>Trazendo Deus de Volta à Ciência</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">19:30 – 19:45</strong>
@@ -286,10 +281,11 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">15/08</div>
+                    <span>Sábado</span>
                 </div>
                 <div class="dia-eventos">
                     <h3>EIXO 2 — Desinversão da Saúde</h3>
-                    <h4>Sábado - O Grande Dia da Conscientização (Manhã)</h4>
+                    <h4>O Grande Dia da Conscientização (Manhã)</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">08:30 – 08:45</strong>
@@ -313,7 +309,7 @@
                     </div>
 
                     <h3 style="margin-top: 40px;">EIXO 3 e 4 — Trabalho e Educação</h3>
-                    <h4>Sábado - Ação Boa, Bela e Verdadeira (Tarde)</h4>
+                    <h4>Ação Boa, Bela e Verdadeira (Tarde)</h4>
 
                     <div class="evento-bloco">
                         <strong class="hora">13:00 – 13:15</strong>
@@ -341,10 +337,11 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">16/08</div>
+                    <span>Domingo</span>
                 </div>
                 <div class="dia-eventos">
                     <h3>EIXO 5 — Arte e o Belo</h3>
-                    <h4>Domingo - A Beleza como base da Civilização</h4>
+                    <h4>A Beleza como base da Civilização</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">09:00 – 10:30</strong>
@@ -376,8 +373,6 @@
                     <img src="logo-proton.png" alt="Proton Editora">
                     <img src="logo-motor.png" alt="Keppe Motor">
                     <img src="logo-millennium.png" alt="Millennium">
-                    <img src="logo-camormaior.png" alt="Amor Maior">
-                    <img src="logo-gam.png" alt="Guardiões do Amor Maior">
                 </div>
             </div>
 
@@ -387,7 +382,7 @@
                 
                 <div class="transform-item">
                     <span>⚛️</span>
-                    <div><strong>Física & Ciência</strong> Keppe Motor e a energia do Espaço-Divino.</div>
+                    <div><strong>Física & Ciência</strong> Keppe Motor e a energia do Espaço-Espírito.</div>
                 </div>
                 <div class="transform-item">
                     <span>🧬</span>
@@ -411,60 +406,32 @@
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
                 <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações de confirmação e acesso.</p>
                 
-                <form id="form-inscricao">
-                    <input type="text" name="nome" placeholder="Nome Completo" required>
-                    <input type="email" name="email" placeholder="E-mail" required>
-                    <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
+                <form action="#" method="POST">
+                    <input type="text" placeholder="Nome Completo" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="tel" placeholder="WhatsApp" required>
                     
-                    <select name="interesse" required>
+                    <select required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
-                        <option value="Saude">Saúde / Psicanálise</option>
-                        <option value="Ciencia">Física / Ciência (Keppe Motor)</option>
-                        <option value="Educacao">Educação / Pedagogia</option>
-                        <option value="Negocios">Empreendedorismo / Negócios</option>
-                        <option value="Arte">Artes / Estética</option>
+                        <option value="saude">Saúde / Psicanálise</option>
+                        <option value="ciencia">Física / Ciência (Keppe Motor)</option>
+                        <option value="educacao">Educação / Pedagogia</option>
+                        <option value="negocios">Empreendedorismo / Negócios</option>
+                        <option value="arte">Artes / Estética</option>
                     </select>
 
-                    <select name="origem" required>
+                    <select required>
                         <option value="" disabled selected>Como ficou sabendo?</option>
-                        <option value="Redes Sociais">Redes Sociais (Instagram/Facebook)</option>
-                        <option value="Email">E-mail</option>
-                        <option value="Indicacao">Indicação de um amigo</option>
-                        <option value="Google">Pesquisa no Google</option>
-                        <option value="Outros">Outros</option>
+                        <option value="redes">Redes Sociais (Instagram/Facebook)</option>
+                        <option value="email">E-mail</option>
+                        <option value="amigo">Indicação de um amigo</option>
+                        <option value="site">Pesquisa no Google</option>
+                        <option value="outros">Outros</option>
                     </select>
 
-                    <button type="submit" id="btn-submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
-                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Inscrição recebida com sucesso! Entraremos em contato.</p>
+                    <button type="submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
                     <p class="form-disclaimer">Ao se inscrever, você receberá informações detalhadas sobre valores, local e confirmação de vaga.</p>
                 </form>
-
-                <script>
-                    const form = document.getElementById('form-inscricao');
-                    const btnSubmit = document.getElementById('btn-submit');
-                    const msgSucesso = document.getElementById('msg-sucesso');
-                    
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNxKviBAtTdVxAak_SzR9j4sQoueDgOl9i1Fwq3b3nnL0tP1UbF2eEzgA5qOiTuh6t/exec';
-
-                    form.addEventListener('submit', e => {
-                        e.preventDefault();
-                        btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
-                        btnSubmit.disabled = true;
-
-                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                            .then(response => {
-                                msgSucesso.style.display = 'block'; 
-                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
-                                btnSubmit.disabled = false;
-                                form.reset(); 
-                            })
-                            .catch(error => {
-                                alert('Houve um erro ao enviar. Tente novamente.');
-                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
-                                btnSubmit.disabled = false;
-                            });
-                    });
-                </script>
             </div>
 
         </div>
@@ -472,10 +439,7 @@
 
     <section class="section-local">
         <h2>O Local</h2>
-        <h3>Ecovilla Santa Branca 📍</h3>
-        <div class="dia-eventos">
-            <h4>Casarão da Cultura Nicolau Lunardelli</h4>
-        </div>
+        <h3>Fazenda Santa Branca 📍</h3>
         <p><strong>Ambiente Natural e Contemplativo.</strong> Um espaço de beleza e silêncio que convida à interiorização — o cenário perfeito para três dias de transformação profunda.</p>
         <p>Ao final do evento, os participantes serão convidados a um passeio guiado para contemplação da estética natural como vivência direta do que será ensinado.</p>
         <p style="font-size: 0.95rem; margin-top: 20px;"><em>Mais informações sobre hospedagem e acesso serão enviadas após a sua inscrição.</em></p>
@@ -517,8 +481,6 @@
             <img src="logo-proton.png" alt="Proton Editora">
             <img src="logo-motor.png" alt="Keppe Motor">
             <img src="logo-millennium.png" alt="Millennium">
-            <img src="logo-camormaior.png" alt="Amor Maior">
-            <img src="logo-gam.png" alt="Guardiões do Amor Maior">
         </div>
         <p>&copy; 2024 STOP a Destruição do Mundo. Todos os direitos reservados. | Privacidade e Termos de Uso.</p>
     </footer>
