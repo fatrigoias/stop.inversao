@@ -93,12 +93,12 @@
         .main-layout { display: flex; max-width: 1200px; margin: 60px auto; gap: 40px; padding: 0 20px; align-items: flex-start; }
         
         /* Coluna Esquerda: Programação */
-        .col-programacao { flex: 1; min-width: 0; /* Previne transbordamento */ }
+        .col-programacao { flex: 1; min-width: 0; }
         .col-programacao h2 { font-size: 2rem; margin-bottom: 5px; text-transform: uppercase; color: var(--azul-escuro); }
         .col-programacao > p { font-size: 1.2rem; margin-bottom: 40px; color: var(--dourado); font-weight: bold; }
         
         .dia-timeline { display: flex; margin-bottom: 40px; }
-        .dia-data { width: 80px; text-align: center; position: relative; flex-shrink: 0; /* Trava a largura da coluna de data */ }
+        .dia-data { width: 80px; text-align: center; position: relative; flex-shrink: 0; }
         .dia-data .bolinha { width: 60px; height: 60px; background: var(--azul-escuro); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold; margin: 0 auto; border: 4px solid var(--dourado); z-index: 2; position: relative; flex-direction: column; line-height: 1.2; }
         .dia-data span { display: block; font-weight: bold; margin-top: 5px; color: var(--texto-escuro); font-size: 0.9rem;}
         .dia-data::after { content: ''; position: absolute; top: 60px; bottom: -60px; left: 50%; transform: translateX(-50%); width: 3px; background-color: #ddd; z-index: 1; }
@@ -280,7 +280,6 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">14/08</div>
-                    <span>Sexta</span>
                 </div>
                 <div class="dia-eventos">
                     <h3>EIXO 1 — Desinversão da Física</h3>
@@ -306,8 +305,8 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">15/08</div>
-                    <span>Sábado</span>
-                </div> <div class="dia-eventos">
+                </div>
+                <div class="dia-eventos">
                     <h3>EIXO 2 — Desinversão da Saúde</h3>
                     <h4>Sábado - O Grande Dia da Conscientização (Manhã)</h4>
                     
@@ -361,8 +360,8 @@
             <div class="dia-timeline">
                 <div class="dia-data">
                     <div class="bolinha">16/08</div>
-                    <span>Domingo</span>
-                </div> <div class="dia-eventos">
+                </div>
+                <div class="dia-eventos">
                     <h3>EIXO 5 — Arte e o Belo</h3>
                     <h4>Domingo - A Beleza como base da Civilização</h4>
                     
@@ -473,7 +472,8 @@
                         btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
                         btnSubmit.disabled = true;
 
-                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                        /* CORREÇÃO DO ERRO CORS AQUI: mode 'no-cors' */
+                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form)})
                             .then(response => {
                                 msgSucesso.style.display = 'block'; 
                                 btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
