@@ -46,7 +46,7 @@
 
         /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(15, 43, 77, 0.85), rgba(15, 43, 77, 0.85)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80') center/cover;
+            background: url('stop_inversao_bacground.png') center/cover no-repeat;
             color: var(--texto-claro);
             text-align: center;
             padding: 60px 20px 80px;
@@ -93,12 +93,12 @@
         .main-layout { display: flex; max-width: 1200px; margin: 60px auto; gap: 40px; padding: 0 20px; align-items: flex-start; }
         
         /* Coluna Esquerda: Programação */
-        .col-programacao { flex: 1; }
+        .col-programacao { flex: 1; min-width: 0; /* Previne transbordamento */ }
         .col-programacao h2 { font-size: 2rem; margin-bottom: 5px; text-transform: uppercase; color: var(--azul-escuro); }
         .col-programacao > p { font-size: 1.2rem; margin-bottom: 40px; color: var(--dourado); font-weight: bold; }
         
         .dia-timeline { display: flex; margin-bottom: 40px; }
-        .dia-data { width: 80px; text-align: center; position: relative; }
+        .dia-data { width: 80px; text-align: center; position: relative; flex-shrink: 0; /* Trava a largura da coluna de data */ }
         .dia-data .bolinha { width: 60px; height: 60px; background: var(--azul-escuro); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold; margin: 0 auto; border: 4px solid var(--dourado); z-index: 2; position: relative; flex-direction: column; line-height: 1.2; }
         .dia-data span { display: block; font-weight: bold; margin-top: 5px; color: var(--texto-escuro); font-size: 0.9rem;}
         .dia-data::after { content: ''; position: absolute; top: 60px; bottom: -60px; left: 50%; transform: translateX(-50%); width: 3px; background-color: #ddd; z-index: 1; }
@@ -120,8 +120,21 @@
         /* Box Credibilidade */
         .box-credibilidade { border: 2px solid #ddd; border-radius: 15px; padding: 25px; text-align: center; background: #fff; }
         .box-credibilidade h3 { color: var(--texto-escuro); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; }
-        .logos-grid { display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-        .logos-grid img { max-height: 45px; max-width: 70px; object-fit: contain; }
+        
+        /* GRID DE LOGOS (4 Colunas, 30% Maiores) */
+        .logos-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            align-items: center; 
+            justify-items: center;
+            margin-bottom: 20px; 
+        }
+        .logos-grid img { 
+            max-height: 60px; 
+            max-width: 95px; 
+            object-fit: contain; 
+        }
 
         /* Box O que vai transformar */
         .box-transform { background: var(--fundo-cinza); border-radius: 15px; padding: 25px; border-left: 5px solid var(--laranja-card);}
@@ -143,6 +156,7 @@
         .section-local { background: #fff; padding: 80px 20px; text-align: center; border-top: 1px solid #eee; }
         .section-local h2 { color: var(--azul-escuro); font-size: 2rem; text-transform: uppercase; margin-bottom: 5px; }
         .section-local h3 { color: var(--verde-card); font-size: 1.5rem; margin-bottom: 20px; }
+        .section-local h4 { color: var(--bordo-card); font-size: 1.2rem; margin-bottom: 20px; }
         .section-local p { max-width: 800px; margin: 0 auto 15px; font-size: 1.1rem; color: #555; }
 
         /* --- FAQ --- */
@@ -160,7 +174,7 @@
 
         /* --- Footer --- */
         footer { background-color: #111; color: #aaa; padding: 40px 20px 20px; text-align: center; }
-        .footer-logos { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
+        .footer-logos { display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px; }
         .footer-logos img { max-height: 40px; filter: grayscale(100%) brightness(200%); opacity: 0.5; }
 
         /* --- Responsividade --- */
@@ -169,6 +183,11 @@
             .col-sidebar { width: 100%; position: static; }
         }
         @media (max-width: 768px) {
+            .hero { 
+                background-position: center right; 
+                background-size: cover; 
+                padding: 40px 15px 60px; 
+            }
             .hero h1 { font-size: 2.2rem; }
             .dia-data::after { display: none; }
             .dia-timeline { flex-direction: column; border-left: 3px solid var(--azul-escuro); padding-left: 15px; margin-left: 20px; position: relative;}
@@ -176,6 +195,12 @@
             .dia-data .bolinha { width: 45px; height: 45px; font-size: 0.9rem; border-width: 3px; flex-direction: row;}
             .dia-data span { display: inline-block; margin-left: 55px; margin-top: -30px; font-size: 1rem; color: var(--azul-escuro); }
             .dia-eventos { padding-left: 0; padding-top: 35px; }
+            
+            /* Ajuste da grade de logos para mobile (2 colunas) */
+            .logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -183,7 +208,7 @@
 
     <header class="hero">
         <div class="hero-logo">
-            <img src="logo-stop.png" alt="STOP a Destruição do Mundo">
+            <img src="logo-stop-1.png" alt="STOP a Destruição do Mundo">
         </div>
         <h1>STOP À INVERSÃO</h1>
         <p>Um marco histórico: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
@@ -259,7 +284,7 @@
                 </div>
                 <div class="dia-eventos">
                     <h3>EIXO 1 — Desinversão da Física</h3>
-                    <h4>Trazendo Deus de Volta à Ciência</h4>
+                    <h4>Sexta - Trazendo Deus de Volta à Ciência</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">19:30 – 19:45</strong>
@@ -282,10 +307,9 @@
                 <div class="dia-data">
                     <div class="bolinha">15/08</div>
                     <span>Sábado</span>
-                </div>
-                <div class="dia-eventos">
+                </div> <div class="dia-eventos">
                     <h3>EIXO 2 — Desinversão da Saúde</h3>
-                    <h4>O Grande Dia da Conscientização (Manhã)</h4>
+                    <h4>Sábado - O Grande Dia da Conscientização (Manhã)</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">08:30 – 08:45</strong>
@@ -309,7 +333,7 @@
                     </div>
 
                     <h3 style="margin-top: 40px;">EIXO 3 e 4 — Trabalho e Educação</h3>
-                    <h4>Ação Boa, Bela e Verdadeira (Tarde)</h4>
+                    <h4>Sábado - Ação Boa, Bela e Verdadeira (Tarde)</h4>
 
                     <div class="evento-bloco">
                         <strong class="hora">13:00 – 13:15</strong>
@@ -338,10 +362,9 @@
                 <div class="dia-data">
                     <div class="bolinha">16/08</div>
                     <span>Domingo</span>
-                </div>
-                <div class="dia-eventos">
+                </div> <div class="dia-eventos">
                     <h3>EIXO 5 — Arte e o Belo</h3>
-                    <h4>A Beleza como base da Civilização</h4>
+                    <h4>Domingo - A Beleza como base da Civilização</h4>
                     
                     <div class="evento-bloco">
                         <strong class="hora">09:00 – 10:30</strong>
@@ -373,6 +396,10 @@
                     <img src="logo-proton.png" alt="Proton Editora">
                     <img src="logo-motor.png" alt="Keppe Motor">
                     <img src="logo-millennium.png" alt="Millennium">
+                    <img src="logo-eia-01.png" alt="Escola da Inteligência do Amor">
+                    <img src="grupoave.png" alt="Grupo AVE">
+                    <img src="logo-camormaior.png" alt="Amor Maior">
+                    <img src="logo-gam.png" alt="Guardiões do Amor Maior">
                 </div>
             </div>
 
@@ -406,32 +433,60 @@
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
                 <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações de confirmação e acesso.</p>
                 
-                <form action="#" method="POST">
-                    <input type="text" placeholder="Nome Completo" required>
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="tel" placeholder="WhatsApp" required>
+                <form id="form-inscricao">
+                    <input type="text" name="nome" placeholder="Nome Completo" required>
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
                     
-                    <select required>
+                    <select name="interesse" required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
-                        <option value="saude">Saúde / Psicanálise</option>
-                        <option value="ciencia">Física / Ciência (Keppe Motor)</option>
-                        <option value="educacao">Educação / Pedagogia</option>
-                        <option value="negocios">Empreendedorismo / Negócios</option>
-                        <option value="arte">Artes / Estética</option>
+                        <option value="Saude">Saúde / Psicanálise</option>
+                        <option value="Ciencia">Física / Ciência (Keppe Motor)</option>
+                        <option value="Educacao">Educação / Pedagogia</option>
+                        <option value="Negocios">Empreendedorismo / Negócios</option>
+                        <option value="Arte">Artes / Estética</option>
                     </select>
 
-                    <select required>
+                    <select name="origem" required>
                         <option value="" disabled selected>Como ficou sabendo?</option>
-                        <option value="redes">Redes Sociais (Instagram/Facebook)</option>
-                        <option value="email">E-mail</option>
-                        <option value="amigo">Indicação de um amigo</option>
-                        <option value="site">Pesquisa no Google</option>
-                        <option value="outros">Outros</option>
+                        <option value="Redes Sociais">Redes Sociais (Instagram/Facebook)</option>
+                        <option value="Email">E-mail</option>
+                        <option value="Indicacao">Indicação de um amigo</option>
+                        <option value="Google">Pesquisa no Google</option>
+                        <option value="Outros">Outros</option>
                     </select>
 
-                    <button type="submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
+                    <button type="submit" id="btn-submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
+                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Inscrição recebida com sucesso! Entraremos em contato.</p>
                     <p class="form-disclaimer">Ao se inscrever, você receberá informações detalhadas sobre valores, local e confirmação de vaga.</p>
                 </form>
+
+                <script>
+                    const form = document.getElementById('form-inscricao');
+                    const btnSubmit = document.getElementById('btn-submit');
+                    const msgSucesso = document.getElementById('msg-sucesso');
+                    
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNxKviBAtTdVxAak_SzR9j4sQoueDgOl9i1Fwq3b3nnL0tP1UbF2eEzgA5qOiTuh6t/exec';
+
+                    form.addEventListener('submit', e => {
+                        e.preventDefault();
+                        btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
+                        btnSubmit.disabled = true;
+
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response => {
+                                msgSucesso.style.display = 'block'; 
+                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
+                                btnSubmit.disabled = false;
+                                form.reset(); 
+                            })
+                            .catch(error => {
+                                alert('Houve um erro ao enviar. Tente novamente.');
+                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
+                                btnSubmit.disabled = false;
+                            });
+                    });
+                </script>
             </div>
 
         </div>
@@ -439,7 +494,8 @@
 
     <section class="section-local">
         <h2>O Local</h2>
-        <h3>Fazenda Santa Branca 📍</h3>
+        <h3>Ecovilla Santa Branca 📍</h3>
+        <h4>Casarão da Cultura Nicolau Lunardelli</h4>
         <p><strong>Ambiente Natural e Contemplativo.</strong> Um espaço de beleza e silêncio que convida à interiorização — o cenário perfeito para três dias de transformação profunda.</p>
         <p>Ao final do evento, os participantes serão convidados a um passeio guiado para contemplação da estética natural como vivência direta do que será ensinado.</p>
         <p style="font-size: 0.95rem; margin-top: 20px;"><em>Mais informações sobre hospedagem e acesso serão enviadas após a sua inscrição.</em></p>
@@ -481,6 +537,10 @@
             <img src="logo-proton.png" alt="Proton Editora">
             <img src="logo-motor.png" alt="Keppe Motor">
             <img src="logo-millennium.png" alt="Millennium">
+            <img src="logo-eia-01.png" alt="Escola da Inteligência do Amor">
+            <img src="grupoave.png" alt="Grupo AVE">
+            <img src="logo-camormaior.png" alt="Amor Maior">
+            <img src="logo-gam.png" alt="Guardiões do Amor Maior">
         </div>
         <p>&copy; 2024 STOP a Destruição do Mundo. Todos os direitos reservados. | Privacidade e Termos de Uso.</p>
     </footer>
