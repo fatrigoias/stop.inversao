@@ -191,13 +191,14 @@
         .section-hospedagem h2 { font-size: 2.2rem; color: var(--azul-escuro); margin-bottom: 10px; text-transform: uppercase; }
         .section-hospedagem > p { font-size: 1.1rem; margin-bottom: 40px; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; }
         
-        .price-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+        /* Cards ajustados para 3 colunas */
+        .price-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         
         .price-card {
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
-            width: 400px;
+            width: 350px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
@@ -214,7 +215,11 @@
         .price-body { padding: 30px 20px; flex: 1; }
         .price-body ul { list-style: none; padding: 0; }
         .price-body ul li { margin-bottom: 12px; font-size: 1rem; color: #444; display: flex; align-items: flex-start; }
-        .price-body ul li::before { content: '✔️'; margin-right: 10px; color: var(--verde-card); }
+        
+        /* Ícones de Check e X nas listas de preço */
+        .price-body ul li.included::before { content: '✔️'; margin-right: 10px; color: var(--verde-card); }
+        .price-body ul li.excluded::before { content: '❌'; margin-right: 10px; filter: grayscale(1); opacity: 0.6; }
+        .price-body ul li.excluded span { color: #aaa; text-decoration: line-through; }
         
         .info-logistica {
             background: #fff;
@@ -591,9 +596,10 @@
                     <input type="text" name="cidade" placeholder="Sua Cidade e Estado" required>
                     
                     <select name="hospedagem" required>
-                        <option value="" disabled selected>Necessidade de Hospedagem/Translado?</option>
-                        <option value="Com Hospedagem e Translado">Sim, preciso de hospedagem e translado</option>
-                        <option value="Sem Hospedagem">Não, somente inscrição (retorno para residência)</option>
+                        <option value="" disabled selected>Escolha seu Pacote / Hospedagem...</option>
+                        <option value="Pacote Completo (Aéreo + Hospedagem + Translado)">Pacote Completo (Aéreo + Hospedagem + Translado)</option>
+                        <option value="Pacote Terrestre (Hospedagem + Alimentação)">Pacote Terrestre (Somente Hospedagem e Alimentação)</option>
+                        <option value="Somente Inscrição (Sem Hospedagem)">Somente Inscrição (Retorno diário para residência)</option>
                     </select>
 
                     <select name="interesse" required>
@@ -677,10 +683,10 @@
                 </div>
                 <div class="price-body">
                     <ul>
-                        <li>Hospedagem na Pousada Santa Branca</li>
-                        <li>Pensão Completa (Todas as refeições)</li>
-                        <li>Passagem Aérea Ida e Volta</li>
-                        <li>Translado Aeroporto / Pousada</li>
+                        <li class="included">Hospedagem na Pousada Santa Branca</li>
+                        <li class="included">Pensão Completa (Todas as refeições)</li>
+                        <li class="included">Passagem Aérea Ida e Volta</li>
+                        <li class="included">Translado Aeroporto / Pousada</li>
                     </ul>
                 </div>
             </div>
@@ -693,10 +699,26 @@
                 </div>
                 <div class="price-body">
                     <ul>
-                        <li>Hospedagem na Pousada Santa Branca</li>
-                        <li>Pensão Completa (Todas as refeições)</li>
-                        <li><span style="color:#999; text-decoration:line-through;">Passagem Aérea</span></li>
-                        <li><span style="color:#999; text-decoration:line-through;">Translado</span></li>
+                        <li class="included">Hospedagem na Pousada Santa Branca</li>
+                        <li class="included">Pensão Completa (Todas as refeições)</li>
+                        <li class="excluded"><span>Passagem Aérea</span></li>
+                        <li class="excluded"><span>Translado Aeroporto / Pousada</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Somente Inscrição</h3>
+                    <div class="price">R$ 90,00</div>
+                    <span class="price-sub">valor sugerido de contribuição</span>
+                </div>
+                <div class="price-body">
+                    <ul>
+                        <li class="included">Acesso aos 3 dias de Imersão</li>
+                        <li class="included">Acesso a todas palestras e workshops</li>
+                        <li class="excluded"><span>Hospedagem e Pensão Completa</span></li>
+                        <li class="excluded"><span>Passagem Aérea e Translado</span></li>
                     </ul>
                 </div>
             </div>
@@ -705,7 +727,7 @@
 
         <div class="info-logistica">
             <h4>Detalhes Importantes</h4>
-            <p><strong>Acomodação Single:</strong> Deseja um quarto individual? Adicione um valor extra de R$ 1.000,00 a qualquer um dos pacotes.</p>
+            <p><strong>Acomodação Single:</strong> Deseja um quarto individual? Adicione um valor extra de R$ 1.000,00 a qualquer um dos pacotes de hospedagem.</p>
             <p><strong>Facilidade de Pagamento:</strong> O pagamento dos pacotes de logística pode ser parcelado em até <strong>5 vezes sem juros</strong>.</p>
             <p><strong>Voos Previstos (Pacote Completo):</strong><br>
             ✈️ Partida: Gol G3-1430 (14 de ago. às 08:45)<br>
