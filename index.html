@@ -186,13 +186,72 @@
             display: block;
         }
 
+        /* --- Nova Seção: Hospedagem e Logística --- */
+        .section-hospedagem { background: var(--fundo-cinza); padding: 80px 20px; text-align: center; }
+        .section-hospedagem h2 { font-size: 2.2rem; color: var(--azul-escuro); margin-bottom: 10px; text-transform: uppercase; }
+        .section-hospedagem > p { font-size: 1.1rem; margin-bottom: 40px; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; }
+        
+        .price-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+        
+        .price-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 400px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            border-top: 5px solid var(--azul-escuro);
+        }
+        .price-card.destaque { border-top: 5px solid var(--dourado); transform: scale(1.03); }
+        
+        .price-header { background: #fafafa; padding: 30px 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .price-header h3 { color: var(--azul-escuro); font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .price-header .price { font-size: 2.2rem; color: var(--dourado); font-weight: bold; }
+        .price-header .price-sub { font-size: 0.9rem; color: #666; display: block; margin-top: 5px; }
+        
+        .price-body { padding: 30px 20px; flex: 1; }
+        .price-body ul { list-style: none; padding: 0; }
+        .price-body ul li { margin-bottom: 12px; font-size: 1rem; color: #444; display: flex; align-items: flex-start; }
+        .price-body ul li::before { content: '✔️'; margin-right: 10px; color: var(--verde-card); }
+        
+        .info-logistica {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 830px;
+            margin: 40px auto 0;
+            text-align: left;
+            border-left: 5px solid var(--laranja-card);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .info-logistica h4 { color: var(--azul-escuro); font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
+        .info-logistica p { font-size: 0.95rem; color: #555; margin-bottom: 10px; }
+        .info-logistica strong { color: #222; }
+        
+        .agencia-contato {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--azul-escuro);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .agencia-contato p { margin: 0; color: #eee; }
+        .agencia-contato h5 { font-size: 1.1rem; color: var(--dourado); margin-bottom: 5px; text-transform: uppercase; }
+
         /* --- FAQ --- */
-        .section-faq { background: var(--fundo-cinza); padding: 80px 20px; }
+        .section-faq { background: #fff; padding: 80px 20px; border-top: 1px solid #eee; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-container h2 { text-align: center; font-size: 2rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
         .faq-container p.sub { text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #666; }
         
-        details { background: #fff; margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         summary { padding: 20px; font-weight: bold; color: var(--azul-escuro); cursor: pointer; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
         summary::-webkit-details-marker { display: none; }
         summary::after { content: '+'; font-size: 1.5rem; color: var(--dourado); }
@@ -248,6 +307,16 @@
             }
             .map-container iframe {
                 height: 300px;
+            }
+            .price-card {
+                width: 100%;
+            }
+            .price-card.destaque {
+                transform: none;
+            }
+            .agencia-contato {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -526,6 +595,7 @@
                         <option value="Com Hospedagem e Translado">Sim, preciso de hospedagem e translado</option>
                         <option value="Sem Hospedagem">Não, somente inscrição (retorno para residência)</option>
                     </select>
+
                     <select name="interesse" required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
                         <option value="Saude">Saúde / Psicanálise</option>
@@ -582,16 +652,78 @@
 
     <section class="section-local">
         <h2>O Local</h2>
-        <h3>Ecovilla Santa Branca 📍</h3>
+        <h3>Pousada Santa Branca 📍</h3>
         <h4>Casarão da Cultura Nicolau Lunardelli</h4>
         <p><strong>Ambiente Natural e Contemplativo.</strong> Um espaço de beleza e silêncio que convida à interiorização — o cenário perfeito para três dias de transformação profunda.</p>
         <p>Ao final do evento, os participantes serão convidados a um passeio guiado para contemplação da estética natural como vivência direta do que será ensinado.</p>
+        <p><a href="https://pousadasantabranca.com/" target="_blank" style="color: var(--dourado); font-weight: bold; text-decoration: underline;">Ver site oficial da Pousada</a></p>
         
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.9268950311703!2d-49.08908234504866!3d-16.43431181540264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e979f16ce2b37%3A0x943b8ba50f8f3ac4!2sEcovila%20Santa%20Branca!5e1!3m2!1spt-BR!2sbr!4v1775593227399!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+    </section>
+
+    <section class="section-hospedagem">
+        <h2>Opções de Hospedagem e Logística</h2>
+        <p>Para sua total comodidade, firmamos uma parceria oficial para organização do transporte e estadia durante a Imersão. Aqueles que desejarem se hospedar no local devem realizar suas reservas antecipadamente.</p>
         
-        <p style="font-size: 0.95rem; margin-top: 20px;"><em>Mais informações sobre hospedagem e acesso serão enviadas após a sua inscrição.</em></p>
+        <div class="price-cards">
+            
+            <div class="price-card destaque">
+                <div class="price-header">
+                    <h3>Pacote Completo</h3>
+                    <div class="price">R$ 3.664,00</div>
+                    <span class="price-sub">por pessoa em quarto duplo</span>
+                </div>
+                <div class="price-body">
+                    <ul>
+                        <li>Hospedagem na Pousada Santa Branca</li>
+                        <li>Pensão Completa (Todas as refeições)</li>
+                        <li>Passagem Aérea Ida e Volta</li>
+                        <li>Translado Aeroporto / Pousada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3>Pacote Terrestre</h3>
+                    <div class="price">R$ 2.634,00</div>
+                    <span class="price-sub">por pessoa em quarto duplo</span>
+                </div>
+                <div class="price-body">
+                    <ul>
+                        <li>Hospedagem na Pousada Santa Branca</li>
+                        <li>Pensão Completa (Todas as refeições)</li>
+                        <li><span style="color:#999; text-decoration:line-through;">Passagem Aérea</span></li>
+                        <li><span style="color:#999; text-decoration:line-through;">Translado</span></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="info-logistica">
+            <h4>Detalhes Importantes</h4>
+            <p><strong>Acomodação Single:</strong> Deseja um quarto individual? Adicione um valor extra de R$ 1.000,00 a qualquer um dos pacotes.</p>
+            <p><strong>Facilidade de Pagamento:</strong> O pagamento dos pacotes de logística pode ser parcelado em até <strong>5 vezes sem juros</strong>.</p>
+            <p><strong>Voos Previstos (Pacote Completo):</strong><br>
+            ✈️ Partida: Gol G3-1430 (14 de ago. às 08:45)<br>
+            ✈️ Retorno: Gol G3-1439 (16 de ago. às 21:00)</p>
+            
+            <div class="agencia-contato">
+                <div>
+                    <h5>Clarion Voyages - Agência de Viagens</h5>
+                    <p>CNPJ: 01.3909.936/0001-39 | Av. Rebouças, 3115 - Jardim Paulistano - São Paulo</p>
+                </div>
+                <div style="text-align: right;">
+                    <p>Reservas com <strong>Lívia</strong></p>
+                    <p style="font-size: 1.2rem; font-weight: bold; color: var(--dourado);">📱 (11) 9 7739-9991</p>
+                    <p>📞 (11) 3032-4105</p>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <section class="section-faq">
