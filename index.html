@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imersão STOP À INVERSÃO</title>
+    <title>34º Fórum STOP - Imersão</title>
     <style>
         /* --- Variáveis de Cores --- */
         :root {
@@ -91,8 +91,7 @@
         .card-bottom p { font-size: 0.95rem; color: #555; text-align: left; }
 
         /* --- Layout Principal (Programação + Lateral) --- */
-        /* Removido o align-items: flex-start para permitir que a sidebar estique até o fim */
-        .main-layout { display: flex; max-width: 1200px; margin: 60px auto; gap: 40px; padding: 0 20px; align-items: stretch; }
+        .main-layout { display: flex; max-width: 1200px; margin: 60px auto; gap: 40px; padding: 0 20px; align-items: flex-start; }
         
         /* Coluna Esquerda: Programação */
         .col-programacao { flex: 1; min-width: 0; }
@@ -113,7 +112,7 @@
         .evento-bloco strong.hora { color: var(--azul-escuro); font-size: 1.1rem; display: block; margin-bottom: 5px; }
         .evento-bloco strong.titulo { display: block; font-size: 1.05rem; margin-bottom: 5px; color: #111; }
         .evento-bloco p { font-size: 0.95rem; color: #444; margin-bottom: 5px; }
-        .evento-bloco ul { margin-left: 20px; font-size: 0.95rem; color: #444; margin-top: 5px; }
+        .evento-bloco ul { margin-left: 20px; font-size: 0.95rem; color: #444; margin-top: 5px; padding-left: 0; list-style-position: inside; }
 
         /* Coluna Direita: Sidebar */
         .col-sidebar { width: 420px; display: flex; flex-direction: column; gap: 30px; position: relative; }
@@ -135,17 +134,8 @@
         .transform-item span { font-size: 1.5rem; margin-right: 15px; }
         .transform-item div strong { display: block; color: var(--azul-escuro); }
 
-        /* Box Formulário - AGORA TOTALMENTE FLUTUANTE */
-        .box-form { 
-            background-color: var(--azul-escuro); 
-            border-radius: 15px; 
-            padding: 30px 25px; 
-            color: #fff; 
-            position: sticky; 
-            top: 20px; 
-            z-index: 10; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
+        /* Box Formulário - FLUTUANTE */
+        .box-form { background-color: var(--azul-escuro); border-radius: 15px; padding: 30px 25px; color: #fff; position: sticky; top: 20px; z-index: 10; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
         .box-form h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; text-align: center; }
         .box-form h3 span { color: var(--dourado); }
         .box-form p { font-size: 0.9rem; margin-bottom: 20px; color: #ccc; text-align: center; }
@@ -179,7 +169,6 @@
         .price-body { padding: 30px 20px; flex: 1; }
         .price-body ul { list-style: none; padding: 0; }
         .price-body ul li { margin-bottom: 12px; font-size: 1rem; color: #444; display: flex; align-items: flex-start; }
-        
         .price-body ul li.included::before { content: '✔️'; margin-right: 10px; color: var(--verde-card); }
         .price-body ul li.excluded::before { content: '❌'; margin-right: 10px; filter: grayscale(1); opacity: 0.6; }
         .price-body ul li.excluded span { color: #aaa; text-decoration: line-through; }
@@ -193,18 +182,29 @@
         .agencia-contato p { margin: 0; color: #555; }
         .agencia-contato h5 { font-size: 1.1rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
 
+        /* --- Regras e Lazer (Novo) --- */
+        .regras-container { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        .regras-container details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .regras-container summary { padding: 15px 20px; font-weight: bold; color: var(--bordo-card); cursor: pointer; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .regras-container summary::-webkit-details-marker { display: none; }
+        .regras-container summary::after { content: '+'; font-size: 1.5rem; color: var(--bordo-card); }
+        .regras-container details[open] summary::after { content: '-'; }
+        .regras-container .regras-content { padding: 0 20px 20px; color: #555; font-size: 0.9rem; }
+        .regras-container .regras-content ul { margin-left: 20px; margin-top: 10px; }
+        .regras-container .regras-content li { margin-bottom: 5px; }
+
         /* --- FAQ --- */
         .section-faq { background: #fff; padding: 80px 20px; border-top: 1px solid #eee; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-container h2 { text-align: center; font-size: 2rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
         .faq-container p.sub { text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #666; }
         
-        details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        summary { padding: 20px; font-weight: bold; color: var(--azul-escuro); cursor: pointer; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '+'; font-size: 1.5rem; color: var(--dourado); }
-        details[open] summary::after { content: '-'; }
-        .faq-content { padding: 0 20px 20px; color: #555; text-align: left; }
+        .faq-container details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .faq-container summary { padding: 20px; font-weight: bold; color: var(--azul-escuro); cursor: pointer; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-container summary::-webkit-details-marker { display: none; }
+        .faq-container summary::after { content: '+'; font-size: 1.5rem; color: var(--dourado); }
+        .faq-container details[open] summary::after { content: '-'; }
+        .faq-container .faq-content { padding: 0 20px 20px; color: #555; text-align: left; }
 
         /* --- Footer --- */
         footer { background-color: #111; color: #aaa; padding: 40px 20px 30px; text-align: center; }
@@ -212,29 +212,14 @@
         .footer-logos img { max-height: 40px; filter: grayscale(100%) brightness(200%); opacity: 0.5; }
 
         /* --- WhatsApp Flutuante --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: transform 0.3s;
-        }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
 
         /* --- Responsividade --- */
         @media (max-width: 992px) {
-            .main-layout { flex-direction: column; }
+            .main-layout { flex-direction: column; align-items: center; }
             .col-sidebar { width: 100%; position: static; }
-            .box-form { position: static; margin-top: 40px; } /* Desativa sticky no mobile para não travar a tela */
+            .box-form { position: static; margin-top: 40px; } 
         }
         @media (max-width: 768px) {
             .hero { background-position: center right; padding: 40px 15px 60px; }
@@ -259,12 +244,12 @@
         <div class="hero-logo">
             <img src="logo-stop-1.png" alt="STOP a Destruição do Mundo">
         </div>
-        <h1>STOP À INVERSÃO</h1>
-        <p>Um marco histórico: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
-        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto | Ecovilla Santa Branca</span>
+        <h1>34º FÓRUM STOP</h1>
+        <p>A Prioridade na Desinversão: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
+        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto de 2026 | Fazenda Santa Branca - Goiás</span>
         
         <p style="font-weight: bold; color: var(--dourado); font-size: 1.4rem; margin-bottom: 30px;">
-            Inscrição Valor Sugerido: R$ 90,00
+            Inscrição Congresso: R$ 90,00 | Participação Fórum: R$ 200,00
         </p>
 
         <div class="btn-container">
@@ -328,7 +313,7 @@
     <main class="main-layout">
         
         <div class="col-programacao">
-            <h2>Programação Completa</h2>
+            <h2>Programação Oficial</h2>
             <p>Três dias de Desinversão Profunda</p>
 
             <div class="dia-timeline">
@@ -336,22 +321,42 @@
                     <div class="bolinha">14/08</div>
                 </div>
                 <div class="dia-eventos">
-                    <h3>EIXO 1 — Desinversão da Física</h3>
-                    <h4>Sexta - Trazendo Deus de Volta à Ciência</h4>
+                    <h3>Sexta-feira</h3>
+                    <h4>Check-in, Recepção e Abertura</h4>
                     
+                    <div class="evento-bloco">
+                        <strong class="hora">Manhã</strong>
+                        <ul>
+                            <li><strong>05:30</strong> – Encontro no Aeroporto de Congonhas (Check-in GOL).</li>
+                            <li><strong>07:00</strong> – Partida Gol G3-1430.</li>
+                            <li><strong>08:45</strong> – Chegada em Goiânia e Translado até a Fazenda Santa Branca.</li>
+                            <li><strong>10:30</strong> – Chegada na Pousada. Deixaremos as malas para passear no Park Santa Branca (Acesso livre às cachoeiras e lago).</li>
+                        </ul>
+                    </div>
+                    <div class="evento-bloco">
+                        <strong class="hora">Tarde</strong>
+                        <ul>
+                            <li><strong>12:00</strong> – Almoço na Pousada Santa Branca.</li>
+                            <li><strong>14:00</strong> – Check-in Oficial na Pousada. Tarde livre para passeios e natação.</li>
+                        </ul>
+                    </div>
+                    <div class="evento-bloco" style="border-left-color: var(--bordo-card);">
+                        <strong class="hora">18:00</strong>
+                        <strong class="titulo">Jantar na Pousada</strong>
+                    </div>
+
+                    <h3 style="margin-top: 40px;">INÍCIO DO 34º FÓRUM STOP</h3>
+                    <h4>Arte e o Belo: A Beleza como Base da Civilização</h4>
+
                     <div class="evento-bloco">
                         <strong class="hora">19:30 – 19:45</strong>
                         <strong class="titulo">Abertura Artística</strong>
                         <p>Apresentação musical erudita para sintonizar o público com a estética e o Belo.</p>
                     </div>
                     <div class="evento-bloco">
-                        <strong class="hora">19:45 – 21:00</strong>
-                        <strong class="titulo">Seminário: Teologia da Física</strong>
-                        <p>Unindo ciência e espiritualidade — a grande reconciliação do nosso tempo.</p>
-                        <ul>
-                            <li><strong>A Física da Metafísica Desinvertida:</strong> como a inversão na física (tentar tirar energia da matéria) destrói o planeta e os seres humanos.</li>
-                            <li><strong>Demonstração do Keppe Motor:</strong> o motor magnético ressonante — frio, eficiente, que promove saúde aos seres vivos e ao meio ambiente.</li>
-                        </ul>
+                        <strong class="hora">A seguir</strong>
+                        <strong class="titulo">Painel Estética</strong>
+                        <p>Palestra sobre como a beleza e as artes são fundamentais para a saúde mental e social.</p>
                     </div>
                 </div>
             </div>
@@ -361,52 +366,57 @@
                     <div class="bolinha">15/08</div>
                 </div>
                 <div class="dia-eventos">
-                    <h3>EIXO 2 — Desinversão da Saúde</h3>
-                    <h4>Sábado - O Grande Dia da Conscientização (Manhã)</h4>
+                    <h3>Sábado</h3>
+                    <h4>Ciência, Saúde, Negócios e Educação</h4>
                     
+                    <div class="evento-bloco">
+                        <strong class="hora">07:30</strong>
+                        <p>Café da Manhã.</p>
+                    </div>
                     <div class="evento-bloco">
                         <strong class="hora">08:30 – 08:45</strong>
                         <strong class="titulo">Abertura Artística</strong>
                         <p>Peça musical para interiorização e recolhimento.</p>
                     </div>
                     <div class="evento-bloco">
-                        <strong class="hora">08:45 – 10:00</strong>
-                        <strong class="titulo">Painel Saúde: A Cura pela Consciência</strong>
-                        <p>A Medicina da Alma: tratamento das doenças orgânicas, psíquicas e sociais através da desinversão psíquica.</p>
+                        <strong class="hora">09:00 – 10:00</strong>
+                        <strong class="titulo">Teologia da Física: Trazendo Deus de volta à Ciência</strong>
+                        <p>Unindo ciência e espiritualidade — a grande reconciliação do nosso tempo. A Física da Metafísica Desinvertida e Demonstração do Keppe Motor.</p>
                     </div>
                     <div class="evento-bloco">
-                        <strong class="hora">10:15 – 11:30</strong>
-                        <strong class="titulo">Workshop de Desinversão Interior</strong>
-                        <p>Técnica de Interiorização: reverter o mecanismo de projeção. Aceitar a verdade para restaurar o sistema imunológico.</p>
+                        <strong class="hora">10:15 – 11:00</strong>
+                        <strong class="titulo">Psicanálise: O Método Dialético de Norberto R. Keppe</strong>
+                        <p>Entendendo o processo de Inversão a nível psíquico, espiritual e social.</p>
+                    </div>
+                    <div class="evento-bloco">
+                        <strong class="hora">11:15 – 12:00</strong>
+                        <strong class="titulo">Medicina Psicossomática: A Desinversão da Saúde</strong>
+                        <p>Painel Saúde: A Medicina da Alma no tratamento das doenças orgânicas, psíquicas e sociais.</p>
                     </div>
                     <div class="evento-bloco" style="border-left-color: #7f8c8d;">
-                        <strong class="hora">11:30 – 13:00</strong>
+                        <strong class="hora">12:30 – 13:30</strong>
                         <strong class="titulo">Almoço Trilógico 🍽</strong>
-                        <p>Pausa contemplativa compartilhada em ambiente natural.</p>
+                        <p>Pausa contemplativa com apresentação musical ao vivo.</p>
                     </div>
 
-                    <h3 style="margin-top: 40px;">EIXO 3 e 4 — Trabalho e Educação</h3>
-                    <h4>Sábado - Ação Boa, Bela e Verdadeira (Tarde)</h4>
-
                     <div class="evento-bloco">
-                        <strong class="hora">13:00 – 13:15</strong>
-                        <strong class="titulo">Abertura Artística</strong>
-                        <p>Performance musical inspiradora.</p>
+                        <strong class="hora">14:00 – 15:30</strong>
+                        <strong class="titulo">Empreendedorismo Trilógico: Ação Boa, Bela e Verdadeira</strong>
+                        <p>O Dinheiro a serviço do ser humano. Modelos de negócio que regeneram ao invés de destruir.</p>
                     </div>
                     <div class="evento-bloco">
-                        <strong class="hora">13:15 – 15:00</strong>
-                        <strong class="titulo">Empreendedorismo Trilógico</strong>
-                        <p>A Ação Boa, Bela e Verdadeira — e as Empresas Trilógicas. O Dinheiro a serviço do ser humano — e não o ser humano a serviço do Capital. Modelos de negócio que regeneram ao invés de destruir.</p>
-                    </div>
-                    <div class="evento-bloco">
-                        <strong class="hora">15:15 – 17:00</strong>
-                        <strong class="titulo">EIXO 4 — Desinvertendo o Ensino</strong>
+                        <strong class="hora">16:00 – 17:30</strong>
+                        <strong class="titulo">Educação Trilógica: Desinvertendo o Ensino</strong>
                         <ul>
-                            <li>A educação tradicional como reforço da inversão psicossocial.</li>
-                            <li>A Pedagogia Trilógica: unir sentimento (amor) e pensamento (inteligência) para gerar verdadeira consciência.</li>
-                            <li>A Educação do SER Energético e Integral.</li>
-                            <li>Gestão de Conflitos e Emoções — S.O.S Pais e Educadores.</li>
+                            <li>A Pedagogia Trilógica: unir sentimento e pensamento para gerar consciência.</li>
+                            <li>Educação do SER Energético e Integral.</li>
+                            <li>Gestão de Conflitos e Emoções (S.O.S Pais e Educadores).</li>
                         </ul>
+                    </div>
+                    <div class="evento-bloco" style="border-left-color: var(--bordo-card);">
+                        <strong class="hora">19:00</strong>
+                        <strong class="titulo">Jantar e Sessão de Encerramento</strong>
+                        <p>Balanço dos trabalhos, retirada de dúvidas e celebração dos insights conquistados.</p>
                     </div>
                 </div>
             </div>
@@ -416,23 +426,17 @@
                     <div class="bolinha">16/08</div>
                 </div>
                 <div class="dia-eventos">
-                    <h3>EIXO 5 — Arte e o Belo</h3>
-                    <h4>Domingo - A Beleza como base da Civilização</h4>
+                    <h3>Domingo</h3>
+                    <h4>Contemplação e Retorno</h4>
                     
                     <div class="evento-bloco">
-                        <strong class="hora">09:00 – 10:30</strong>
-                        <strong class="titulo">Painel Estética: A Arte como Base da Civilização</strong>
-                        <p>Abertura Artística Especial e Palestra sobre como a beleza e as artes são fundamentais para a saúde mental e social.</p>
+                        <strong class="hora">07:30</strong>
+                        <p>Café da Manhã.</p>
                     </div>
                     <div class="evento-bloco">
-                        <strong class="hora">10:30 – 12:00</strong>
-                        <strong class="titulo">Sessão de Encerramento</strong>
-                        <p>Balanço dos trabalhos, retirada de dúvidas e celebração dos insights conquistados.</p>
-                    </div>
-                    <div class="evento-bloco" style="border-left-color: var(--verde-card);">
-                        <strong class="hora">Após Encerramento</strong>
+                        <strong class="hora">Manhã / Tarde</strong>
                         <strong class="titulo">Passeio Guiado na Fazenda Santa Branca 🌿</strong>
-                        <p>Contemplação da estética natural — vivência direta da Beleza como cura. Tarde livre para turismo e vivência da realidade.</p>
+                        <p>Contemplação da natureza para fortalecer a percepção do que é Belo, Bom e Verdadeiro, consolidando a Desinversão. Tarde livre para turismo.</p>
                     </div>
                 </div>
             </div>
@@ -509,8 +513,8 @@
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
                 
                 <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 15px 0; text-align: center; border-left: 4px solid var(--dourado);">
-                    <span style="font-size: 0.9rem; display: block; color: #ccc;">Inscrição Valor Sugerido:</span>
-                    <strong style="font-size: 1.3rem; color: var(--dourado);">R$ 90,00</strong>
+                    <span style="font-size: 0.9rem; display: block; color: #ccc;">Inscrição Congresso + Fórum:</span>
+                    <strong style="font-size: 1.3rem; color: var(--dourado);">R$ 290,00</strong>
                 </div>
 
                 <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações.</p>
@@ -549,7 +553,7 @@
                     </select>
 
                     <button type="submit" id="btn-submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
-                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Inscrição recebida com sucesso! Entraremos em contato.</p>
+                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Solicitação recebida com sucesso! Nossa equipe entrará em contato.</p>
                 </form>
 
                 <script>
@@ -636,9 +640,9 @@
 
             <div class="price-card">
                 <div class="price-header">
-                    <h3>Somente Inscrição</h3>
-                    <div class="price">R$ 90,00</div>
-                    <span class="price-sub">valor sugerido de contribuição</span>
+                    <h3>Inscrição + Fórum</h3>
+                    <div class="price">R$ 290,00</div>
+                    <span class="price-sub">Inscrição (R$ 90) + Fórum (R$ 200)</span>
                 </div>
                 <div class="price-body">
                     <ul>
@@ -653,7 +657,7 @@
         </div>
 
         <div class="info-logistica">
-            <h4>Detalhes Importantes</h4>
+            <h4>Detalhes e Organização da Agência</h4>
             <p><strong>Acomodação Single:</strong> Deseja um quarto individual? Adicione um valor extra de R$ 1.000,00 a qualquer um dos pacotes de hospedagem.</p>
             <p><strong>Facilidade de Pagamento:</strong> O pagamento dos pacotes de logística pode ser parcelado em até <strong>5 vezes sem juros</strong>.</p>
             <p><strong>Voos Previstos (Pacote Completo):</strong><br>
@@ -671,8 +675,35 @@
                     <p>📞 (11) 3032-4105</p>
                 </div>
             </div>
-        </div>
+            
+            <div class="regras-container">
+                <details>
+                    <summary>Regras da Pousada e Atividades de Lazer</summary>
+                    <div class="regras-content">
+                        <strong>Sobre Alimentação e Consumo:</strong>
+                        <ul>
+                            <li>É proibida a entrada de alimentos e bebidas na Pousada.</li>
+                            <li>O frigobar do quarto não fica abastecido; você pode comprar no restaurante conforme a necessidade e abastecer o frigobar.</li>
+                            <li>Consumos extras (bebidas extras, sorvetes, porções) não estão inclusos nos pacotes.</li>
+                        </ul>
+                        <strong>Infraestrutura:</strong>
+                        <ul>
+                            <li>A pousada disponibiliza roupas de cama, cobertores e toalhas de quarto.</li>
+                            <li><strong>Importante:</strong> É necessário trazer suas próprias toalhas para as áreas de banho (lago, cachoeiras e piscina).</li>
+                            <li>A pousada não possui geradores.</li>
+                            <li>A porteira fecha às 19:00 e reabre às 07:30. Se precisar sair neste horário, informe a recepção.</li>
+                            <li>Não é permitido o uso de aparelhos de som nas áreas comuns ou a entrada de pets.</li>
+                        </ul>
+                        <strong>Lazer Incluso na Hospedagem:</strong>
+                        <p>Acesso à área verde exclusiva, slackline, prainha artificial, campo de futebol e piscina com aquecimento solar.</p>
+                        
+                        <strong>Lazer Pago à Parte (09h às 17h):</strong>
+                        <p>Passeio a Cavalo, Pesqueiro, Caiaque e Pedalinho. (Forma de pagamento no local: Cartão ou Dinheiro).</p>
+                    </div>
+                </details>
+            </div>
 
+        </div>
     </section>
 
     <section class="section-faq">
@@ -714,7 +745,7 @@
             <img src="logo-eia-01.png" alt="Escola da Inteligência do Amor">
             <img src="grupoave.png" alt="Grupo AVE">
         </div>
-        <p>© 2024 STOP a Destruição do Mundo. Todos os direitos reservados. | Privacidade e Termos de Uso.</p>
+        <p>© 2026 STOP a Destruição do Mundo. Todos os direitos reservados. | Privacidade e Termos de Uso.</p>
     </footer>
 
     <a href="https://wa.me/5511977399991" class="whatsapp-float" target="_blank" title="Fale conosco pelo WhatsApp">
