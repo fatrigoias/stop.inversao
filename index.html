@@ -143,7 +143,7 @@
         .form-disclaimer { font-size: 0.8rem; color: #aaa; text-align: center; margin-top: 15px; }
 
         /* --- Local --- */
-        .section-local { background: #fff; padding: 80px 20px; text-align: center; border-top: 1px solid #eee; }
+        .section-local { background: #fff; padding: 80px 20px 40px; text-align: center; border-top: 1px solid #eee; }
         .section-local h2 { color: var(--azul-escuro); font-size: 2rem; text-transform: uppercase; margin-bottom: 5px; }
         .section-local h3 { color: var(--verde-card); font-size: 1.5rem; margin-bottom: 10px; }
         .section-local h4 { color: var(--bordo-card); font-size: 1.2rem; margin-bottom: 20px; }
@@ -151,6 +151,31 @@
         
         .map-container { max-width: 800px; margin: 40px auto 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .map-container iframe { width: 100%; height: 400px; display: block; }
+
+        /* --- GALERIA DE FOTOS (NOVO) --- */
+        .section-galeria { background: #fff; padding: 0 20px 80px; text-align: center; }
+        .section-galeria h3 { color: var(--laranja-card); font-size: 1.5rem; margin: 40px 0 20px; text-transform: uppercase; }
+        
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .galeria-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .galeria-grid img:hover {
+            transform: scale(1.03);
+            z-index: 2;
+        }
 
         /* --- Seção: Hospedagem e Logística --- */
         .section-hospedagem { background: var(--fundo-cinza); padding: 80px 20px; text-align: center; }
@@ -182,7 +207,7 @@
         .agencia-contato p { margin: 0; color: #555; }
         .agencia-contato h5 { font-size: 1.1rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
 
-        /* --- Regras e Lazer (Novo) --- */
+        /* --- Regras e Lazer (Sanfona) --- */
         .regras-container { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
         .regras-container details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .regras-container summary { padding: 15px 20px; font-weight: bold; color: var(--bordo-card); cursor: pointer; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
@@ -596,6 +621,27 @@
         
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.9268950311703!2d-49.08908234504866!3d-16.43431181540264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e979f16ce2b37%3A0x943b8ba50f8f3ac4!2sEcovila%20Santa%20Branca!5e1!3m2!1spt-BR!2sbr!4v1775593227399!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <section class="section-galeria">
+        <h2>Galeria de Fotos</h2>
+        <p>Conheça os espaços onde nossa imersão e hospedagem acontecerão</p>
+
+        <h3>Ecovilla Santa Branca & Natureza</h3>
+        <div class="galeria-grid">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Casarao+da+Cultura" alt="Casarão da Cultura">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Cachoeiras+e+Lagos" alt="Lagos da Ecovilla">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Trilhas+e+Natureza" alt="Natureza de Goiás">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Esportes+Aquaticos" alt="Caiaque">
+        </div>
+
+        <h3>Pousada Santa Branca</h3>
+        <div class="galeria-grid">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Acomodacoes" alt="Quarto da Pousada">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Piscina+da+Pousada" alt="Piscina">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Refeitorio" alt="Refeitório e Café">
+            <img src="https://placehold.co/600x400/e2e8f0/0f2b4d?text=Area+de+Lazer" alt="Área de Lazer">
         </div>
     </section>
 
