@@ -93,6 +93,62 @@
             text-transform: uppercase;
         }
 
+        /* --- Banner Promoção Antecipada --- */
+        .banner-promo {
+            background: linear-gradient(135deg, #6e1c24 0%, #8b2230 100%);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--dourado);
+        }
+        .banner-promo-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .promo-alerta {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .promo-precos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .promo-preco-novo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+        }
+        .promo-preco-antigo {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.5);
+            text-decoration: line-through;
+        }
+        .promo-vagas {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 8px 20px;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+        .promo-prazo {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .banner-promo-inner { flex-direction: column; gap: 15px; }
+        }
+
         /* --- Seção: O que está incluído --- */
         .section-incluso {
             background: var(--azul-escuro);
@@ -424,6 +480,19 @@
         Vivemos invertidos. É hora de despertar.
     </div>
 
+    <div class="banner-promo">
+        <div class="banner-promo-inner">
+            <div class="promo-alerta">🔥 Inscrição Antecipada</div>
+            <div class="promo-precos">
+                <span class="promo-preco-novo">R$ 240,00</span>
+                <span class="promo-preco-antigo">R$ 290,00</span>
+            </div>
+            <div class="promo-vagas">⚠️ 50 vagas — <span id="vagas-restantes">50</span> disponíveis</div>
+            <div class="promo-prazo">Válido até <strong style="color:var(--dourado);">30 de julho</strong> ou enquanto durarem as vagas</div>
+            <a href="#inscricao" style="background:var(--dourado);color:var(--azul-escuro);font-weight:800;padding:10px 25px;border-radius:30px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Garantir agora</a>
+        </div>
+    </div>
+
     <!-- NOVO: O que está incluído -->
     <section class="section-incluso">
         <h2>Tudo o que está <span>incluído</span></h2>
@@ -710,18 +779,15 @@
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
 
                 <div class="valor-box">
-                    <span>Inscrição + Fim de Semana + Refeições</span>
-                    <strong>R$ 290,00</strong>
-                    <em>Valor único e completo</em>
+                    <span>🔥 Inscrição Antecipada — até 30/07</span>
+                    <strong>R$ 240,00</strong>
+                    <em>Após 31/07 ou após 50 vagas: R$ 290,00</em>
                 </div>
 
                 <p>Realize o pagamento, anexe o comprovante e preencha o formulário.</p>
 
                 <div class="pagamento-box">
-                    <p>Realize o pagamento via <strong>PIX (CNPJ)</strong>:</p>
-                    <span class="pix-key">43.694.779/0001-03</span>
-                    <p style="margin-top:8px;">Favorecido: <strong>eColabs Desenvolvimento de Pessoas e Organizações LTDA</strong></p>
-                    <p style="margin-top:4px; color:#8cc34a;">Valor: <strong style="color:#8cc34a;">R$ 290,00</strong></p>
+                    <p style="color:var(--dourado);font-weight:bold;font-size:0.95rem;">⏳ Em breve informaremos aqui o número do PIX para realizar o depósito.</p>
                 </div>
 
                 <form id="form-inscricao">
@@ -830,8 +896,12 @@
 
         <div class="cta-card">
             <h3>Inscrição + Fórum</h3>
-            <div class="cta-preco">R$ 290<span style="font-size:1.5rem">,00</span></div>
-            <p class="cta-preco-sub">Inscrição (R$ 90) + Participação Fórum (R$ 200)</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;margin:10px 0 5px;">
+                <div class="cta-preco">R$ 240<span style="font-size:1.5rem">,00</span></div>
+                <div style="font-size:1.4rem;color:#bbb;text-decoration:line-through;">R$ 290,00</div>
+            </div>
+            <p class="cta-preco-sub" style="color:#e5ac35;font-weight:700;">🔥 Inscrição Antecipada — até 30/07 ou 50 vagas</p>
+            <p class="cta-preco-sub">Inscrição (R$ 90) + Participação Fórum (R$ 150)</p>
             <ul class="cta-lista">
                 <li>Fim de semana de Imersão (Sexta noite, Sábado e Domingo de manhã)</li>
                 <li>Todas as palestras e workshops</li>
