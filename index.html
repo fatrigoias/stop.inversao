@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>34º Fórum STOP - Imersão</title>
+    <title>34º Fórum STOP - Imersão | 14 a 16 de Agosto de 2026</title>
     <style>
         /* --- Variáveis de Cores --- */
         :root {
@@ -11,7 +11,6 @@
             --dourado: #dcb324;
             --dourado-hover: #c49d1e;
             --verde-card: #8cc34a;
-            --azul-card: #204b82;
             --laranja-card: #e5ac35;
             --bordo-card: #6e1c24;
             --cinza-card: #7f8c8d;
@@ -55,8 +54,33 @@
         .hero-logo img { height: 70px; margin-bottom: 20px; filter: brightness(0) invert(1); }
         .hero h1 { color: var(--dourado); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 20px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
-        .hero-data { font-weight: bold; font-size: 1.3rem; display: block; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+        .hero-data { font-weight: bold; font-size: 1.3rem; display: block; margin-bottom: 25px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
         .hero .btn-container { max-width: 400px; margin: 0 auto; }
+
+        /* Badges hero */
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .hero-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(220,179,36,0.5);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 0.95rem;
+            color: #fff;
+            font-weight: 600;
+        }
+        .hero-badge.destaque {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            border-color: var(--dourado);
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
 
         /* --- Faixa de Alerta --- */
         .faixa-alerta {
@@ -69,16 +93,77 @@
             text-transform: uppercase;
         }
 
+        /* --- Seção: O que está incluído --- */
+        .section-incluso {
+            background: var(--azul-escuro);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section-incluso h2 {
+            color: var(--texto-claro);
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .section-incluso h2 span { color: var(--dourado); }
+        .section-incluso > p {
+            color: #aac;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .incluso-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+        .incluso-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(220,179,36,0.3);
+            border-radius: 15px;
+            padding: 30px 25px;
+            width: 230px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .incluso-card:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--dourado);
+            transform: translateY(-4px);
+        }
+        .incluso-card .icone { font-size: 2.5rem; margin-bottom: 12px; display: block; }
+        .incluso-card h4 { color: var(--dourado); font-size: 1rem; margin-bottom: 6px; text-transform: uppercase; }
+        .incluso-card p { color: #bcc; font-size: 0.88rem; line-height: 1.5; }
+
+        .incluso-lista {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .incluso-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #dde;
+            font-size: 1rem;
+        }
+        .incluso-item::before { content: '✔'; color: var(--verde-card); font-weight: bold; font-size: 1.1rem; }
+
         /* --- Seção: A Crise que Ninguém Nomeia (Cartões) --- */
         .eixos-section { padding: 80px 20px; text-align: center; background-color: var(--fundo-cinza); }
         .eixos-section h2 { font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; color: var(--azul-escuro); }
         .eixos-section > p { font-size: 1.2rem; margin-bottom: 40px; color: #555; }
-        
+
         .cards-container { display: flex; justify-content: center; gap: 20px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
-        .card { background: #fff; border-radius: 15px; overflow: hidden; width: 350px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;}
+        .card { background: #fff; border-radius: 15px; overflow: hidden; width: 350px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
         .card-top { height: 100px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff; }
-        
-        /* Cores dos 6 Cards */
+
         .bg-card-1 { background-color: var(--azul-escuro); }
         .bg-card-2 { background-color: var(--verde-card); }
         .bg-card-3 { background-color: var(--laranja-card); }
@@ -92,22 +177,22 @@
 
         /* --- Layout Principal (Programação + Lateral) --- */
         .main-layout { display: flex; max-width: 1200px; margin: 60px auto; gap: 40px; padding: 0 20px; align-items: flex-start; }
-        
+
         /* Coluna Esquerda: Programação */
         .col-programacao { flex: 1; min-width: 0; }
         .col-programacao h2 { font-size: 2rem; margin-bottom: 5px; text-transform: uppercase; color: var(--azul-escuro); }
         .col-programacao > p { font-size: 1.2rem; margin-bottom: 40px; color: var(--dourado); font-weight: bold; }
-        
-        .dia-timeline { display: flex; margin-bottom: 40px; align-items: flex-start;}
+
+        .dia-timeline { display: flex; margin-bottom: 40px; align-items: flex-start; }
         .dia-data { width: 80px; text-align: center; position: relative; flex-shrink: 0; display: flex; justify-content: center; }
         .dia-data .bolinha { width: 60px; height: 60px; background: var(--azul-escuro); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: bold; margin: 0 auto; border: 4px solid var(--dourado); z-index: 2; position: relative; flex-direction: column; line-height: 1.2; }
         .dia-data::after { content: ''; position: absolute; top: 60px; bottom: -60px; left: 50%; transform: translateX(-50%); width: 3px; background-color: #ddd; z-index: 1; }
         .dia-timeline:last-child .dia-data::after { display: none; }
 
         .dia-eventos { flex: 1; padding-left: 30px; }
-        .dia-eventos h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--bordo-card); text-transform: uppercase;}
+        .dia-eventos h3 { font-size: 1.3rem; margin-bottom: 5px; color: var(--bordo-card); text-transform: uppercase; }
         .dia-eventos h4 { font-size: 1rem; margin-bottom: 20px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-        
+
         .evento-bloco { margin-bottom: 20px; background: var(--fundo-cinza); padding: 15px; border-left: 4px solid var(--dourado); border-radius: 0 8px 8px 0; }
         .evento-bloco strong.hora { color: var(--azul-escuro); font-size: 1.1rem; display: block; margin-bottom: 5px; }
         .evento-bloco strong.titulo { display: block; font-size: 1.05rem; margin-bottom: 5px; color: #111; }
@@ -116,18 +201,18 @@
 
         /* Coluna Direita: Sidebar */
         .col-sidebar { width: 420px; display: flex; flex-direction: column; gap: 30px; position: relative; }
-        
+
         /* Box Credibilidade */
         .box-credibilidade { border: 2px solid #ddd; border-radius: 15px; padding: 25px; text-align: center; background: #fff; }
         .box-credibilidade h3 { color: var(--texto-escuro); font-size: 1.1rem; margin-bottom: 25px; text-transform: uppercase; }
-        
+
         .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px 10px; align-items: start; justify-items: center; margin-bottom: 20px; }
         .logo-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .logo-item img { max-height: 55px; max-width: 80px; object-fit: contain; margin-bottom: 8px; }
         .logo-item span { font-size: 0.65rem; color: #666; line-height: 1.1; font-weight: 600; }
 
         /* Box O que vai transformar */
-        .box-transform { background: var(--fundo-cinza); border-radius: 15px; padding: 25px; border-left: 5px solid var(--laranja-card);}
+        .box-transform { background: var(--fundo-cinza); border-radius: 15px; padding: 25px; border-left: 5px solid var(--laranja-card); }
         .box-transform h3 { color: var(--azul-escuro); font-size: 1.3rem; margin-bottom: 5px; text-transform: uppercase; }
         .box-transform h4 { color: #666; font-size: 1rem; margin-bottom: 20px; }
         .transform-item { display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 0.9rem; }
@@ -139,8 +224,19 @@
         .box-form h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; text-align: center; }
         .box-form h3 span { color: var(--dourado); }
         .box-form p { font-size: 0.9rem; margin-bottom: 20px; color: #ccc; text-align: center; }
-        .box-form input, .box-form select { width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 5px; font-size: 0.95rem; background: #fff; color: #333;}
-        .form-disclaimer { font-size: 0.8rem; color: #aaa; text-align: center; margin-top: 15px; }
+        .box-form input, .box-form select { width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 5px; font-size: 0.95rem; background: #fff; color: #333; }
+
+        .valor-box {
+            background: rgba(220,179,36,0.15);
+            border: 1px solid var(--dourado);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 0 20px;
+        }
+        .valor-box span { font-size: 0.85rem; color: #ccc; display: block; }
+        .valor-box strong { font-size: 2rem; color: var(--dourado); display: block; line-height: 1.2; }
+        .valor-box em { font-size: 0.8rem; color: #aaa; font-style: normal; }
 
         /* --- Local --- */
         .section-local { background: #fff; padding: 80px 20px 40px; text-align: center; border-top: 1px solid #eee; }
@@ -148,83 +244,72 @@
         .section-local h3 { color: var(--verde-card); font-size: 1.5rem; margin-bottom: 10px; }
         .section-local h4 { color: var(--bordo-card); font-size: 1.2rem; margin-bottom: 20px; }
         .section-local p { max-width: 800px; margin: 0 auto 15px; font-size: 1.1rem; color: #555; }
-        
+
         .map-container { max-width: 800px; margin: 40px auto 20px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .map-container iframe { width: 100%; height: 400px; display: block; }
 
-        /* --- GALERIA DE FOTOS (NOVO) --- */
-        .section-galeria { background: #fff; padding: 0 20px 80px; text-align: center; }
-        .section-galeria h3 { color: var(--laranja-card); font-size: 1.5rem; margin: 40px 0 20px; text-transform: uppercase; }
-        
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 15px;
-            max-width: 1000px;
+        /* --- Seção CTA Valor --- */
+        .section-cta {
+            background: linear-gradient(135deg, var(--azul-escuro) 0%, #1a3f6e 100%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section-cta h2 {
+            color: #fff;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .section-cta h2 span { color: var(--dourado); }
+        .section-cta > p { color: #aac; font-size: 1.1rem; margin-bottom: 50px; }
+
+        .cta-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 560px;
             margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        .galeria-grid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        .cta-card h3 {
+            color: var(--azul-escuro);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
-        .galeria-grid img:hover {
-            transform: scale(1.03);
-            z-index: 2;
+        .cta-preco {
+            font-size: 3.5rem;
+            color: var(--dourado);
+            font-weight: 900;
+            line-height: 1;
+            margin: 15px 0 5px;
         }
-
-        /* --- Seção: Hospedagem e Logística --- */
-        .section-hospedagem { background: var(--fundo-cinza); padding: 80px 20px; text-align: center; }
-        .section-hospedagem h2 { font-size: 2.2rem; color: var(--azul-escuro); margin-bottom: 10px; text-transform: uppercase; }
-        .section-hospedagem > p { font-size: 1.1rem; margin-bottom: 40px; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; }
-        
-        .price-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
-        .price-card { background: #fff; border-radius: 15px; overflow: hidden; width: 350px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); display: flex; flex-direction: column; text-align: left; border-top: 5px solid var(--azul-escuro); }
-        .price-card.destaque { border-top: 5px solid var(--dourado); transform: scale(1.03); z-index: 2; }
-        
-        .price-header { background: #fafafa; padding: 30px 20px; text-align: center; border-bottom: 1px solid #eee; }
-        .price-header h3 { color: var(--azul-escuro); font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
-        .price-header .price { font-size: 2.2rem; color: var(--dourado); font-weight: bold; }
-        .price-header .price-sub { font-size: 0.9rem; color: #666; display: block; margin-top: 5px; }
-        
-        .price-body { padding: 30px 20px; flex: 1; }
-        .price-body ul { list-style: none; padding: 0; }
-        .price-body ul li { margin-bottom: 12px; font-size: 1rem; color: #444; display: flex; align-items: flex-start; }
-        .price-body ul li.included::before { content: '✔️'; margin-right: 10px; color: var(--verde-card); }
-        .price-body ul li.excluded::before { content: '❌'; margin-right: 10px; filter: grayscale(1); opacity: 0.6; }
-        .price-body ul li.excluded span { color: #aaa; text-decoration: line-through; }
-        
-        .info-logistica { background: #fff; border-radius: 10px; padding: 30px; max-width: 830px; margin: 40px auto 0; text-align: left; border-left: 5px solid var(--laranja-card); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .info-logistica h4 { color: var(--azul-escuro); font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; }
-        .info-logistica p { font-size: 0.95rem; color: #555; margin-bottom: 10px; }
-        .info-logistica strong { color: #222; }
-        
-        .agencia-contato { display: flex; align-items: center; justify-content: space-between; background: var(--fundo-cinza); border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-top: 20px; flex-wrap: wrap; gap: 15px; }
-        .agencia-contato p { margin: 0; color: #555; }
-        .agencia-contato h5 { font-size: 1.1rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
-
-        /* --- Regras e Lazer (Sanfona) --- */
-        .regras-container { margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; }
-        .regras-container details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .regras-container summary { padding: 15px 20px; font-weight: bold; color: var(--bordo-card); cursor: pointer; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        .regras-container summary::-webkit-details-marker { display: none; }
-        .regras-container summary::after { content: '+'; font-size: 1.5rem; color: var(--bordo-card); }
-        .regras-container details[open] summary::after { content: '-'; }
-        .regras-container .regras-content { padding: 0 20px 20px; color: #555; font-size: 0.9rem; }
-        .regras-container .regras-content ul { margin-left: 20px; margin-top: 10px; }
-        .regras-container .regras-content li { margin-bottom: 5px; }
+        .cta-preco-sub { color: #888; font-size: 0.95rem; margin-bottom: 30px; }
+        .cta-lista {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .cta-lista li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1rem;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cta-lista li:last-child { border-bottom: none; }
+        .cta-lista li::before { content: '✔'; color: var(--verde-card); font-weight: bold; font-size: 1.1rem; flex-shrink: 0; }
 
         /* --- FAQ --- */
-        .section-faq { background: #fff; padding: 80px 20px; border-top: 1px solid #eee; }
+        .section-faq { background: var(--fundo-cinza); padding: 80px 20px; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-container h2 { text-align: center; font-size: 2rem; color: var(--azul-escuro); margin-bottom: 5px; text-transform: uppercase; }
         .faq-container p.sub { text-align: center; font-size: 1.2rem; margin-bottom: 40px; color: #666; }
-        
-        .faq-container details { background: var(--fundo-cinza); margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        .faq-container details { background: #fff; margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .faq-container summary { padding: 20px; font-weight: bold; color: var(--azul-escuro); cursor: pointer; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
         .faq-container summary::-webkit-details-marker { display: none; }
         .faq-container summary::after { content: '+'; font-size: 1.5rem; color: var(--dourado); }
@@ -244,22 +329,21 @@
         @media (max-width: 992px) {
             .main-layout { flex-direction: column; align-items: center; }
             .col-sidebar { width: 100%; position: static; }
-            .box-form { position: static; margin-top: 40px; } 
+            .box-form { position: static; margin-top: 40px; }
         }
         @media (max-width: 768px) {
             .hero { background-position: center right; padding: 40px 15px 60px; }
             .hero h1 { font-size: 2.2rem; }
-            .dia-timeline { flex-direction: column; border-left: 3px solid var(--azul-escuro); padding-left: 15px; margin-left: 20px; position: relative;}
+            .dia-timeline { flex-direction: column; border-left: 3px solid var(--azul-escuro); padding-left: 15px; margin-left: 20px; position: relative; }
             .dia-data { width: auto; justify-content: flex-start; position: absolute; left: -28px; top: -10px; }
             .dia-data::after { display: none; }
-            .dia-data .bolinha { width: 45px; height: 45px; font-size: 0.9rem; border-width: 3px; flex-direction: row;}
+            .dia-data .bolinha { width: 45px; height: 45px; font-size: 0.9rem; border-width: 3px; flex-direction: row; }
             .dia-eventos { padding-left: 0; padding-top: 35px; }
-            
             .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .map-container iframe { height: 300px; }
-            .price-card { width: 100%; }
-            .price-card.destaque { transform: none; }
-            .agencia-contato { flex-direction: column; text-align: center; }
+            .incluso-card { width: 100%; max-width: 300px; }
+            .cta-card { padding: 35px 25px; }
+            .cta-preco { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -271,11 +355,14 @@
         </div>
         <h1>34º FÓRUM STOP</h1>
         <p>A Prioridade na Desinversão: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico.</p>
-        <span class="hero-data" style="margin-bottom: 10px;">14 a 16 de Agosto de 2026 | Fazenda Santa Branca - Goiás</span>
-        
-        <p style="font-weight: bold; color: var(--dourado); font-size: 1.4rem; margin-bottom: 30px;">
-            Inscrição Congresso: R$ 90,00 | Participação Fórum: R$ 200,00
-        </p>
+        <span class="hero-data">14 a 16 de Agosto de 2026 | Fazenda Santa Branca — Goiás</span>
+
+        <div class="hero-badges">
+            <span class="hero-badge">3 Dias de Imersão</span>
+            <span class="hero-badge destaque">R$ 290,00 — Valor Único</span>
+            <span class="hero-badge">Refeições Inclusas</span>
+            <span class="hero-badge">Vagas Limitadas</span>
+        </div>
 
         <div class="btn-container">
             <a href="#inscricao" class="btn-dourado">Quero garantir minha inscrição agora</a>
@@ -285,6 +372,42 @@
     <div class="faixa-alerta">
         Vivemos invertidos. É hora de despertar.
     </div>
+
+    <!-- NOVO: O que está incluído -->
+    <section class="section-incluso">
+        <h2>Tudo o que está <span>incluído</span></h2>
+        <p>Um valor único de R$ 290,00 cobre sua participação completa nos 3 dias</p>
+
+        <div class="incluso-grid">
+            <div class="incluso-card">
+                <span class="icone">☕</span>
+                <h4>Café da Manhã</h4>
+                <p>Sábado e Domingo — nutritivo e reforçado para o início de cada dia</p>
+            </div>
+            <div class="incluso-card">
+                <span class="icone">🍽</span>
+                <h4>Almoço Trilógico</h4>
+                <p>Sábado — buffet self-service com opção vegetariana e apresentação musical ao vivo</p>
+            </div>
+            <div class="incluso-card">
+                <span class="icone">🫖</span>
+                <h4>Coffee Break</h4>
+                <p>Sábado à tarde — pausa para recarregar as energias entre as palestras</p>
+            </div>
+            <div class="incluso-card">
+                <span class="icone">🌙</span>
+                <h4>Jantar de Encerramento</h4>
+                <p>Sábado — celebração dos insights conquistados ao longo do dia</p>
+            </div>
+        </div>
+
+        <div class="incluso-lista">
+            <div class="incluso-item">Acesso aos 3 dias de Imersão</div>
+            <div class="incluso-item">Todas as palestras e workshops</div>
+            <div class="incluso-item">Abertura artística musical</div>
+            <div class="incluso-item">Passeio guiado na Fazenda</div>
+        </div>
+    </section>
 
     <section class="eixos-section">
         <h2>A Crise Que Ninguém Nomeia</h2>
@@ -336,7 +459,7 @@
     </section>
 
     <main class="main-layout">
-        
+
         <div class="col-programacao">
             <h2>Programação Oficial</h2>
             <p>Três dias de Desinversão Profunda</p>
@@ -347,7 +470,6 @@
                 </div>
                 <div class="dia-eventos">
                     <h3>Sexta-feira</h3>
-
                     <h3 style="margin-top: 0;">INÍCIO DO 34º FÓRUM STOP</h3>
                     <h4>Arte e o Belo: A Beleza como Base da Civilização</h4>
 
@@ -371,10 +493,10 @@
                 <div class="dia-eventos">
                     <h3>Sábado</h3>
                     <h4>Ciência, Saúde, Negócios e Educação</h4>
-                    
-                    <div class="evento-bloco">
+
+                    <div class="evento-bloco" style="border-left-color: var(--laranja-card);">
                         <strong class="hora">07:30</strong>
-                        <p>Café da Manhã.</p>
+                        <strong class="titulo">☕ Café da Manhã</strong>
                     </div>
                     <div class="evento-bloco">
                         <strong class="hora">08:30 – 08:45</strong>
@@ -396,16 +518,19 @@
                         <strong class="titulo">Medicina Psicossomática: A Desinversão da Saúde</strong>
                         <p>Painel Saúde: A Medicina da Alma no tratamento das doenças orgânicas, psíquicas e sociais.</p>
                     </div>
-                    <div class="evento-bloco" style="border-left-color: #7f8c8d;">
+                    <div class="evento-bloco" style="border-left-color: var(--laranja-card);">
                         <strong class="hora">12:30 – 13:30</strong>
-                        <strong class="titulo">Almoço Trilógico 🍽</strong>
+                        <strong class="titulo">🍽 Almoço Trilógico</strong>
                         <p>Pausa contemplativa com apresentação musical ao vivo.</p>
                     </div>
-
                     <div class="evento-bloco">
                         <strong class="hora">14:00 – 15:30</strong>
                         <strong class="titulo">Empreendedorismo Trilógico: Ação Boa, Bela e Verdadeira</strong>
                         <p>O Dinheiro a serviço do ser humano. Modelos de negócio que regeneram ao invés de destruir.</p>
+                    </div>
+                    <div class="evento-bloco" style="border-left-color: var(--laranja-card);">
+                        <strong class="hora">15:30 – 16:00</strong>
+                        <strong class="titulo">🫖 Coffee Break</strong>
                     </div>
                     <div class="evento-bloco">
                         <strong class="hora">16:00 – 17:30</strong>
@@ -418,7 +543,7 @@
                     </div>
                     <div class="evento-bloco" style="border-left-color: var(--bordo-card);">
                         <strong class="hora">19:00</strong>
-                        <strong class="titulo">Jantar e Sessão de Encerramento</strong>
+                        <strong class="titulo">🌙 Jantar de Encerramento</strong>
                         <p>Balanço dos trabalhos, retirada de dúvidas e celebração dos insights conquistados.</p>
                     </div>
                 </div>
@@ -431,10 +556,10 @@
                 <div class="dia-eventos">
                     <h3>Domingo</h3>
                     <h4>Contemplação e Retorno</h4>
-                    
-                    <div class="evento-bloco">
+
+                    <div class="evento-bloco" style="border-left-color: var(--laranja-card);">
                         <strong class="hora">07:30</strong>
-                        <p>Café da Manhã.</p>
+                        <strong class="titulo">☕ Café da Manhã</strong>
                     </div>
                     <div class="evento-bloco">
                         <strong class="hora">Manhã / Tarde</strong>
@@ -446,10 +571,9 @@
         </div>
 
         <div class="col-sidebar">
-            
+
             <div class="box-credibilidade">
                 <h3>Organização e Apoio</h3>
-                
                 <div class="logos-grid">
                     <div class="logo-item">
                         <img src="Stop-inversao.png" alt="STOP a Destruição do Mundo">
@@ -473,7 +597,7 @@
                     </div>
                     <div class="logo-item">
                         <img src="logo-millennium.png" alt="Millennium">
-                        <span> Instituto de Línguas<br>Millennium</span>
+                        <span>Instituto de Línguas<br>Millennium</span>
                     </div>
                     <div class="logo-item">
                         <img src="logo-eia-01.png" alt="Escola da Inteligência do Amor">
@@ -489,7 +613,6 @@
             <div class="box-transform">
                 <h3>O Que Você Vai Transformar</h3>
                 <h4>5 Eixos de Desinversão</h4>
-                
                 <div class="transform-item">
                     <span>⚛️</span>
                     <div><strong>Física & Ciência</strong> Keppe Motor e a energia do Espaço-Espírito.</div>
@@ -514,28 +637,20 @@
 
             <div class="box-form" id="inscricao">
                 <h3>GARANTA SUA PRESENÇA<br><span>Vagas Limitadas</span></h3>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 15px 0; text-align: center; border-left: 4px solid var(--dourado);">
-                    <span style="font-size: 0.9rem; display: block; color: #ccc;">Inscrição Congresso + Fórum:</span>
-                    <strong style="font-size: 1.3rem; color: var(--dourado);">R$ 290,00</strong>
+
+                <div class="valor-box">
+                    <span>Inscrição + 3 Dias + Refeições</span>
+                    <strong>R$ 290,00</strong>
+                    <em>Valor único e completo</em>
                 </div>
 
-                <p>Preencha o formulário abaixo e nossa equipe entrará em contato com todas as informações.</p>
-                
+                <p>Preencha o formulário e nossa equipe entrará em contato via WhatsApp.</p>
+
                 <form id="form-inscricao">
                     <input type="text" name="nome" placeholder="Nome Completo" required>
                     <input type="email" name="email" placeholder="E-mail" required>
-                    <input type="tel" name="whatsapp" placeholder="WhatsApp" required>
-                    
+                    <input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
                     <input type="text" name="cidade" placeholder="Sua Cidade e Estado" required>
-                    
-                    <select name="hospedagem" required>
-                        <option value="" disabled selected>Escolha seu Pacote / Hospedagem...</option>
-                        <option value="Pacote Completo (Aéreo + Hospedagem + Translado)">Pacote Completo (Aéreo + Hospedagem + Translado)</option>
-                        <option value="Pacote Terrestre (Hospedagem + Alimentação)">Pacote Terrestre (Somente Hospedagem e Alimentação)</option>
-                        <option value="Somente Inscrição (Sem Hospedagem)">Somente Inscrição (Retorno diário para residência)</option>
-                        <option value="Apenas Informacoes">Ainda indeciso, quero apenas mais informações</option>
-                    </select>
 
                     <select name="interesse" required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
@@ -563,20 +678,20 @@
                     const form = document.getElementById('form-inscricao');
                     const btnSubmit = document.getElementById('btn-submit');
                     const msgSucesso = document.getElementById('msg-sucesso');
-                    
+
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbzNxKviBAtTdVxAak_SzR9j4sQoueDgOl9i1Fwq3b3nnL0tP1UbF2eEzgA5qOiTuh6t/exec';
 
                     form.addEventListener('submit', e => {
                         e.preventDefault();
-                        btnSubmit.innerHTML = 'ENVIANDO... ⏳'; 
+                        btnSubmit.innerHTML = 'ENVIANDO... ⏳';
                         btnSubmit.disabled = true;
 
-                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form)})
+                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
                             .then(response => {
-                                msgSucesso.style.display = 'block'; 
+                                msgSucesso.style.display = 'block';
                                 btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
                                 btnSubmit.disabled = false;
-                                form.reset(); 
+                                form.reset();
                             })
                             .catch(error => {
                                 alert('Houve um erro ao enviar. Tente novamente.');
@@ -596,33 +711,32 @@
         <h4>Casarão da Cultura Nicolau Lunardelli</h4>
         <p><strong>Ambiente Natural e Contemplativo.</strong> A Imersão acontecerá no cenário perfeito para três dias de transformação profunda, um espaço de beleza e silêncio que convida à interiorização.</p>
         <p>Ao final do evento, os participantes serão convidados a um passeio guiado para contemplação da estética natural como vivência direta do que será ensinado.</p>
-        
+
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.9268950311703!2d-49.08908234504866!3d-16.43431181540264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e979f16ce2b37%3A0x943b8ba50f8f3ac4!2sEcovila%20Santa%20Branca!5e1!3m2!1spt-BR!2sbr!4v1775593227399!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
+    <!-- CTA Valor Único -->
+    <section class="section-cta">
+        <h2>Um único valor.<br><span>Uma experiência completa.</span></h2>
+        <p>Sem pacotes, sem surpresas. Tudo incluído em R$ 290,00.</p>
 
-    <section class="section-hospedagem">
-        <h2>Inscrição e Participação</h2>
-
-        <div class="price-cards">
-
-            <div class="price-card destaque">
-                <div class="price-header">
-                    <h3>Inscrição + Fórum</h3>
-                    <div class="price">R$ 290,00</div>
-                    <span class="price-sub">Inscrição (R$ 90) + Fórum (R$ 200)</span>
-                </div>
-                <div class="price-body">
-                    <ul>
-                        <li class="included">Acesso aos 3 dias de Imersão</li>
-                        <li class="included">Acesso a todas palestras e workshops</li>
-                        <li class="included">Hospedagem e Pensão Completa</li>
-                    </ul>
-                </div>
-            </div>
-
+        <div class="cta-card">
+            <h3>Inscrição + Fórum</h3>
+            <div class="cta-preco">R$ 290<span style="font-size:1.5rem">,00</span></div>
+            <p class="cta-preco-sub">Inscrição (R$ 90) + Participação Fórum (R$ 200)</p>
+            <ul class="cta-lista">
+                <li>3 dias completos de Imersão (14, 15 e 16 de agosto)</li>
+                <li>Todas as palestras e workshops</li>
+                <li>Abertura artística musical</li>
+                <li>☕ Café da Manhã — Sábado e Domingo</li>
+                <li>🍽 Almoço Trilógico — Sábado</li>
+                <li>🫖 Coffee Break — Sábado à tarde</li>
+                <li>🌙 Jantar de Encerramento — Sábado</li>
+                <li>Passeio guiado na Fazenda Santa Branca</li>
+            </ul>
+            <a href="#inscricao" class="btn-dourado">Garantir minha vaga agora</a>
         </div>
     </section>
 
@@ -630,10 +744,14 @@
         <div class="faq-container">
             <h2>Perguntas Frequentes</h2>
             <p class="sub">Dúvidas? Respondemos aqui.</p>
-            
+
             <details>
                 <summary>O evento é presencial?</summary>
                 <div class="faq-content">Sim! O evento será 100% presencial na Fazenda Santa Branca, para garantir a vivência contemplativa, as interações artísticas e os workshops de interiorização de forma profunda.</div>
+            </details>
+            <details>
+                <summary>As refeições estão incluídas no valor?</summary>
+                <div class="faq-content">Sim! O valor único de R$ 290,00 inclui: Café da Manhã de Sábado e Domingo, Almoço Trilógico de Sábado (com opção vegetariana), Coffee Break de Sábado à tarde e Jantar de Encerramento de Sábado. Tudo sem custo adicional.</div>
             </details>
             <details>
                 <summary>Para quem é indicado?</summary>
@@ -649,7 +767,7 @@
             </details>
             <details>
                 <summary>Como me inscrevo oficialmente?</summary>
-                <div class="faq-content">Basta preencher o formulário disponível nesta página. Após o envio, nossa equipe de atendimento entrará em contato via WhatsApp/E-mail com os detalhes do pacote escolhido.</div>
+                <div class="faq-content">Basta preencher o formulário disponível nesta página. Após o envio, nossa equipe entrará em contato via WhatsApp com a confirmação e as instruções para o pagamento.</div>
             </details>
         </div>
     </section>
