@@ -776,15 +776,9 @@
                         btnSubmit.innerHTML = 'ENVIANDO... ⏳';
                         btnSubmit.disabled = true;
 
-                        // Coleta campos do formulário
                         const formData = new FormData(form);
-                        const data = {};
-                        for (let [key, value] of formData.entries()) {
-                            if (key !== 'comprovante') data[key] = value;
-                        }
-
-                        // Converte arquivo para base64
                         const fileInput = document.getElementById('comprovante');
+
                         if (fileInput.files[0]) {
                             const file = fileInput.files[0];
                             if (file.size > 5 * 1024 * 1024) {
@@ -793,17 +787,12 @@
                                 btnSubmit.disabled = false;
                                 return;
                             }
-                            data.comprovante_base64 = await toBase64(file);
-                            data.comprovante_nome = file.name;
+                            formData.append('comprovante_base64', await toBase64(file));
+                            formData.append('comprovante_nome', file.name);
                         }
+                        formData.delete('comprovante');
 
-                        // Envia como JSON (text/plain para compatibilidade com no-cors)
-                        fetch(scriptURL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'text/plain' },
-                            body: JSON.stringify(data)
-                        })
+                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: formData })
                         .then(() => {
                             msgSucesso.style.display = 'block';
                             btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
