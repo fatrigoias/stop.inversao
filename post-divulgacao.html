@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Post - 34º Fórum STOP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .instrucao {
+            color: #aaa;
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* ===== POST QUADRADO (Instagram Feed) ===== */
+        .post-quadrado {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(160deg, #0a1f3a 0%, #0f2b4d 50%, #081526 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Elementos decorativos de fundo */
+        .post-quadrado::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(220,179,36,0.08) 0%, transparent 70%);
+        }
+        .post-quadrado::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(140,195,74,0.06) 0%, transparent 70%);
+        }
+
+        /* Linhas decorativas */
+        .linha-topo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #dcb324, transparent);
+        }
+        .linha-base {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #dcb324, transparent);
+        }
+        .linha-esq {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, transparent, #dcb324, transparent);
+        }
+        .linha-dir {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, transparent, #dcb324, transparent);
+        }
+
+        .conteudo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            width: 100%;
+        }
+
+        .edicao {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(220,179,36,0.7);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            height: 80px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 30px;
+        }
+
+        .titulo-forum {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            font-weight: 900;
+            color: #dcb324;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo-forum {
+            font-size: 22px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .tema-box {
+            border-top: 1px solid rgba(220,179,36,0.3);
+            border-bottom: 1px solid rgba(220,179,36,0.3);
+            padding: 25px 60px;
+            margin-bottom: 50px;
+        }
+
+        .tema-label {
+            font-size: 13px;
+            color: rgba(220,179,36,0.6);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .tema-texto {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .tema-texto span { color: #dcb324; }
+
+        .infos {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 50px;
+            align-items: center;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-icone {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .info-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-valor {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .info-valor.dourado { color: #dcb324; font-size: 22px; }
+
+        .divisor {
+            width: 1px;
+            height: 60px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        .badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(220,179,36,0.3);
+            border-radius: 30px;
+            padding: 10px 22px;
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .rodape {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 25px 80px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+        }
+
+        .rodape-link {
+            font-size: 16px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
+
+        .rodape-preco {
+            background: #dcb324;
+            color: #0f2b4d;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 12px 30px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+        }
+
+        .rodape-wpp {
+            font-size: 16px;
+            color: rgba(255,255,255,0.4);
+            font-weight: 600;
+        }
+
+        /* ===== POST STORIES (vertical) ===== */
+        .post-stories {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(160deg, #0a1f3a 0%, #0f2b4d 60%, #081526 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .post-stories::before {
+            content: '';
+            position: absolute;
+            top: -300px;
+            right: -300px;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(220,179,36,0.1) 0%, transparent 70%);
+        }
+
+        .stories-linha-topo { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, transparent, #dcb324, transparent); }
+        .stories-linha-base { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, transparent, #dcb324, transparent); }
+
+        .stories-conteudo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 120px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 50px;
+        }
+
+        .stories-edicao {
+            font-size: 22px;
+            font-weight: 700;
+            color: rgba(220,179,36,0.7);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .stories-logo {
+            height: 100px;
+            filter: brightness(0) invert(1);
+        }
+
+        .stories-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 110px;
+            font-weight: 900;
+            color: #dcb324;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .stories-sub {
+            font-size: 28px;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .stories-tema {
+            border-top: 1px solid rgba(220,179,36,0.3);
+            border-bottom: 1px solid rgba(220,179,36,0.3);
+            padding: 40px 80px;
+            width: 100%;
+        }
+
+        .stories-tema p {
+            font-size: 16px;
+            color: rgba(220,179,36,0.6);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .stories-tema h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .stories-tema h2 span { color: #dcb324; }
+
+        .stories-infos {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .stories-info-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(220,179,36,0.2);
+            border-radius: 15px;
+            padding: 25px 40px;
+        }
+
+        .stories-info-icone { font-size: 40px; }
+
+        .stories-info-texto { text-align: left; }
+        .stories-info-label { font-size: 14px; color: rgba(255,255,255,0.4); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; }
+        .stories-info-valor { font-size: 26px; font-weight: 700; color: #fff; }
+        .stories-info-valor.dourado { color: #dcb324; font-size: 32px; }
+
+        .stories-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .stories-lista-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 24px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .stories-lista-item::before {
+            content: '✦';
+            color: #dcb324;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .stories-cta {
+            background: #dcb324;
+            color: #0f2b4d;
+            font-size: 28px;
+            font-weight: 900;
+            padding: 30px 80px;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .stories-link {
+            font-size: 22px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+        }
+
+        .stories-wpp {
+            font-size: 24px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+        }
+
+        /* Escala para visualização */
+        .wrapper-quadrado {
+            transform: scale(0.4);
+            transform-origin: top center;
+            margin-bottom: -648px;
+        }
+
+        .wrapper-stories {
+            transform: scale(0.4);
+            transform-origin: top center;
+            margin-bottom: -1152px;
+        }
+
+        .label-formato {
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #dcb324;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: -20px;
+        }
+    </style>
+</head>
+<body>
+
+    <p class="instrucao">⬇ Dê zoom de 40% no navegador para ver os posts em tamanho real e tirar print ⬇</p>
+
+    <!-- POST QUADRADO -->
+    <p class="label-formato">📸 Post Feed (1080 × 1080)</p>
+    <div class="wrapper-quadrado">
+        <div class="post-quadrado">
+            <div class="linha-topo"></div>
+            <div class="linha-base"></div>
+            <div class="linha-esq"></div>
+            <div class="linha-dir"></div>
+
+            <div class="conteudo">
+                <div class="edicao">34ª Edição</div>
+                <img src="logo-stop-1.png" alt="STOP" class="logo-img">
+
+                <div class="titulo-forum">Fórum<br>STOP</div>
+                <div class="subtitulo-forum">Arte e o Belo</div>
+
+                <div class="tema-box">
+                    <div class="tema-label">Tema Central</div>
+                    <div class="tema-texto">A Beleza como<br><span>Base da Civilização</span></div>
+                </div>
+
+                <div class="infos">
+                    <div class="info-item">
+                        <span class="info-icone">📅</span>
+                        <div class="info-label">Data</div>
+                        <div class="info-valor">14 a 16<br>Ago 2026</div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="info-item">
+                        <span class="info-icone">📍</span>
+                        <div class="info-label">Local</div>
+                        <div class="info-valor">Ecovila<br>Santa Branca — GO</div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="info-item">
+                        <span class="info-icone">💰</span>
+                        <div class="info-label">Investimento</div>
+                        <div class="info-valor dourado">R$ 290<br><span style="font-size:14px;color:#aaa;">refeições inclusas</span></div>
+                    </div>
+                </div>
+
+                <div class="badges">
+                    <span class="badge">⚛️ Física & Ciência</span>
+                    <span class="badge">🧠 Psicanálise</span>
+                    <span class="badge">🧬 Saúde</span>
+                    <span class="badge">💼 Empreendedorismo</span>
+                    <span class="badge">📚 Educação</span>
+                    <span class="badge">🎨 Arte & Beleza</span>
+                </div>
+            </div>
+
+            <div class="rodape">
+                <div class="rodape-link">fatrigoias.github.io/stop.inversao</div>
+                <div class="rodape-preco">Vagas Limitadas</div>
+                <div class="rodape-wpp">(62) 98154-9005</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POST STORIES -->
+    <p class="label-formato">📱 Stories / Reels (1080 × 1920)</p>
+    <div class="wrapper-stories">
+        <div class="post-stories">
+            <div class="stories-linha-topo"></div>
+            <div class="stories-linha-base"></div>
+
+            <div class="stories-conteudo">
+                <div class="stories-edicao">34ª Edição</div>
+                <img src="logo-stop-1.png" alt="STOP" class="stories-logo">
+                <div class="stories-titulo">Fórum<br>STOP</div>
+                <div class="stories-sub">Arte e o Belo</div>
+
+                <div class="stories-tema">
+                    <p>Tema Central</p>
+                    <h2>A Beleza como<br><span>Base da Civilização</span></h2>
+                </div>
+
+                <div class="stories-infos">
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">📅</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Data</div>
+                            <div class="stories-info-valor">14 a 16 de Agosto de 2026</div>
+                        </div>
+                    </div>
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">📍</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Local</div>
+                            <div class="stories-info-valor">Ecovila Santa Branca — Goiás</div>
+                        </div>
+                    </div>
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">💰</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Investimento único</div>
+                            <div class="stories-info-valor dourado">R$ 290,00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stories-lista">
+                    <div class="stories-lista-item">Teologia da Física & Keppe Motor</div>
+                    <div class="stories-lista-item">Psicanálise Integral</div>
+                    <div class="stories-lista-item">Medicina Psicossomática</div>
+                    <div class="stories-lista-item">Empreendedorismo Trilógico</div>
+                    <div class="stories-lista-item">Educação Trilógica</div>
+                    <div class="stories-lista-item">Refeições Inclusas</div>
+                </div>
+
+                <div class="stories-cta">Garanta sua vaga agora</div>
+                <div class="stories-link">fatrigoias.github.io/stop.inversao</div>
+                <div class="stories-wpp">📲 (62) 98154-9005</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
