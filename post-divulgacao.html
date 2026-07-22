@@ -40,6 +40,28 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* Imagem de fundo no cabeçalho */
+        .post-quadrado .bg-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 420px;
+            background: url('stop_inversao_bacground.png') center center / cover no-repeat;
+            z-index: 0;
+        }
+        .post-quadrado .bg-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 31, 58, 0.55) 0%,
+                rgba(10, 31, 58, 0.75) 60%,
+                rgba(10, 31, 58, 1) 100%
+            );
+        }
+
         /* Elementos decorativos de fundo */
         .post-quadrado::before {
             content: '';
@@ -454,6 +476,7 @@
     <p class="label-formato">📸 Post Feed (1080 × 1080)</p>
     <div class="wrapper-quadrado">
         <div class="post-quadrado">
+            <div class="bg-header"></div>
             <div class="linha-topo"></div>
             <div class="linha-base"></div>
             <div class="linha-esq"></div>
