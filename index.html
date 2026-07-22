@@ -238,6 +238,57 @@
         .valor-box strong { font-size: 2rem; color: var(--dourado); display: block; line-height: 1.2; }
         .valor-box em { font-size: 0.8rem; color: #aaa; font-style: normal; }
 
+        .pagamento-box {
+            background: rgba(140,195,74,0.1);
+            border: 1px solid rgba(140,195,74,0.4);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+        .pagamento-box p { color: #ccc; margin-bottom: 4px; }
+        .pagamento-box strong { color: #fff; }
+        .pagamento-box .pix-key {
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 8px;
+            font-size: 0.95rem;
+            color: var(--dourado);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            display: block;
+            text-align: center;
+        }
+
+        .upload-label {
+            display: block;
+            color: #ccc;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+        .upload-input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px dashed rgba(220,179,36,0.5);
+            border-radius: 5px;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.07);
+            color: #ccc;
+            cursor: pointer;
+        }
+        .upload-input::-webkit-file-upload-button {
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
         /* --- Local --- */
         .section-local { background: #fff; padding: 80px 20px 40px; text-align: center; border-top: 1px solid #eee; }
         .section-local h2 { color: var(--azul-escuro); font-size: 2rem; text-transform: uppercase; margin-bottom: 5px; }
@@ -664,13 +715,23 @@
                     <em>Valor único e completo</em>
                 </div>
 
-                <p>Preencha o formulário e nossa equipe entrará em contato via WhatsApp.</p>
+                <p>Realize o pagamento, anexe o comprovante e preencha o formulário.</p>
+
+                <div class="pagamento-box">
+                    <p>Realize o pagamento via <strong>PIX (CNPJ)</strong>:</p>
+                    <span class="pix-key">43.694.779/0001-03</span>
+                    <p style="margin-top:8px;">Favorecido: <strong>eColabs Desenvolvimento de Pessoas e Organizações LTDA</strong></p>
+                    <p style="margin-top:4px; color:#8cc34a;">Valor: <strong style="color:#8cc34a;">R$ 290,00</strong></p>
+                </div>
 
                 <form id="form-inscricao">
                     <input type="text" name="nome" placeholder="Nome Completo" required>
                     <input type="email" name="email" placeholder="E-mail" required>
                     <input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
                     <input type="text" name="cidade" placeholder="Sua Cidade e Estado" required>
+
+                    <label class="upload-label">Comprovante de pagamento (JPG, PNG ou PDF — máx. 5MB):</label>
+                    <input type="file" id="comprovante" name="comprovante" accept=".jpg,.jpeg,.png,.pdf" class="upload-input" required>
 
                     <select name="interesse" required>
                         <option value="" disabled selected>Principal Área de Interesse...</option>
@@ -701,19 +762,45 @@
 
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbzNxKviBAtTdVxAak_SzR9j4sQoueDgOl9i1Fwq3b3nnL0tP1UbF2eEzgA5qOiTuh6t/exec';
 
-                    form.addEventListener('submit', e => {
+                    function toBase64(file) {
+                        return new Promise((resolve, reject) => {
+                            const reader = new FileReader();
+                            reader.readAsDataURL(file);
+                            reader.onload = () => resolve(reader.result);
+                            reader.onerror = reject;
+                        });
+                    }
+
+                    form.addEventListener('submit', async (e) => {
                         e.preventDefault();
                         btnSubmit.innerHTML = 'ENVIANDO... ⏳';
                         btnSubmit.disabled = true;
 
-                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
-                            .then(response => {
+                        const formData = new FormData(form);
+                        const fileInput = document.getElementById('comprovante');
+
+                        if (fileInput.files[0]) {
+                            const file = fileInput.files[0];
+                            if (file.size > 5 * 1024 * 1024) {
+                                alert('O arquivo é muito grande. Por favor, envie um arquivo de até 5MB.');
+                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
+                                btnSubmit.disabled = false;
+                                return;
+                            }
+                            const base64 = await toBase64(file);
+                            formData.append('comprovante_base64', base64);
+                            formData.append('comprovante_nome', file.name);
+                        }
+                        formData.delete('comprovante');
+
+                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: formData })
+                            .then(() => {
                                 msgSucesso.style.display = 'block';
                                 btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
                                 btnSubmit.disabled = false;
                                 form.reset();
                             })
-                            .catch(error => {
+                            .catch(() => {
                                 alert('Houve um erro ao enviar. Tente novamente.');
                                 btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
                                 btnSubmit.disabled = false;
