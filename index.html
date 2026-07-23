@@ -799,6 +799,9 @@
                 </div>
 
                 <form id="form-inscricao">
+                    <!-- Honeypot: invisível para humanos, bots preenchem e são bloqueados -->
+                    <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="token" value="stop2026fatri">
                     <input type="text" name="nome" placeholder="Nome Completo" required>
                     <input type="email" name="email" placeholder="E-mail" required>
                     <input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
@@ -834,7 +837,7 @@
                     const btnSubmit = document.getElementById('btn-submit');
                     const msgSucesso = document.getElementById('msg-sucesso');
 
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbzVatZTPz4GccTh4Jaz6YL9GipE57ibE4plwC3AvBtI9VnA2qCYLkzojHKZGKGJA-qA/exec';
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbwtrsQBewE-9QGWAfWF9avyF9yMMo0VJe1hjvGk7gZHBU9pBUXj1SVH_ZIjUPDMUS1h/exec';
 
                     function toBase64(file) {
                         return new Promise((resolve, reject) => {
