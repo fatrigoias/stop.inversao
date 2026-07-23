@@ -786,7 +786,16 @@
                 <p>Realize o pagamento, anexe o comprovante e preencha o formulário.</p>
 
                 <div class="pagamento-box">
-                    <p style="color:var(--dourado);font-weight:bold;font-size:0.95rem;">⏳ Em breve informaremos aqui o número do PIX para realizar o depósito.</p>
+                    <p style="font-weight:bold;font-size:0.95rem;margin-bottom:8px;">Chave PIX (Transferência):</p>
+                    <span class="pix-key" id="chave-pix">85584794-fa76-492b-b812-ce7b335921bf</span>
+                    <button type="button" onclick="copiarPix()" id="btn-copiar-pix" style="margin-top:10px;display:block;width:100%;padding:8px;background:var(--dourado);color:#000;font-weight:bold;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">📋 Copiar Chave PIX</button>
+                    <p style="margin-top:12px;font-size:0.85rem;line-height:1.6;">
+                        <strong>Favorecido:</strong> Jeremias Lunardelli Neto<br>
+                        <strong>Banco:</strong> Caixa Econômica Federal<br>
+                        <strong>Tipo de conta:</strong> Poupança<br>
+                        <strong>Agência:</strong> 1551<br>
+                        <strong>Conta:</strong> 756033915-9
+                    </p>
                 </div>
 
                 <form id="form-inscricao">
@@ -870,6 +879,19 @@
                             btnSubmit.disabled = false;
                         });
                     });
+                </script>
+
+                <script>
+                    function copiarPix() {
+                        const chave = document.getElementById('chave-pix').textContent;
+                        navigator.clipboard.writeText(chave).then(function() {
+                            const btn = document.getElementById('btn-copiar-pix');
+                            btn.textContent = '✅ Chave copiada!';
+                            setTimeout(function() {
+                                btn.innerHTML = '📋 Copiar Chave PIX';
+                            }, 2500);
+                        });
+                    }
                 </script>
             </div>
 
