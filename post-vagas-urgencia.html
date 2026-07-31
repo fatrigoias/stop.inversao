@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Urgência de Vagas — 34º Fórum STOP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .instrucao {
+            color: #aaa;
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .label-formato {
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #dcb324;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: -20px;
+        }
+
+        /* ===== ESCALA PARA VISUALIZAÇÃO ===== */
+        .wrapper-quadrado {
+            transform: scale(0.4);
+            transform-origin: top center;
+            margin-bottom: -648px;
+        }
+        .wrapper-stories {
+            transform: scale(0.4);
+            transform-origin: top center;
+            margin-bottom: -1152px;
+        }
+
+        /* ============================================================
+           POST QUADRADO (Instagram Feed) — 1080 × 1080
+        ============================================================ */
+        .post-quadrado {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(160deg, #0a1f3a 0%, #0f2b4d 50%, #081526 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Imagem de fundo topo */
+        .post-quadrado .bg-header {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 360px;
+            background: url('stop_inversao_bacground.png') center center / cover no-repeat;
+            z-index: 0;
+        }
+        .post-quadrado .bg-header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(10,31,58,0.55) 0%,
+                rgba(10,31,58,0.80) 60%,
+                rgba(10,31,58,1) 100%);
+        }
+
+        /* Brilho dourado decorativo */
+        .post-quadrado::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(220,179,36,0.08) 0%, transparent 70%);
+        }
+
+        /* Linhas douradas nas bordas */
+        .linha-topo  { position: absolute; top: 0;    left: 0; right: 0;   height: 6px; background: linear-gradient(90deg,  transparent, #dcb324, transparent); }
+        .linha-base  { position: absolute; bottom: 0; left: 0; right: 0;   height: 6px; background: linear-gradient(90deg,  transparent, #dcb324, transparent); }
+        .linha-esq   { position: absolute; top: 0; left: 0; bottom: 0;    width: 6px;  background: linear-gradient(180deg, transparent, #dcb324, transparent); }
+        .linha-dir   { position: absolute; top: 0; right: 0; bottom: 0;   width: 6px;  background: linear-gradient(180deg, transparent, #dcb324, transparent); }
+
+        .conteudo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 70px 80px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Etiqueta topo */
+        .edicao {
+            font-size: 15px;
+            font-weight: 700;
+            color: rgba(220,179,36,0.65);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .logo-img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            margin-bottom: 25px;
+        }
+
+        /* Bloco de urgência — destaque principal */
+        .urgencia-bloco {
+            background: linear-gradient(135deg, #6e1c24 0%, #8b2230 100%);
+            border: 2px solid rgba(220,179,36,0.6);
+            border-radius: 20px;
+            padding: 35px 60px;
+            margin-bottom: 35px;
+            width: 100%;
+        }
+
+        .urgencia-label {
+            font-size: 16px;
+            font-weight: 800;
+            color: rgba(220,179,36,0.8);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .urgencia-numero {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            font-weight: 900;
+            color: #dcb324;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .urgencia-texto {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .urgencia-motivo {
+            font-size: 18px;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.5;
+        }
+
+        /* Infos principais */
+        .infos {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 35px;
+            align-items: center;
+        }
+
+        .info-item { text-align: center; }
+
+        .info-icone { font-size: 36px; margin-bottom: 8px; display: block; }
+
+        .info-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .info-valor {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .info-valor.dourado { color: #dcb324; font-size: 28px; }
+
+        .divisor {
+            width: 1px;
+            height: 70px;
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* Prazo */
+        .prazo-box {
+            background: rgba(220,179,36,0.12);
+            border: 1px solid rgba(220,179,36,0.4);
+            border-radius: 12px;
+            padding: 18px 40px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .prazo-box span { color: #dcb324; }
+
+        /* Rodapé */
+        .rodape {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 80px;
+            position: absolute;
+            bottom: 22px;
+            left: 0;
+        }
+
+        .rodape-link { font-size: 15px; color: rgba(255,255,255,0.35); font-weight: 600; }
+        .rodape-cta {
+            background: #dcb324;
+            color: #0f2b4d;
+            font-size: 18px;
+            font-weight: 900;
+            padding: 12px 30px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .rodape-wpp { font-size: 15px; color: rgba(255,255,255,0.35); font-weight: 600; }
+
+
+        /* ============================================================
+           POST STORIES (vertical) — 1080 × 1920
+        ============================================================ */
+        .post-stories {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(160deg, #0a1f3a 0%, #0f2b4d 60%, #081526 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .post-stories .bg-header-stories {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 600px;
+            background: url('stop_inversao_bacground.png') center center / cover no-repeat;
+            z-index: 0;
+        }
+        .post-stories .bg-header-stories::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                rgba(10,31,58,0.5) 0%,
+                rgba(10,31,58,0.75) 60%,
+                rgba(10,31,58,1) 100%);
+        }
+
+        .post-stories::before {
+            content: '';
+            position: absolute;
+            top: -300px; right: -300px;
+            width: 900px; height: 900px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(220,179,36,0.1) 0%, transparent 70%);
+        }
+
+        .stories-linha-topo { position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, transparent, #dcb324, transparent); }
+        .stories-linha-base { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, transparent, #dcb324, transparent); }
+
+        .stories-conteudo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 120px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 45px;
+        }
+
+        .stories-edicao {
+            font-size: 20px;
+            font-weight: 700;
+            color: rgba(220,179,36,0.7);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .stories-logo { height: 90px; filter: brightness(0) invert(1); }
+
+        .stories-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+            font-weight: 900;
+            color: #dcb324;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+        .stories-sub {
+            font-size: 26px;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Bloco urgência stories */
+        .stories-urgencia {
+            background: linear-gradient(135deg, #6e1c24 0%, #8b2230 100%);
+            border: 2px solid rgba(220,179,36,0.5);
+            border-radius: 24px;
+            padding: 50px 70px;
+            width: 100%;
+            text-align: center;
+        }
+        .stories-urgencia-label {
+            font-size: 18px;
+            font-weight: 800;
+            color: rgba(220,179,36,0.8);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .stories-urgencia-numero {
+            font-family: 'Playfair Display', serif;
+            font-size: 160px;
+            font-weight: 900;
+            color: #dcb324;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .stories-urgencia-texto {
+            font-size: 34px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .stories-urgencia-motivo {
+            font-size: 22px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* Infos stories */
+        .stories-infos {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            width: 100%;
+        }
+        .stories-info-item {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(220,179,36,0.2);
+            border-radius: 15px;
+            padding: 25px 40px;
+        }
+        .stories-info-icone { font-size: 38px; }
+        .stories-info-texto { text-align: left; }
+        .stories-info-label { font-size: 13px; color: rgba(255,255,255,0.4); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; }
+        .stories-info-valor { font-size: 28px; font-weight: 700; color: #fff; }
+        .stories-info-valor.dourado { color: #dcb324; font-size: 34px; }
+
+        /* Prazo stories */
+        .stories-prazo {
+            background: rgba(220,179,36,0.12);
+            border: 1px solid rgba(220,179,36,0.4);
+            border-radius: 14px;
+            padding: 25px 50px;
+            width: 100%;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .stories-prazo span { color: #dcb324; }
+
+        .stories-cta {
+            background: #dcb324;
+            color: #0f2b4d;
+            font-size: 30px;
+            font-weight: 900;
+            padding: 35px 80px;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            width: 100%;
+        }
+        .stories-link  { font-size: 21px; color: rgba(255,255,255,0.45); font-weight: 600; }
+        .stories-wpp   { font-size: 24px; color: rgba(255,255,255,0.45); font-weight: 600; }
+
+    </style>
+</head>
+<body>
+
+    <p class="instrucao">
+        ⬇ Dê zoom de 40% no navegador para ver os posts em tamanho real e tirar print ⬇<br>
+        Ctrl + Scroll para ajustar o zoom • Recomendado: imprimir em PDF ou usar extensão de captura de tela
+    </p>
+
+    <!-- ====== POST FEED (1080 × 1080) ====== -->
+    <p class="label-formato">📸 Post Feed (1080 × 1080)</p>
+    <div class="wrapper-quadrado">
+        <div class="post-quadrado">
+            <div class="bg-header"></div>
+            <div class="linha-topo"></div>
+            <div class="linha-base"></div>
+            <div class="linha-esq"></div>
+            <div class="linha-dir"></div>
+
+            <div class="conteudo">
+                <div class="edicao">34ª Edição — 14 a 16 de Agosto de 2026</div>
+                <img src="logo-stop-1.png" alt="STOP" class="logo-img">
+
+                <div class="urgencia-bloco">
+                    <div class="urgencia-label">⚠️ Atenção — Vagas Limitadas</div>
+                    <div class="urgencia-numero">49</div>
+                    <div class="urgencia-texto">Vagas Remanescentes</div>
+                    <div class="urgencia-motivo">
+                        A capacidade do espaço não permite ampliar.<br>
+                        Quando as vagas acabarem, as inscrições encerram.
+                    </div>
+                </div>
+
+                <div class="infos">
+                    <div class="info-item">
+                        <span class="info-icone">📅</span>
+                        <div class="info-label">Data</div>
+                        <div class="info-valor">14 a 16<br>Ago 2026</div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="info-item">
+                        <span class="info-icone">📍</span>
+                        <div class="info-label">Local</div>
+                        <div class="info-valor">Ecovila<br>Santa Branca — GO</div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="info-item">
+                        <span class="info-icone">💰</span>
+                        <div class="info-label">Investimento</div>
+                        <div class="info-valor dourado">R$ 290<br><span style="font-size:13px;color:#aaa;font-weight:400;">refeições inclusas</span></div>
+                    </div>
+                </div>
+
+                <div class="prazo-box">
+                    Inscrições encerram em <span>10 de agosto de 2026</span> — ou antes, se as vagas acabarem
+                </div>
+            </div>
+
+            <div class="rodape">
+                <div class="rodape-link">fatrigoias.github.io/stop.inversao</div>
+                <div class="rodape-cta">Garanta sua vaga</div>
+                <div class="rodape-wpp">(62) 98154-9005</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== POST STORIES (1080 × 1920) ====== -->
+    <p class="label-formato">📱 Stories / Reels (1080 × 1920)</p>
+    <div class="wrapper-stories">
+        <div class="post-stories">
+            <div class="bg-header-stories"></div>
+            <div class="stories-linha-topo"></div>
+            <div class="stories-linha-base"></div>
+
+            <div class="stories-conteudo">
+                <div class="stories-edicao">34ª Edição</div>
+                <img src="logo-stop-1.png" alt="STOP" class="stories-logo">
+                <div class="stories-titulo">Fórum<br>STOP</div>
+                <div class="stories-sub">Imersão 2026</div>
+
+                <div class="stories-urgencia">
+                    <div class="stories-urgencia-label">⚠️ Vagas Limitadas</div>
+                    <div class="stories-urgencia-numero">49</div>
+                    <div class="stories-urgencia-texto">Vagas Remanescentes</div>
+                    <div class="stories-urgencia-motivo">
+                        A capacidade do espaço não permite ampliar.<br>
+                        Quando acabarem, as inscrições encerram.
+                    </div>
+                </div>
+
+                <div class="stories-infos">
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">📅</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Data</div>
+                            <div class="stories-info-valor">14 a 16 de Agosto de 2026</div>
+                        </div>
+                    </div>
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">📍</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Local</div>
+                            <div class="stories-info-valor">Ecovila Santa Branca — Goiás</div>
+                        </div>
+                    </div>
+                    <div class="stories-info-item">
+                        <span class="stories-info-icone">💰</span>
+                        <div class="stories-info-texto">
+                            <div class="stories-info-label">Valor único — refeições inclusas</div>
+                            <div class="stories-info-valor dourado">R$ 290,00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stories-prazo">
+                    Inscrições encerram em <span>10/08/2026</span><br>
+                    <span style="font-size:18px;color:rgba(255,255,255,0.5);font-weight:400;">ou antes, se as vagas esgotarem</span>
+                </div>
+
+                <div class="stories-cta">Garanta sua vaga agora</div>
+                <div class="stories-link">fatrigoias.github.io/stop.inversao</div>
+                <div class="stories-wpp">📲 (62) 98154-9005</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
