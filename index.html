@@ -486,11 +486,64 @@
             <div class="promo-precos">
                 <span class="promo-preco-novo">R$ 290,00</span>
             </div>
-            <div class="promo-vagas">49 vagas restantes — de 70 no total</div>
+            <div class="promo-vagas">76 vagas restantes — de 100 no total</div>
             <div class="promo-prazo">Inscrições encerram em <strong style="color:var(--dourado);">10 de agosto de 2026</strong></div>
             <a href="#inscricao" style="background:var(--dourado);color:var(--azul-escuro);font-weight:800;padding:10px 25px;border-radius:30px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Garantir agora</a>
         </div>
     </div>
+
+    <!-- CONTAGEM REGRESSIVA DO EVENTO -->
+    <div style="background: var(--azul-escuro); padding: 30px 20px; text-align: center;">
+        <p style="color: #aaa; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">O evento começa em</p>
+        <div id="countdown" style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <div style="text-align: center; min-width: 70px;">
+                <span id="cd-dias" style="font-size: 3rem; font-weight: 900; color: var(--dourado); display: block; line-height: 1;">--</span>
+                <span style="color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Dias</span>
+            </div>
+            <span style="font-size: 3rem; color: var(--dourado); font-weight: 900; align-self: flex-start; line-height: 1; padding-top: 2px;">:</span>
+            <div style="text-align: center; min-width: 70px;">
+                <span id="cd-horas" style="font-size: 3rem; font-weight: 900; color: var(--dourado); display: block; line-height: 1;">--</span>
+                <span style="color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Horas</span>
+            </div>
+            <span style="font-size: 3rem; color: var(--dourado); font-weight: 900; align-self: flex-start; line-height: 1; padding-top: 2px;">:</span>
+            <div style="text-align: center; min-width: 70px;">
+                <span id="cd-minutos" style="font-size: 3rem; font-weight: 900; color: var(--dourado); display: block; line-height: 1;">--</span>
+                <span style="color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Minutos</span>
+            </div>
+            <span style="font-size: 3rem; color: var(--dourado); font-weight: 900; align-self: flex-start; line-height: 1; padding-top: 2px;">:</span>
+            <div style="text-align: center; min-width: 70px;">
+                <span id="cd-segundos" style="font-size: 3rem; font-weight: 900; color: var(--dourado); display: block; line-height: 1;">--</span>
+                <span style="color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Segundos</span>
+            </div>
+        </div>
+        <p id="cd-encerrado" style="display: none; color: var(--dourado); font-size: 1.5rem; font-weight: bold;">O Fórum STOP já começou! Seja bem-vindo.</p>
+        <p style="color: #666; font-size: 0.8rem; margin-top: 12px;">📅 14 de Agosto de 2026 às 19h30 — Fazenda Santa Branca, Goiás</p>
+    </div>
+
+    <script>
+        (function() {
+            var target = new Date('2026-08-14T19:30:00-03:00');
+            function atualizar() {
+                var agora = new Date();
+                var diff = target - agora;
+                if (diff <= 0) {
+                    document.getElementById('countdown').style.display = 'none';
+                    document.getElementById('cd-encerrado').style.display = 'block';
+                    return;
+                }
+                var dias    = Math.floor(diff / (1000 * 60 * 60 * 24));
+                var horas   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                var segundos = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('cd-dias').textContent    = String(dias).padStart(2, '0');
+                document.getElementById('cd-horas').textContent   = String(horas).padStart(2, '0');
+                document.getElementById('cd-minutos').textContent = String(minutos).padStart(2, '0');
+                document.getElementById('cd-segundos').textContent= String(segundos).padStart(2, '0');
+            }
+            atualizar();
+            setInterval(atualizar, 1000);
+        })();
+    </script>
 
     <!-- NOVO: O que está incluído -->
     <section class="section-incluso">
