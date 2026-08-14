@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa — 34º Fórum STOP 2026</title>
+    <style>
+        /* ═══════════════════════════════════════════════════════
+           IMPRESSÃO: A4 DEITADO (landscape) — 2 páginas
+           ───────────────────────────────────────────────────────
+           PÁGINA 1 (FRENTE da folha física):
+             Esquerda: CONTRACAPA  |  Direita: CAPA
+           PÁGINA 2 (VERSO da folha física):
+             Esquerda: Programa P1  |  Direita: Programa P2
+
+           Ao dobrar a folha ao meio:
+             → Capa fica na frente
+             → Contracapa fica atrás
+             → Programa abre por dentro
+           ═══════════════════════════════════════════════════════ */
+
+        :root {
+            --azul: #0f2b4d;
+            --ouro: #c4991f;
+            --cinza: #555;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #b0b0b0;
+            color: #1a1a1a;
+            padding: 20px;
+        }
+
+        /* ── Labels visíveis somente na tela ── */
+        .instrucao {
+            background: #1a3a5c;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .instrucao-sub {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .spread-label {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-bottom: 6px;
+            margin-top: 24px;
+        }
+
+        /* ── Spread: folha A4 deitada ── */
+        .spread {
+            width: 297mm;
+            height: 210mm;
+            background: #fff;
+            display: flex;
+            margin: 0 auto 4px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Linha de dobra — visível só na tela */
+        .spread::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 6mm;
+            bottom: 6mm;
+            width: 1px;
+            border-left: 1.5px dashed #ccc;
+            pointer-events: none;
+        }
+
+        /* ── Metade A5 ── */
+        .pagina {
+            width: 148.5mm;
+            height: 210mm;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .inner {
+            padding: 12mm 13mm 11mm 13mm;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ══════════════════════════════════════════
+           TIPOGRAFIA COMUM
+           ══════════════════════════════════════════ */
+
+        .linha-dec {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 5mm;
+        }
+        .linha-dec::before,
+        .linha-dec::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+        }
+        .linha-dec span {
+            font-size: 7pt;
+            color: var(--ouro);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .dia-bloco { margin-bottom: 3.5mm; }
+        .dia-nome {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 11.5pt;
+            color: var(--azul);
+            font-weight: 700;
+        }
+        .dia-data {
+            font-size: 8.5pt;
+            color: var(--ouro);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 1px;
+        }
+
+        .turno {
+            font-size: 7pt;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ccc;
+            margin: 2.5mm 0 1.5mm;
+        }
+
+        .prog {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .prog tr { border-bottom: 1px solid #f2f2f2; }
+        .prog tr:last-child { border-bottom: none; }
+        .prog td { padding: 2.8px 3px; vertical-align: top; }
+        .prog .h {
+            font-size: 9pt;
+            font-weight: 800;
+            color: var(--azul);
+            white-space: nowrap;
+            width: 40px;
+            padding-right: 5px;
+            line-height: 1.5;
+        }
+        .prog .a {
+            font-size: 9pt;
+            color: #222;
+            line-height: 1.5;
+        }
+        .prog .a strong { color: var(--azul); font-weight: 700; }
+        .prog .a em { font-size: 8pt; color: #999; font-style: normal; }
+
+        .prog .pausa .h { color: #c0c0c0; font-weight: 400; }
+        .prog .pausa .a { color: #aaa; }
+        .prog .arte .h { color: var(--ouro); }
+        .prog .arte .a { color: #7a6a20; }
+
+        hr.div { border: none; border-top: 1px dashed #e8e8e8; margin: 3.5mm 0; }
+
+        /* ══════════════════════════════════════════
+           CAPA (P1 — direita do spread 1)
+           ══════════════════════════════════════════ */
+        .capa .inner {
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            padding: 13mm 12mm 10mm;
+        }
+        .capa-logo { height: 76px; object-fit: contain; margin-bottom: 5mm; }
+        .capa-edicao {
+            font-size: 7.5pt;
+            color: var(--ouro);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 3mm;
+        }
+        .capa-titulo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 23pt;
+            color: var(--azul);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+        .capa-titulo .sub {
+            display: block;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 8pt;
+            font-weight: 400;
+            letter-spacing: 5px;
+            color: var(--cinza);
+            margin-top: 3px;
+            text-transform: uppercase;
+        }
+        .capa-ornamento {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5mm 0;
+            width: 75%;
+        }
+        .capa-ornamento::before,
+        .capa-ornamento::after {
+            content: ''; flex: 1;
+            height: 1.5px;
+            background: var(--ouro);
+            opacity: 0.5;
+        }
+        .capa-ornamento span {
+            width: 6px; height: 6px;
+            border: 1.5px solid var(--ouro);
+            transform: rotate(45deg);
+            display: block; flex-shrink: 0;
+        }
+        .capa-tema {
+            font-family: Georgia, serif;
+            font-size: 9.5pt;
+            color: var(--azul);
+            font-style: italic;
+            line-height: 1.65;
+        }
+        .capa-local {
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 4.5mm 8mm;
+            margin: 4mm 0;
+        }
+        .capa-local p {
+            font-size: 9.5pt;
+            color: var(--azul);
+            line-height: 1.85;
+        }
+        .capa-local strong { font-weight: 800; }
+        .capa-rodape {
+            margin-top: auto;
+            padding-top: 3.5mm;
+            border-top: 1px solid #eee;
+            width: 100%;
+        }
+        .capa-rodape p {
+            font-size: 7pt;
+            color: #aaa;
+            line-height: 1.75;
+        }
+        .capa-rodape strong { color: #888; }
+
+        /* ══════════════════════════════════════════
+           CONTRACAPA (P4 — esquerda do spread 1)
+           ══════════════════════════════════════════ */
+        .contracapa .inner {
+            justify-content: space-between;
+            padding: 12mm 13mm 10mm;
+        }
+        .contra-frase {
+            font-family: Georgia, serif;
+            font-size: 10.5pt;
+            font-style: italic;
+            color: var(--azul);
+            line-height: 1.7;
+            text-align: center;
+            padding: 5mm 4mm;
+            border-top: 1.5px solid var(--ouro);
+            border-bottom: 1.5px solid var(--ouro);
+            margin-bottom: 5mm;
+        }
+        .contra-frase cite {
+            display: block;
+            font-size: 7.5pt;
+            font-style: normal;
+            color: #aaa;
+            margin-top: 2.5mm;
+            letter-spacing: 0.5px;
+        }
+        .contra-keppe h3 {
+            font-size: 8pt;
+            font-weight: 800;
+            color: var(--azul);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2mm;
+        }
+        .contra-keppe p {
+            font-size: 8.5pt;
+            color: #555;
+            line-height: 1.65;
+            margin-bottom: 5mm;
+        }
+        .cred-titulo {
+            font-size: 7pt;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ouro);
+            margin-bottom: 1.5mm;
+        }
+        .cred-texto {
+            font-size: 8.5pt;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 3.5mm;
+        }
+        .cred-texto strong { color: var(--azul); }
+        .contra-contato {
+            margin-top: auto;
+            padding-top: 4mm;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .contra-contato p {
+            font-size: 8pt;
+            color: #aaa;
+            line-height: 1.7;
+        }
+        .contra-contato strong { color: #888; }
+
+        /* ══════════════════════════════════════════
+           IMPRESSÃO
+           ══════════════════════════════════════════ */
+        @media print {
+            body { background: none; padding: 0; }
+            .instrucao, .instrucao-sub, .spread-label { display: none; }
+            .spread {
+                width: 297mm;
+                height: 210mm;
+                box-shadow: none;
+                margin: 0;
+                page-break-after: always;
+            }
+            .spread:last-of-type { page-break-after: auto; }
+            .spread::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="instrucao">
+    📄 COMO IMPRIMIR · Imprima em A4 deitado (landscape), frente e verso, com flip na margem curta (short edge)
+</div>
+<div class="instrucao-sub">
+    Spread 1 = Frente da folha (Contracapa + Capa) &nbsp;·&nbsp; Spread 2 = Verso da folha (Programação interna) &nbsp;·&nbsp; Dobre ao meio → caderno pronto
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     SPREAD 1 — FRENTE DA FOLHA
+     Esquerda: CONTRACAPA  |  Direita: CAPA
+     ═══════════════════════════════════════════════════ -->
+<div class="spread-label">▶ FRENTE DA FOLHA — imprima este lado primeiro</div>
+<div class="spread">
+
+    <!-- CONTRACAPA (esquerda) -->
+    <div class="pagina contracapa">
+        <div class="inner">
+
+            <div class="contra-frase">
+                "A doença não existe no corpo,<br>
+                ela existe na alma — é a inveja,<br>
+                o orgulho e a sensualidade que<br>
+                adoecem o ser humano."
+                <cite>— Dr. Norberto Keppe</cite>
+            </div>
+
+            <div class="contra-keppe">
+                <h3>Dr. Norberto Keppe (1927–2022)</h3>
+                <p>
+                    Filósofo, psicanalista e cientista brasileiro, criador da <strong>Trilogia Analítica</strong> — ciência que integra o ser humano em suas dimensões física, psicológica e espiritual. Autor de mais de 60 obras traduzidas em vários idiomas.
+                </p>
+            </div>
+
+            <div class="cred-titulo">Realização</div>
+            <div class="cred-texto">
+                <strong>FATRI Goiás</strong> — Coordenação do Evento<br>
+                STOP Associação · IIPC · IECPS · Trilogical University
+            </div>
+
+            <div class="cred-titulo">Apoio</div>
+            <div class="cred-texto">
+                Grupo AVE · Cidade Amor Maior<br>
+                EIA — Escola Internacional de Artes / GAM
+            </div>
+
+            <div class="cred-titulo">Anfitrião</div>
+            <div class="cred-texto">
+                <strong>Jeremias Lunardelli Neto</strong><br>
+                Ecovila Santa Branca — Terezópolis de Goiás
+            </div>
+
+            <div class="contra-contato">
+                <p>
+                    <strong>Informações · (62) 98154-9005</strong><br>
+                    34º Fórum STOP · Agosto 2026 · GO
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CAPA (direita) -->
+    <div class="pagina capa">
+        <div class="inner">
+
+            <img class="capa-logo" src="logo-stop.png" alt="STOP a Destruição do Mundo">
+
+            <div class="capa-edicao">34ª Edição · Imersão 2026</div>
+
+            <div class="capa-titulo">
+                Fórum STOP
+                <span class="sub">a destruição do mundo</span>
+            </div>
+
+            <div class="capa-ornamento"><span></span></div>
+
+            <p class="capa-tema">
+                A Prioridade na Desinversão:<br>
+                Teologia da Física,<br>
+                Desinversão Interior<br>
+                e Empreendedorismo Trilógico
+            </p>
+
+            <div class="capa-local">
+                <p>
+                    <strong>14, 15 e 16 de Agosto de 2026</strong><br>
+                    Ecovila Santa Branca<br>
+                    Terezópolis de Goiás · GO<br>
+                    Casarão Nicolau Lunardelli
+                </p>
+            </div>
+
+            <div class="capa-rodape">
+                <p>
+                    <strong>Realização:</strong> FATRI Goiás · STOP Associação · IIPC · IECPS · Trilogical University<br>
+                    <strong>Apoio:</strong> Grupo AVE · EIA — Escola Internacional de Artes
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div><!-- /spread 1 -->
+
+
+<!-- ═══════════════════════════════════════════════════
+     SPREAD 2 — VERSO DA FOLHA
+     Esquerda: Programa P1  |  Direita: Programa P2
+     ═══════════════════════════════════════════════════ -->
+<div class="spread-label">▶ VERSO DA FOLHA — vire a folha na margem curta e imprima este lado</div>
+<div class="spread">
+
+    <!-- PROGRAMAÇÃO P1: Sexta + Sábado manhã (esquerda) -->
+    <div class="pagina">
+        <div class="inner">
+
+            <div class="linha-dec"><span>Programação</span></div>
+
+            <div class="dia-bloco">
+                <div class="dia-nome">Sexta-feira — Abertura</div>
+                <div class="dia-data">14 de Agosto · Noite</div>
+            </div>
+            <table class="prog">
+                <tr class="pausa"><td class="h">19:15</td><td class="a">Chegada e Café de Boas-Vindas</td></tr>
+                <tr class="arte"><td class="h">19:30</td><td class="a">✦ Abertura Artística</td></tr>
+                <tr><td class="h">19:45</td><td class="a"><strong>Jeremias Lunardelli Neto</strong> <em>· boas-vindas (5 min)</em></td></tr>
+                <tr><td class="h">20:00</td><td class="a"><strong>Dra. Selma Leme</strong> <em>· 45 min</em><br>A Desinversão da Saúde: Cura pela Consciência no Pensamento de Keppe</td></tr>
+                <tr class="pausa"><td class="h">21:00</td><td class="a">Encerramento e confraternização</td></tr>
+            </table>
+
+            <hr class="div">
+
+            <div class="dia-bloco">
+                <div class="dia-nome">Sábado</div>
+                <div class="dia-data">15 de Agosto</div>
+            </div>
+
+            <div class="turno">Manhã</div>
+            <table class="prog">
+                <tr class="pausa"><td class="h">07:30</td><td class="a">Café da Manhã</td></tr>
+                <tr class="arte"><td class="h">08:30</td><td class="a">✦ Abertura Artística</td></tr>
+                <tr><td class="h">08:45</td><td class="a"><strong>Jeremias Lunardelli Neto</strong> <em>· boas-vindas (5 min)</em></td></tr>
+                <tr><td class="h">08:50</td><td class="a"><strong>Ademar Cabral</strong> <em>· Grupo AVE (5 min)</em></td></tr>
+                <tr><td class="h">09:00</td><td class="a"><strong>Dra. Claudia Pacheco</strong> <em>· 60 min</em><br>Desinversão Interior: O Caminho da Consciência para a Liberdade</td></tr>
+                <tr class="pausa"><td class="h">10:00</td><td class="a">Coffee Break</td></tr>
+                <tr><td class="h">10:33</td><td class="a"><strong>Prof. César Sílvio Colzani</strong> <em>· 45 min</em><br>Teologia da Física: A Ciência do Ser na Obra de Norberto Keppe</td></tr>
+                <tr><td class="h">11:21</td><td class="a"><strong>Dra. Julieta Kühl</strong> <em>· 45 min</em><br>Psicanálise Integral: O Ser Humano Além do Inconsciente Freudiano</td></tr>
+                <tr class="pausa"><td class="h">12:30</td><td class="a">Almoço</td></tr>
+            </table>
+
+        </div>
+    </div>
+
+    <!-- PROGRAMAÇÃO P2: Sábado tarde + Domingo (direita) -->
+    <div class="pagina">
+        <div class="inner">
+
+            <div class="linha-dec"><span>Programação — continuação</span></div>
+
+            <div class="dia-bloco">
+                <div class="dia-nome">Sábado — tarde</div>
+                <div class="dia-data">15 de Agosto</div>
+            </div>
+
+            <div class="turno">Tarde</div>
+            <table class="prog">
+                <tr class="arte"><td class="h">13:40</td><td class="a">✦ Abertura Artística</td></tr>
+                <tr><td class="h">13:50</td><td class="a"><strong>Fernando Bacelar</strong> <em>· EIA / GAM (5 min)</em></td></tr>
+                <tr><td class="h">14:00</td><td class="a"><strong>Dr. Eduardo Wolff</strong> <em>· 45 min</em><br>Empreendedorismo Trilógico: Negócios com Propósito e Consciência</td></tr>
+                <tr><td class="h">14:48</td><td class="a"><strong>Dr. Rodrigo de Faria e Silva</strong> <em>· 45 min</em><br>Keppe Motor: Tecnologia a Serviço da Desinversão</td></tr>
+                <tr class="pausa"><td class="h">15:33</td><td class="a">Coffee Break</td></tr>
+                <tr><td class="h">16:03</td><td class="a"><strong>Dra. Luciara Leme</strong> <em>· 45 min</em><br>Pedagogia Trilógica: Educação que Liberta e Transforma</td></tr>
+                <tr><td class="h">16:51</td><td class="a"><strong>Profa. Sari Nalbant</strong> <em>· 45 min</em><br>A Mente Invertida Não Aprende: Bloqueios no Aprendizado de Idiomas e a Desinversão pela Consciência</td></tr>
+                <tr class="arte"><td class="h">18:00</td><td class="a">✦ Abertura Artística · Encerramento do dia</td></tr>
+                <tr class="pausa"><td class="h">18:15</td><td class="a">Jantar</td></tr>
+            </table>
+
+            <hr class="div">
+
+            <div class="dia-bloco">
+                <div class="dia-nome">Domingo — Encontro com Empreendedores</div>
+                <div class="dia-data">16 de Agosto</div>
+            </div>
+            <table class="prog">
+                <tr class="pausa"><td class="h">07:30</td><td class="a">Café da Manhã</td></tr>
+                <tr class="arte"><td class="h">08:30</td><td class="a">✦ Abertura Artística</td></tr>
+                <tr><td class="h">09:00</td><td class="a"><strong>Encontro com Empreendedores</strong> <em>· 2 horas</em><br>Rodada de conexões e projetos trilógicos</td></tr>
+                <tr><td class="h">11:00</td><td class="a"><strong>Encerramento Oficial do 34º Fórum STOP</strong></td></tr>
+                <tr class="pausa"><td class="h">Tarde</td><td class="a">Tarde livre · integração e contato com a natureza</td></tr>
+            </table>
+
+            <div style="margin-top: auto; padding-top: 4mm; border-top: 1px solid #eee; text-align: center;">
+                <p style="font-family: Georgia, serif; font-size: 9pt; font-style: italic; color: var(--azul); line-height: 1.65;">
+                    "Tomar consciência da inversão<br>é o primeiro ato de desinversão."
+                </p>
+                <p style="font-size: 7.5pt; color: #aaa; margin-top: 2mm;">— Dr. Norberto Keppe</p>
+            </div>
+
+        </div>
+    </div>
+
+</div><!-- /spread 2 -->
+
+</body>
+</html>
