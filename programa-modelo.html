@@ -328,7 +328,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--ouro);
-            margin-bottom: 1.5mm;
+            margin-bottom: 2mm;
         }
         .cred-texto {
             font-size: 8.5pt;
@@ -337,6 +337,36 @@
             margin-bottom: 3.5mm;
         }
         .cred-texto strong { color: var(--azul); }
+
+        /* Grid de selos institucionais */
+        .selos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3px;
+            margin-bottom: 4mm;
+        }
+        .selo {
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            padding: 3px 4px;
+            text-align: center;
+        }
+        .selo-cat {
+            display: block;
+            font-size: 5.5pt;
+            color: var(--ouro);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+        .selo-nome {
+            display: block;
+            font-size: 7.5pt;
+            color: var(--azul);
+            font-weight: 800;
+            line-height: 1.3;
+        }
         .contra-contato {
             margin-top: auto;
             padding-top: 4mm;
@@ -404,15 +434,39 @@
             </div>
 
             <div class="cred-titulo">Realização</div>
-            <div class="cred-texto">
-                <strong>FATRI Goiás</strong> — Coordenação do Evento<br>
-                STOP Associação · IIPC · IECPS · Trilogical University
-            </div>
-
-            <div class="cred-titulo">Apoio</div>
-            <div class="cred-texto">
-                Grupo AVE · Cidade Amor Maior<br>
-                EIA — Escola Internacional de Artes / GAM
+            <div class="selos-grid">
+                <div class="selo">
+                    <span class="selo-cat">Movimento</span>
+                    <span class="selo-nome">STOP</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Faculdade</span>
+                    <span class="selo-nome">Keppe &amp; Pacheco</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Faculdade</span>
+                    <span class="selo-nome">N. Sra. Todos os Povos</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Proton</span>
+                    <span class="selo-nome">Editora</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Keppe</span>
+                    <span class="selo-nome">Motor</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Millennium</span>
+                    <span class="selo-nome">Instituto de Línguas</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Inteligência</span>
+                    <span class="selo-nome">do Amor</span>
+                </div>
+                <div class="selo">
+                    <span class="selo-cat">Grupo</span>
+                    <span class="selo-nome">AVE</span>
+                </div>
             </div>
 
             <div class="cred-titulo">Anfitrião</div>
@@ -464,8 +518,9 @@
 
             <div class="capa-rodape">
                 <p>
-                    <strong>Realização:</strong> FATRI Goiás · STOP Associação · IIPC · IECPS · Trilogical University<br>
-                    <strong>Apoio:</strong> Grupo AVE · EIA — Escola Internacional de Artes
+                    <strong>Realização:</strong> Movimento STOP · Fac. Keppe &amp; Pacheco · Fac. N. Sra. Todos os Povos<br>
+                    Proton Editora · Keppe Motor · Millennium · Inteligência do Amor · Grupo AVE<br>
+                    <strong>Anfitrião:</strong> Jeremias Lunardelli Neto — Ecovila Santa Branca
                 </p>
             </div>
 
