@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Roteiro do Cerimonialista — 34º Fórum STOP 2026</title>
+    <style>
+        @page { size: A4 portrait; margin: 20mm 18mm 20mm 18mm; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fff;
+            color: #1a1a1a;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm 18mm;
+            font-size: 10.5pt;
+            line-height: 1.7;
+        }
+
+        /* CAPA */
+        .capa {
+            text-align: center;
+            padding: 30px 0 40px;
+            border-bottom: 3px solid #0f2b4d;
+            margin-bottom: 30px;
+        }
+        .capa img { height: 60px; object-fit: contain; margin-bottom: 16px; }
+        .capa h1 { font-size: 16pt; color: #0f2b4d; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+        .capa h2 { font-size: 11pt; color: #dcb324; font-weight: 700; margin-bottom: 10px; }
+        .capa p { font-size: 9pt; color: #555; line-height: 1.6; }
+        .capa .aviso {
+            display: inline-block;
+            margin-top: 18px;
+            background: #0f2b4d;
+            color: #fff;
+            font-size: 8pt;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* DIA */
+        .dia-header {
+            background: #0f2b4d;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin: 30px 0 20px;
+            page-break-before: always;
+        }
+        .dia-header:first-of-type { page-break-before: avoid; }
+        .dia-header h2 { font-size: 13pt; text-transform: uppercase; letter-spacing: 1px; }
+        .dia-header p { font-size: 8.5pt; color: #dcb324; font-weight: 600; margin-top: 2px; }
+
+        /* BLOCO DE FALA */
+        .fala {
+            border-left: 4px solid #dcb324;
+            background: #fffdf4;
+            border-radius: 0 6px 6px 0;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        .fala .horario {
+            font-size: 8pt;
+            font-weight: 800;
+            color: #0f2b4d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .fala .tipo {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #dcb324;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .fala .texto { font-size: 10.5pt; color: #1a1a1a; line-height: 1.75; }
+        .fala .texto p { margin-bottom: 8px; }
+        .fala .texto p:last-child { margin-bottom: 0; }
+
+        /* CITAÇÃO */
+        .citacao {
+            border-left: 3px solid #0f2b4d;
+            margin: 12px 0;
+            padding: 8px 14px;
+            background: rgba(15,43,77,0.05);
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+            color: #333;
+            font-size: 10pt;
+        }
+        .citacao span { display: block; font-style: normal; font-size: 8.5pt; color: #0f2b4d; font-weight: 700; margin-top: 4px; }
+
+        /* DIREÇÃO DE CENA */
+        .cena {
+            font-style: italic;
+            color: #888;
+            font-size: 9pt;
+            margin: 6px 0;
+        }
+
+        /* SEPARADOR */
+        .sep {
+            border: none;
+            border-top: 1px dashed #ccc;
+            margin: 18px 0;
+        }
+
+        /* DESTAQUE NOME PALESTRANTE */
+        .nome-palestrante {
+            display: inline-block;
+            background: #0f2b4d;
+            color: #fff;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 10pt;
+            margin-top: 6px;
+        }
+
+        /* FAIXA ENCERRAMENTO */
+        .fala.encerramento { border-left-color: #6e1c24; background: #fff8f8; }
+        .fala.encerramento .tipo { color: #6e1c24; }
+
+        /* FALA VERDE - DOMINGO */
+        .fala.domingo { border-left-color: #8cc34a; background: #f8fff4; }
+        .fala.domingo .tipo { color: #5a8a2a; }
+
+        /* RODAPÉ */
+        footer {
+            margin-top: 40px;
+            padding-top: 14px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 8pt;
+            color: #aaa;
+        }
+
+        @media screen {
+            body { padding: 30px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+    <img src="logo-stop.png" alt="STOP a Destruição do Mundo">
+    <h1>Roteiro do Cerimonialista</h1>
+    <h2>34º Fórum STOP — Imersão 2026</h2>
+    <p>
+        A Prioridade na Desinversão: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico<br>
+        <strong>14 a 16 de Agosto de 2026</strong> — Ecovila Santa Branca, Terezópolis de Goiás / GO<br>
+        Casarão da Cultura Nicolau Lunardelli
+    </p>
+    <span class="aviso">Documento confidencial — uso exclusivo do cerimonialista</span>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--              SEXTA-FEIRA, 14/08               -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<div class="dia-header">
+    <h2>Sexta-Feira — 14 de Agosto</h2>
+    <p>Arte e o Belo: A Beleza como Base da Civilização</p>
+</div>
+
+<!-- ABERTURA DO EVENTO -->
+<div class="fala">
+    <div class="horario">19:27 – 19:30</div>
+    <div class="tipo">Abertura Oficial do 34º Fórum STOP</div>
+    <div class="texto">
+        <p class="cena">[Pausa. Silêncio. Olhar para o público.]</p>
+
+        <p>Boa noite.</p>
+
+        <p>Peço que, por um momento, façam silêncio interior.</p>
+
+        <p>Olhem para este lugar.</p>
+
+        <p>Estamos no coração do Brasil — no Cerrado goiano, nesta terra que guarda uma das biodiversidades mais ricas e ameaçadas do planeta. E estamos aqui, neste Casarão, numa propriedade que é ela mesma um símbolo do que vamos falar neste fim de semana.</p>
+
+        <p>A Ecovila Santa Branca foi desmatada. Foi destruída. Foi invertida.</p>
+
+        <p>E então, alguém decidiu parar.</p>
+
+        <p>Decidiu reflorestá-la com árvores nativas do Cerrado. Devolver a ela o que lhe foi tirado. Restaurar o que havia sido corrompido.</p>
+
+        <p><strong>A Ecovila Santa Branca foi desinvertida.</strong></p>
+
+        <p>E é exatamente sobre isso que estamos aqui para falar.</p>
+
+        <p>O Dr. Norberto R. Keppe, fundador da Trilogia Analítica, nos deixou uma verdade que ressoa com tudo que vemos ao redor:</p>
+
+        <div class="citacao">
+            "Na essência, somos bons, belos e verdadeiros. Se a gente fica doente, é porque nega o que é bom, o que é belo e o que é verdadeiro. Se pararmos de negar — imediatamente retornamos à saúde."
+            <span>— Dr. Norberto R. Keppe</span>
+        </div>
+
+        <p>O que foi feito com esta terra, pode ser feito com cada um de nós. Com a nossa ciência. Com a nossa educação. Com os nossos negócios. Com as nossas relações. Com o nosso mundo interior.</p>
+
+        <p>É para isso que vieram.</p>
+
+        <p>Este é o <strong>34º Fórum STOP</strong> — uma realização do <strong>Movimento STOP a Destruição do Mundo</strong>, em parceria com a <strong>Faculdade Trilógica Keppe & Pacheco</strong>, a <strong>Faculdade Trilógica Nossa Senhora de Todos os Povos</strong>, a <strong>Proton Editora</strong>, a <strong>Keppe Motor</strong> e o <strong>Instituto de Línguas Millennium</strong> — com a coordenação local da <strong>FATRI Goiás</strong> — e com o apoio do <strong>Grupo AVE</strong> e da <strong>EIA — Escola da Inteligência do Amor</strong>.</p>
+
+        <p>Trinta e quatro anos de um encontro que não para. Que não recua. Que continua — porque a inversão continua, e a consciência também.</p>
+
+        <p>Sejam muito bem-vindos ao <strong>34º Fórum STOP.</strong></p>
+
+        <p class="cena">[Transição para a Abertura Artística.]</p>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO DRA. SELMA -->
+<div class="fala">
+    <div class="horario">19:50 – 19:53</div>
+    <div class="tipo">Apresentação da Palestrante da Noite</div>
+    <div class="texto">
+        <p>Ela começou sua jornada não pela Psicologia — mas pela Engenharia de Minas, formada pela Universidade de São Paulo em 1984.</p>
+
+        <p>Foi a busca por respostas que a ciência convencional não oferecia que a conduziu até a Psicanálise Integral do Dr. Norberto R. Keppe, em Paris, onde se tornou psicanalista da SITA — Sociedade Internacional de Trilogia Analítica — em 1993.</p>
+
+        <p>Desde então, percorre o mundo como palestrante internacional, especialmente nas áreas de saúde e relações humanas. É professora de Psicossociopatologia e coordenadora do curso de pós-graduação em Psicanálise Integral — Gestão de Conflitos das Faculdades Trilógicas.</p>
+
+        <p>Esta noite, ela nos traz uma provocação necessária: <em>e se a Arte não for um ornamento da civilização — mas a sua base?</em></p>
+
+        <p class="cena">[Pausa. Olhar para o público.]</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Dra. Selma Pup Genzani</span>
+    </div>
+</div>
+
+<!-- ENCERRAMENTO SEXTA -->
+<div class="fala encerramento">
+    <div class="horario">20:45 – 20:48</div>
+    <div class="tipo">Encerramento da Noite</div>
+    <div class="texto">
+        <p>Uma noite assim não se fecha facilmente.</p>
+
+        <p>O que a Dra. Selma trouxe não é conteúdo para processar amanhã — é uma semente para deixar germinar.</p>
+
+        <p>Descansem. Respirem este ar do Cerrado. Amanhã o dia começa cedo, e o que vem pela manhã é igualmente transformador.</p>
+
+        <p>Boa noite a todos.</p>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--               SÁBADO, 15/08                   -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<div class="dia-header">
+    <h2>Sábado — 15 de Agosto</h2>
+    <p>Ciência, Saúde, Negócios e Educação</p>
+</div>
+
+<!-- ABERTURA SÁBADO -->
+<div class="fala">
+    <div class="horario">08:27 – 08:30</div>
+    <div class="tipo">Abertura das Atividades do Dia</div>
+    <div class="texto">
+        <p class="cena">[Tom sereno e contemplativo — a manhã pede isso.]</p>
+
+        <p>Bom dia.</p>
+
+        <p>Respirem fundo.</p>
+
+        <p>Esta manhã no Cerrado tem um perfume que não se encontra em cidade nenhuma. As árvores nativas que abraçam esta propriedade não estão aqui por acaso. Cada uma delas foi plantada com intenção — com o gesto concreto de quem acredita que é possível restaurar o que foi destruído.</p>
+
+        <p>Ontem à noite, a Dra. Selma nos mostrou que a Arte e o Belo não são luxo — são a base da civilização.</p>
+
+        <p>Hoje, vamos mais fundo.</p>
+
+        <p>Vamos entrar na Psicanálise que desvenda a raiz de tudo — a inversão psíquica que adoece o ser humano por dentro. Vamos à Física que reencontrou Deus. À Medicina que cura pela consciência. Ao Empreendedorismo que coloca o ser humano acima do Capital. À Educação que forma seres inteiros. E à Linguagem que liberta a mente invertida.</p>
+
+        <p>Um dia inteiro. Denso. Transformador.</p>
+
+        <div class="citacao">
+            "Doença é a atitude de não querer ver, devido à inversão em que o ser humano vive."
+            <span>— Dr. Norberto R. Keppe</span>
+        </div>
+
+        <p>Hoje vamos ver. Com coragem, com abertura e com a alegria de quem sabe que ver — já é o começo da cura.</p>
+
+        <p class="cena">[Transição para a Abertura Artística.]</p>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO DRA. CLAUDIA -->
+<div class="fala">
+    <div class="horario">08:55 – 08:58</div>
+    <div class="tipo">Apresentação da Primeira Palestrante do Dia</div>
+    <div class="texto">
+        <p>Há pessoas que dedicam uma vida inteira a uma ideia — não porque é conveniente, mas porque ela é verdadeira.</p>
+
+        <p>A nossa próxima palestrante é uma dessas pessoas.</p>
+
+        <p>Psicanalista, Teóloga e Psicóloga, ela é Presidente do Instituto de Ciência e Tecnologia Keppe & Pacheco e Fundadora e Diretora Geral da FATRI — Faculdade Trilógica Nossa Senhora de Todos os Povos. Autora de inúmeras obras sobre a Ciência da Trilogia Analítica, ela construiu ao longo de décadas uma das mais sólidas instituições do pensamento trilógico no Brasil.</p>
+
+        <p>Este evento não existiria sem ela.</p>
+
+        <p>Ela nos apresenta hoje o Método Dialético de Norberto R. Keppe — a descoberta que, desde 1977, transformou a compreensão do adoecimento humano.</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Dra. Claudia B. S. Pacheco</span>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO CESAR -->
+<div class="fala">
+    <div class="horario">10:30 – 10:33</div>
+    <div class="tipo">Apresentação do Palestrante</div>
+    <div class="texto">
+        <p>O que acontece quando um engenheiro-cientista decide perguntar: <em>e se a física que aprendemos estiver invertida?</em></p>
+
+        <p>Cesar Soós passou décadas buscando essa resposta — e encontrou. Coinventor e desenvolvedor da tecnologia dos motores magnéticos de corrente ressonante, é professor de Metafísica Trilógica e Teologia da Física da FATRI. Conferencista internacional e autor dos livros <em>"Conceitos Básicos da Nova Física Keppeana"</em> (2021) e <em>"Keppe Motor: Motores de Corrente Ressonante"</em> (2025).</p>
+
+        <p>Hoje ele nos mostrará que Deus nunca saiu da ciência — fomos nós que o retiramos.</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Cesar Soós</span>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO JULIETA -->
+<div class="fala">
+    <div class="horario">11:18 – 11:21</div>
+    <div class="tipo">Apresentação da Palestrante</div>
+    <div class="texto">
+        <p>A medicina que aprendemos nas faculdades trata o corpo. A medicina que nossa próxima palestrante pratica trata o ser humano inteiro.</p>
+
+        <p>Médica e pesquisadora formada no Instituto Superior de Ciências Médicas de Santiago de Cuba, com especialização em Medicina Familiar e Comunitária nas Ilhas Canárias, Espanha — Julieta Villarreal Villalobos encontrou na Psicanálise Integral do Dr. Keppe o elo que a medicina convencional jamais conseguiu oferecer: a conexão entre a psique invertida e a doença orgânica.</p>
+
+        <p>Ela nos apresentará hoje a Medicina da Alma — e por que curar o corpo começa por dentro.</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Julieta Villarreal Villalobos</span>
+    </div>
+</div>
+
+<!-- RETOMADA DA TARDE -->
+<div class="fala">
+    <div class="horario">13:37 – 13:40</div>
+    <div class="tipo">Retomada das Atividades da Tarde</div>
+    <div class="texto">
+        <p>Bem-vindos de volta.</p>
+
+        <p>O almoço aqui é mais do que uma refeição — é um momento trilógico em si. Compartilhar a mesa, a natureza, a música — é também desinversão.</p>
+
+        <p>A tarde que começa agora nos leva para os eixos práticos da transformação: como empreender, como fazer justiça, como educar e como aprender de forma desinvertida.</p>
+
+        <p>Antes, deixemos que a música nos recolha novamente.</p>
+
+        <p class="cena">[Transição para a Abertura Artística da tarde.]</p>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO EDUARDO -->
+<div class="fala">
+    <div class="horario">13:55 – 13:58</div>
+    <div class="tipo">Apresentação do Palestrante</div>
+    <div class="texto">
+        <p>Ele une o rigor acadêmico com a experiência de quem construiu e geriu empresas no mundo real.</p>
+
+        <p>Diretor Acadêmico e professor da FATRI, Eduardo Castelã Nascimento é administrador formado pela Universidade Mackenzie, com especialização em Gestão da Psico-Sócio-Patologia, mestrado em Gestão Pública e Sociedade pela UNIFAL-MG e doutorando em Políticas Públicas pela UFPR.</p>
+
+        <p>A pergunta que ele carrega é simples e revolucionária: <em>e se empreender for, antes de tudo, um ato ético?</em></p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Eduardo Castelã Nascimento</span>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO RODRIGO -->
+<div class="fala">
+    <div class="horario">14:45 – 14:48</div>
+    <div class="tipo">Apresentação do Palestrante</div>
+    <div class="texto">
+        <p>Direito. Justiça. Espiritualidade. Três palavras que raramente aparecem juntas em um tribunal — mas que, segundo o pensamento trilógico, são inseparáveis.</p>
+
+        <p>Licenciado em Direito e Economia pela Universidade Paris II – ASSAS e em Letras pelo Instituto Católico de Paris, advogado formado pela Faculdade Metropolitana Unidas, membro da American Bar Association e Presidente da ALDH — Associação Lusófona de Direitos Humanos. Diretor Jurídico da Keppe Motor e Psico-sócio-Terapeuta.</p>
+
+        <p>Um homem que transita entre o direito internacional, a psicanálise e o ensino de idiomas — e que hoje nos pergunta: <em>onde a justiça perdeu a sua alma?</em></p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Rodrigo Pacheco Angélico</span>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO LUCIARA -->
+<div class="fala">
+    <div class="horario">16:00 – 16:03</div>
+    <div class="tipo">Apresentação da Palestrante</div>
+    <div class="texto">
+        <p>Se existe uma crise que toca todas as famílias — é a da educação.</p>
+
+        <p>Doutora e Mestre em Educação pela Universidade de São Paulo, na linha de Educação, Linguagem e Psicologia, Luciara Batista Avelino é Coordenadora do curso de Pedagogia da FATRI, Psicanalista pela SITA e Especialista em Gestão de Conflitos. Graduada em Letras pela UnB, em Pedagogia e em Teologia, é autora do livro <em>"A Terapia em Sala de Aula"</em> — agora em segunda edição.</p>
+
+        <p>Ela nos mostrará por que a sala de aula pode ser um lugar de cura — e por que, quando não é, adoece.</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Luciara Batista Avelino</span>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO SARI -->
+<div class="fala">
+    <div class="horario">16:48 – 16:51</div>
+    <div class="tipo">Apresentação da Palestrante</div>
+    <div class="texto">
+        <p>Nossa última palestrante do dia veio da Finlândia — e ficou.</p>
+
+        <p>Mestre em Tecnologias de Energia pela USP e em Administração pela Universidade Tecnológica de Uusikaupunki, na Finlândia, pós-graduada em Gestão de Conflitos pela FATRI, Sari Koivukangas acumula 27 anos de experiência ensinando idiomas com o método psicolinguístico do Dr. Norberto Keppe. Professora e coordenadora de Internacionalização da FATRI, tradutora de obras da Trilogia Analítica e autora de livros infantis.</p>
+
+        <p>Ela nos perguntará hoje: <em>por que aprender um idioma é tão difícil?</em> E a resposta, como sempre na Trilogia, começa por dentro.</p>
+
+        <p>Com vocês —</p>
+        <span class="nome-palestrante">Sari Koivukangas</span>
+    </div>
+</div>
+
+<!-- ENCERRAMENTO SÁBADO -->
+<div class="fala encerramento">
+    <div class="horario">18:00 – 18:15</div>
+    <div class="tipo">Encerramento das Palestras e Abertura Artística</div>
+    <div class="texto">
+        <p>Que dia.</p>
+
+        <p>Psicanálise. Física. Medicina. Empreendedorismo. Direito. Educação. Linguagem.</p>
+
+        <p>Sete ângulos diferentes da mesma realidade: o ser humano invertido — e o caminho de volta.</p>
+
+        <p>Antes de encerrarmos este dia com o jantar, deixemos que a música faça o que as palavras não conseguem — integrar, silenciar e deixar sedimentar o que cada um de vocês recebeu hoje.</p>
+
+        <p class="cena">[Transição para a Abertura Artística de encerramento do dia.]</p>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<!--               DOMINGO, 16/08                  -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<div class="dia-header" style="background:#2d6a2d;">
+    <h2>Domingo — 16 de Agosto</h2>
+    <p style="color:#a8d98a;">Contemplação, Ação e Retorno</p>
+</div>
+
+<!-- ABERTURA DOMINGO -->
+<div class="fala domingo">
+    <div class="horario">08:27 – 08:30</div>
+    <div class="tipo">Abertura do Último Dia</div>
+    <div class="texto">
+        <p>Bom dia.</p>
+
+        <p>Este é o terceiro e último dia do 34º Fórum STOP.</p>
+
+        <p>E talvez seja o mais importante — porque é o dia da ação.</p>
+
+        <p>Ontem falamos sobre o que está invertido. Hoje vamos sentar com quem está fazendo algo a respeito. Os empreendedores do Grupo AVE e da EIA — Escola da Inteligência do Amor — estão aqui não apenas para apresentar projetos, mas para mostrar que o que foi ensinado neste fim de semana tem endereço, tem gente trabalhando nele todos os dias.</p>
+
+        <p>Mas antes — uma última abertura artística. Porque a beleza não é introdução. É estrutura.</p>
+
+        <p class="cena">[Transição para a Abertura Artística do domingo.]</p>
+    </div>
+</div>
+
+<!-- APRESENTAÇÃO ENCONTRO EMPREENDEDORES -->
+<div class="fala domingo">
+    <div class="horario">08:45 – 08:48</div>
+    <div class="tipo">Apresentação do Encontro com Empreendedores</div>
+    <div class="texto">
+        <p>O encontro que começa agora é um convite.</p>
+
+        <p>Os professores que apresentaram ontem — e os empreendedores que trouxeram à vida os princípios da Trilogia Analítica em seus projetos — estarão aqui juntos, abertos ao diálogo.</p>
+
+        <p>Tragam suas perguntas. Suas dúvidas. Suas ideias. Este é o momento em que teoria e prática se sentam à mesma mesa.</p>
+    </div>
+</div>
+
+<!-- ENCERRAMENTO OFICIAL -->
+<div class="fala encerramento">
+    <div class="horario">11:00 – 11:03</div>
+    <div class="tipo">Encerramento Oficial do 34º Fórum STOP</div>
+    <div class="texto">
+        <p>Chegamos ao fim.</p>
+
+        <p>Mas "fim" aqui não é a palavra certa. O que aconteceu neste fim de semana não termina quando vocês saírem daqui.</p>
+
+        <p>Leva-se na memória a frase que abre e fecha este evento:</p>
+
+        <div class="citacao">
+            "Na essência, somos bons, belos e verdadeiros. Se pararmos de negar o que é bom, o que é belo e o que é verdadeiro — imediatamente retornamos à saúde."
+            <span>— Dr. Norberto R. Keppe</span>
+        </div>
+
+        <p>Cada um de vocês sabe agora, com um pouco mais de clareza, o que nega. E sabe também que parar de negar — é o começo.</p>
+
+        <p>Em nome do <strong>Movimento STOP a Destruição do Mundo</strong>, da <strong>FATRI Goiás</strong>, de todas as <strong>Faculdades Trilógicas</strong>, da <strong>Proton Editora</strong>, da <strong>Keppe Motor</strong>, do <strong>Instituto de Línguas Millennium</strong>, do <strong>Grupo AVE</strong> e da <strong>EIA — Escola da Inteligência do Amor</strong> —</p>
+
+        <p><strong>Muito obrigado.</strong></p>
+
+        <p>Aproveitem a tarde livre nesta Ecovila que é, ela mesma, uma prova viva de que a desinversão é possível.</p>
+
+        <p><strong>Até o próximo Fórum STOP.</strong></p>
+    </div>
+</div>
+
+
+<footer>
+    34º Fórum STOP — Imersão 2026 &nbsp;·&nbsp; Ecovila Santa Branca, Terezópolis de Goiás &nbsp;·&nbsp; 14 a 16 de Agosto de 2026<br>
+    Documento de uso exclusivo do cerimonialista — não distribuir aos participantes
+</footer>
+
+</body>
+</html>
