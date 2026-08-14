@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Autorização de Entrada — 34º Fórum STOP</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 18mm 18mm 18mm 18mm;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fff;
+            color: #222;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 18mm;
+        }
+
+        /* CABEÇALHO */
+        .cabecalho {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 3px solid #0f2b4d;
+            padding-bottom: 14px;
+            margin-bottom: 14px;
+        }
+        .cabecalho img {
+            height: 64px;
+            object-fit: contain;
+        }
+        .cabecalho-texto h1 {
+            font-size: 13pt;
+            color: #0f2b4d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 900;
+        }
+        .cabecalho-texto h2 {
+            font-size: 8.5pt;
+            color: #dcb324;
+            font-weight: 700;
+            margin: 3px 0 5px;
+            line-height: 1.3;
+        }
+        .cabecalho-texto p {
+            font-size: 8pt;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* BLOCO DE AUTORIZAÇÃO */
+        .bloco-autorizacao {
+            background: #f4f6f8;
+            border-left: 4px solid #dcb324;
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+        }
+        .bloco-autorizacao h3 {
+            font-size: 8.5pt;
+            color: #0f2b4d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 800;
+        }
+        .bloco-autorizacao p {
+            font-size: 8pt;
+            color: #444;
+            line-height: 1.55;
+        }
+        .bloco-autorizacao strong { color: #0f2b4d; }
+
+        /* TÍTULO DA LISTA */
+        .lista-titulo {
+            font-size: 8pt;
+            font-weight: 800;
+            color: #0f2b4d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 4px;
+        }
+
+        /* GRID DE NOMES */
+        .lista-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .lista-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5.5px 10px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 7.8pt;
+        }
+        .lista-item:nth-child(even) {
+            border-left: 1px solid #e8e8e8;
+        }
+        /* Zebra por par de linhas */
+        .lista-item:nth-child(4n+1),
+        .lista-item:nth-child(4n+2) {
+            background: #f9f9f9;
+        }
+        .lista-item:last-child,
+        .lista-item:nth-last-child(2) {
+            border-bottom: none;
+        }
+
+        .num {
+            font-size: 7pt;
+            color: #999;
+            font-weight: 700;
+            min-width: 18px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .nome {
+            color: #111;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2px;
+        }
+
+        /* RODAPÉ DA LISTA */
+        .rodape-lista {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .data-emissao {
+            font-size: 7.5pt;
+            color: #888;
+        }
+        .total {
+            background: #0f2b4d;
+            color: #fff;
+            font-size: 8pt;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+        }
+
+        /* ASSINATURAS */
+        .assinatura {
+            margin-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .assinatura-bloco {
+            flex: 1;
+            text-align: center;
+        }
+        .assinatura-linha {
+            border-top: 1px solid #333;
+            margin-bottom: 5px;
+        }
+        .assinatura-bloco p {
+            font-size: 7.5pt;
+            color: #555;
+        }
+
+        /* RODAPÉ */
+        footer {
+            margin-top: 22px;
+            text-align: center;
+            font-size: 7pt;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        @media screen {
+            body {
+                padding: 20px;
+                width: auto;
+                box-shadow: 0 0 20px rgba(0,0,0,0.15);
+                max-width: 210mm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <img src="logo-stop.png" alt="STOP a Destruição do Mundo">
+        <div class="cabecalho-texto">
+            <h1>34º Fórum STOP — Imersão 2026</h1>
+            <h2>A Prioridade na Desinversão: Teologia da Física, Desinversão Interior e Empreendedorismo Trilógico</h2>
+            <p>
+                📅 <strong>14 a 16 de Agosto de 2026</strong> &nbsp;|&nbsp;
+                📍 <strong>Ecovila Santa Branca — Terezópolis de Goiás / GO</strong><br>
+                Casarão da Cultura Nicolau Lunardelli
+            </p>
+        </div>
+    </div>
+
+    <div class="bloco-autorizacao">
+        <h3>Autorização de Entrada — Portaria</h3>
+        <p>
+            Prezada equipe da portaria da <strong>Ecovila Santa Branca</strong>, solicitamos a autorização de acesso
+            às pessoas listadas abaixo, participantes do <strong>34º Fórum STOP</strong>, nos dias
+            <strong>14, 15 e 16 de Agosto de 2026</strong>.
+            Em caso de dúvidas, entre em contato pelo WhatsApp: <strong>(62) 98154-9005</strong>.
+        </p>
+    </div>
+
+    <div class="lista-titulo">Lista de Participantes Autorizados — 57 pessoas &nbsp;|&nbsp; Ordem Alfabética</div>
+
+    <div class="lista-grid">
+        <div class="lista-item"><span class="num">01</span><span class="nome">Adriana Patricia de Oliveira Resende</span></div>
+        <div class="lista-item"><span class="num">02</span><span class="nome">Alberto Alves Mendes</span></div>
+        <div class="lista-item"><span class="num">03</span><span class="nome">Alex Sousa Silva</span></div>
+        <div class="lista-item"><span class="num">04</span><span class="nome">Alexandre Carlos Damy Sita</span></div>
+        <div class="lista-item"><span class="num">05</span><span class="nome">Aline da Costa Assunção</span></div>
+        <div class="lista-item"><span class="num">06</span><span class="nome">Allan Silva Mariano</span></div>
+        <div class="lista-item"><span class="num">07</span><span class="nome">Ana Carla Lionel</span></div>
+        <div class="lista-item"><span class="num">08</span><span class="nome">Angela da Silva Magalhães de Castro Ferreira</span></div>
+        <div class="lista-item"><span class="num">09</span><span class="nome">Antônio Carlos Fernandes da Silva</span></div>
+        <div class="lista-item"><span class="num">10</span><span class="nome">Arivane de Fátima Nunes Ribeiro</span></div>
+        <div class="lista-item"><span class="num">11</span><span class="nome">Breno Xavier de Brito</span></div>
+        <div class="lista-item"><span class="num">12</span><span class="nome">Clelia Divina</span></div>
+        <div class="lista-item"><span class="num">13</span><span class="nome">Cleonis P. Castro</span></div>
+        <div class="lista-item"><span class="num">14</span><span class="nome">Cristiane Alves Pereira Veloso Fernandes</span></div>
+        <div class="lista-item"><span class="num">15</span><span class="nome">Daniel Rodrigo Ferreira</span></div>
+        <div class="lista-item"><span class="num">16</span><span class="nome">Edna Maria Luciani Ferreira</span></div>
+        <div class="lista-item"><span class="num">17</span><span class="nome">Fernando Bacelar</span></div>
+        <div class="lista-item"><span class="num">18</span><span class="nome">Gilberto Teixeira</span></div>
+        <div class="lista-item"><span class="num">19</span><span class="nome">Giril Lene Machado</span></div>
+        <div class="lista-item"><span class="num">20</span><span class="nome">Henrique Estevão</span></div>
+        <div class="lista-item"><span class="num">21</span><span class="nome">Iraci V. F. Castro</span></div>
+        <div class="lista-item"><span class="num">22</span><span class="nome">Júlio César Naves</span></div>
+        <div class="lista-item"><span class="num">23</span><span class="nome">Klenio Ferreira Fernandes</span></div>
+        <div class="lista-item"><span class="num">24</span><span class="nome">Laydiane Gonçalves Ribeiro</span></div>
+        <div class="lista-item"><span class="num">25</span><span class="nome">Leandro Diniz</span></div>
+        <div class="lista-item"><span class="num">26</span><span class="nome">Leopoldo Silva Xavier</span></div>
+        <div class="lista-item"><span class="num">27</span><span class="nome">Lídia Mônica Carvalho de Souza Castro</span></div>
+        <div class="lista-item"><span class="num">28</span><span class="nome">Lucas da Silva Rabelo</span></div>
+        <div class="lista-item"><span class="num">29</span><span class="nome">Luísa Vasconcelos Rabelo</span></div>
+        <div class="lista-item"><span class="num">30</span><span class="nome">Malba de Sousa Vasconcelos Rabelo</span></div>
+        <div class="lista-item"><span class="num">31</span><span class="nome">Marco Antônio da Silva</span></div>
+        <div class="lista-item"><span class="num">32</span><span class="nome">Marcos Leandro Freire</span></div>
+        <div class="lista-item"><span class="num">33</span><span class="nome">Maria Aparecida Eterno Fernandes</span></div>
+        <div class="lista-item"><span class="num">34</span><span class="nome">Maria Aparecida Parras Teixeira</span></div>
+        <div class="lista-item"><span class="num">35</span><span class="nome">Maria Eduarda Barroso dos Santos</span></div>
+        <div class="lista-item"><span class="num">36</span><span class="nome">Marjorie Bettiol</span></div>
+        <div class="lista-item"><span class="num">37</span><span class="nome">Marlene Rodrigues da Silva Magalhães</span></div>
+        <div class="lista-item"><span class="num">38</span><span class="nome">Maynara Rodrigues</span></div>
+        <div class="lista-item"><span class="num">39</span><span class="nome">Michelle Tomaz</span></div>
+        <div class="lista-item"><span class="num">40</span><span class="nome">Nubia Miranda Ferreira</span></div>
+        <div class="lista-item"><span class="num">41</span><span class="nome">Patricia de Andrade Santana</span></div>
+        <div class="lista-item"><span class="num">42</span><span class="nome">Pedro Lucas Vasconcelos Rabelo</span></div>
+        <div class="lista-item"><span class="num">43</span><span class="nome">Polianna V. Castro</span></div>
+        <div class="lista-item"><span class="num">44</span><span class="nome">Pryscilla Alexandrino</span></div>
+        <div class="lista-item"><span class="num">45</span><span class="nome">Raisa Silva Godoi</span></div>
+        <div class="lista-item"><span class="num">46</span><span class="nome">Ranucy Bacelar</span></div>
+        <div class="lista-item"><span class="num">47</span><span class="nome">Raquel Costa Arao Ferreira</span></div>
+        <div class="lista-item"><span class="num">48</span><span class="nome">Renata Aprá de Almeida</span></div>
+        <div class="lista-item"><span class="num">49</span><span class="nome">Renata Correa Neves</span></div>
+        <div class="lista-item"><span class="num">50</span><span class="nome">Rezio de Castro Ferreira</span></div>
+        <div class="lista-item"><span class="num">51</span><span class="nome">Rodrigo de Faria e Silva</span></div>
+        <div class="lista-item"><span class="num">52</span><span class="nome">Sérgio Rodrigues</span></div>
+        <div class="lista-item"><span class="num">53</span><span class="nome">Simone Souza Silva</span></div>
+        <div class="lista-item"><span class="num">54</span><span class="nome">Tiago Nunes Castro</span></div>
+        <div class="lista-item"><span class="num">55</span><span class="nome">Vivian Marques de Campos Silva</span></div>
+        <div class="lista-item"><span class="num">56</span><span class="nome">Weslei Rosa de Lima</span></div>
+        <div class="lista-item"><span class="num">57</span><span class="nome">Westphalen Alves Magalhães Filho</span></div>
+        <div class="lista-item"><span class="num"></span><span class="nome"></span></div>
+    </div>
+
+    <div class="rodape-lista">
+        <span class="data-emissao">Emitida em 13/08/2026</span>
+        <span class="total">Total: 57 participantes</span>
+    </div>
+
+    <div class="assinatura">
+        <div class="assinatura-bloco">
+            <div class="assinatura-linha"></div>
+            <p>Organização — 34º Fórum STOP</p>
+        </div>
+        <div class="assinatura-bloco">
+            <div class="assinatura-linha"></div>
+            <p>Responsável — Portaria Ecovila Santa Branca</p>
+        </div>
+        <div class="assinatura-bloco">
+            <div class="assinatura-linha"></div>
+            <p>Data / Horário de Conferência</p>
+        </div>
+    </div>
+
+    <footer>
+        STOP a Destruição do Mundo &nbsp;·&nbsp; 34º Fórum STOP — Imersão 2026 &nbsp;·&nbsp; Ecovila Santa Branca, Terezópolis de Goiás / GO
+    </footer>
+
+</body>
+</html>
