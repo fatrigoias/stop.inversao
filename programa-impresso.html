@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa — 34º Fórum STOP Imersão 2026</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 14mm 14mm 14mm 14mm;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            width: 210mm;
+            margin: 0 auto;
+            padding: 14mm;
+            font-size: 9.5pt;
+            line-height: 1.55;
+        }
+
+        /* ======= CAPA ======= */
+        .capa {
+            min-height: 265mm;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            page-break-after: always;
+            padding: 20mm 10mm;
+        }
+        .capa-logo {
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 28px;
+        }
+        .capa-edicao {
+            font-size: 10pt;
+            color: #dcb324;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .capa h1 {
+            font-size: 22pt;
+            color: #0f2b4d;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        .capa h1 span {
+            color: #dcb324;
+        }
+        .capa-subtitulo {
+            font-size: 11pt;
+            color: #0f2b4d;
+            font-weight: 600;
+            margin: 14px 0 22px;
+            line-height: 1.4;
+            max-width: 140mm;
+        }
+        .capa-divisor {
+            width: 60mm;
+            height: 3px;
+            background: linear-gradient(90deg, #0f2b4d, #dcb324, #0f2b4d);
+            border-radius: 2px;
+            margin: 0 auto 22px;
+        }
+        .capa-local {
+            background: #f4f6f8;
+            border-radius: 8px;
+            padding: 14px 24px;
+            margin-bottom: 24px;
+        }
+        .capa-local p {
+            font-size: 9pt;
+            color: #333;
+            line-height: 1.7;
+        }
+        .capa-local strong { color: #0f2b4d; }
+        .capa-tema {
+            font-size: 8.5pt;
+            color: #666;
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 140mm;
+            margin-bottom: 28px;
+        }
+        .capa-footer {
+            margin-top: auto;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 18px;
+            width: 100%;
+        }
+        .capa-realizacao {
+            font-size: 7.5pt;
+            color: #777;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .capa-realizacao strong { color: #0f2b4d; }
+
+        /* ======= PÁGINA INTERNA GERAL ======= */
+        .pagina {
+            page-break-before: always;
+            padding-top: 8px;
+        }
+
+        /* ======= CABEÇALHO INTERNO ======= */
+        .cabecalho-interno {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #0f2b4d;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+        .cabecalho-interno .forum-nome {
+            font-size: 7.5pt;
+            color: #0f2b4d;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cabecalho-interno .forum-data {
+            font-size: 7.5pt;
+            color: #888;
+        }
+
+        /* ======= DIA HEADER ======= */
+        .dia-header {
+            background: #0f2b4d;
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dia-header h2 {
+            font-size: 10.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .dia-header .dia-data {
+            font-size: 8pt;
+            color: #dcb324;
+            font-weight: 700;
+        }
+
+        /* ======= TABELA DE PROGRAMAÇÃO ======= */
+        .programacao {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 14px;
+        }
+        .programacao tr {
+            border-bottom: 1px solid #eee;
+        }
+        .programacao tr:last-child {
+            border-bottom: none;
+        }
+        .programacao td {
+            padding: 5px 6px;
+            vertical-align: top;
+            font-size: 8.5pt;
+        }
+        .programacao .col-hora {
+            width: 60px;
+            color: #0f2b4d;
+            font-weight: 700;
+            white-space: nowrap;
+            padding-right: 8px;
+        }
+        .programacao .col-atividade {
+            color: #111;
+        }
+        .programacao .col-atividade strong {
+            color: #0f2b4d;
+        }
+        .programacao .col-atividade em {
+            font-style: italic;
+            color: #666;
+            font-size: 8pt;
+        }
+
+        /* Tipos de linha */
+        .linha-destaque td {
+            background: #f9f4e0;
+        }
+        .linha-arte td {
+            background: #f0f4ff;
+        }
+        .linha-cerimonia td {
+            color: #666;
+            font-style: italic;
+        }
+        .linha-cerimonia .col-hora {
+            color: #999;
+        }
+        .linha-pausa td {
+            background: #f4f4f4;
+            color: #888;
+        }
+        .linha-pausa .col-hora {
+            color: #aaa;
+        }
+        .linha-encerra td {
+            background: #eaf4ea;
+        }
+
+        /* ======= SEÇÃO DE TURNO ======= */
+        .turno-label {
+            font-size: 7.5pt;
+            font-weight: 800;
+            color: #dcb324;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px 0 4px;
+            padding-left: 4px;
+            border-left: 3px solid #dcb324;
+        }
+
+        /* ======= PALESTRANTES ======= */
+        .sec-titulo {
+            font-size: 10pt;
+            font-weight: 900;
+            color: #0f2b4d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 18px 0 10px;
+            border-bottom: 2px solid #dcb324;
+            padding-bottom: 5px;
+        }
+
+        .palestrante {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        .palestrante-info {
+            flex: 1;
+        }
+        .palestrante-nome {
+            font-size: 9pt;
+            font-weight: 800;
+            color: #0f2b4d;
+            margin-bottom: 1px;
+        }
+        .palestrante-titulo {
+            font-size: 7.8pt;
+            color: #dcb324;
+            font-weight: 700;
+            margin-bottom: 3px;
+            font-style: italic;
+            line-height: 1.35;
+        }
+        .palestrante-bio {
+            font-size: 7.8pt;
+            color: #444;
+            line-height: 1.5;
+        }
+        .palestrante-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 10px 0;
+        }
+
+        /* ======= SOBRE O KEPPE ======= */
+        .caixa-keppe {
+            background: #0f2b4d;
+            color: #fff;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-top: 14px;
+        }
+        .caixa-keppe h3 {
+            font-size: 8.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #dcb324;
+            margin-bottom: 6px;
+        }
+        .caixa-keppe p {
+            font-size: 8pt;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        /* ======= FRASE DE ENCERRAMENTO ======= */
+        .frase-final {
+            margin-top: 18px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 14px;
+        }
+        .frase-final blockquote {
+            font-size: 9pt;
+            font-style: italic;
+            color: #0f2b4d;
+            line-height: 1.65;
+            max-width: 130mm;
+            margin: 0 auto 6px;
+        }
+        .frase-final cite {
+            font-size: 7.5pt;
+            color: #888;
+        }
+
+        /* ======= RODAPÉ ======= */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 7pt;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        /* ======= SCREEN PREVIEW ======= */
+        @media screen {
+            body {
+                padding: 20px;
+                width: auto;
+                max-width: 210mm;
+                box-shadow: 0 0 30px rgba(0,0,0,0.18);
+            }
+            .capa {
+                min-height: auto;
+                padding: 30px 20px;
+            }
+        }
+
+        @media print {
+            .pagina { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!--  CAPA                                                        -->
+<!-- ============================================================ -->
+<div class="capa">
+    <img class="capa-logo" src="logo-stop.png" alt="STOP a Destruição do Mundo">
+
+    <div class="capa-edicao">34ª Edição &nbsp;·&nbsp; Imersão 2026</div>
+
+    <h1>Fórum <span>STOP</span></h1>
+
+    <div class="capa-divisor"></div>
+
+    <p class="capa-subtitulo">
+        A Prioridade na Desinversão:<br>
+        Teologia da Física, Desinversão Interior<br>
+        e Empreendedorismo Trilógico
+    </p>
+
+    <div class="capa-local">
+        <p>
+            <strong>📅 14, 15 e 16 de Agosto de 2026</strong><br>
+            📍 <strong>Ecovila Santa Branca</strong> — Terezópolis de Goiás / GO<br>
+            Casarão da Cultura Nicolau Lunardelli
+        </p>
+    </div>
+
+    <p class="capa-tema">
+        "A inversão é a doença fundamental do ser humano.<br>
+        Desinvertê-la é o caminho para a saúde, a paz e a prosperidade."<br>
+        <em>— Dr. Norberto Keppe</em>
+    </p>
+
+    <div class="capa-footer">
+        <div class="capa-realizacao">
+            <strong>Realização</strong><br>
+            FATRI Goiás &nbsp;·&nbsp; STOP Associação &nbsp;·&nbsp; IIPC<br>
+            IECPS &nbsp;·&nbsp; Trilogical University<br><br>
+            <strong>Apoio</strong> &nbsp;·&nbsp; Grupo AVE &nbsp;·&nbsp; EIA — Escola Internacional de Artes<br>
+            <strong>Anfitrião</strong> &nbsp;·&nbsp; Jeremias Lunardelli Neto — Ecovila Santa Branca
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<!--  PROGRAMAÇÃO — SEXTA-FEIRA 14/08                            -->
+<!-- ============================================================ -->
+<div class="pagina">
+    <div class="cabecalho-interno">
+        <span class="forum-nome">34º Fórum STOP — Imersão 2026</span>
+        <span class="forum-data">Ecovila Santa Branca, Terezópolis de Goiás · Agosto 2026</span>
+    </div>
+
+    <div class="dia-header">
+        <h2>Sexta-feira — Abertura</h2>
+        <span class="dia-data">14 de Agosto de 2026</span>
+    </div>
+
+    <div class="turno-label">Noite</div>
+    <table class="programacao">
+        <tr class="linha-pausa">
+            <td class="col-hora">19:15</td>
+            <td class="col-atividade">Chegada e <strong>Café de Boas-Vindas</strong></td>
+        </tr>
+        <tr class="linha-arte">
+            <td class="col-hora">19:30</td>
+            <td class="col-atividade"><strong>Abertura Artística</strong> <em>— Apresentação cultural</em></td>
+        </tr>
+        <tr>
+            <td class="col-hora">19:45</td>
+            <td class="col-atividade"><strong>Jeremias Lunardelli Neto</strong> <em>(5 min)</em><br>Boas-vindas do anfitrião — Ecovila Santa Branca</td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">20:00</td>
+            <td class="col-atividade">
+                <strong>Dra. Selma Leme</strong> — <em>45 minutos</em><br>
+                <strong>A Desinversão da Saúde:</strong> Cura pela Consciência no Pensamento de Keppe
+            </td>
+        </tr>
+        <tr class="linha-encerra">
+            <td class="col-hora">21:00</td>
+            <td class="col-atividade"><strong>Encerramento do dia</strong> e confraternização</td>
+        </tr>
+    </table>
+
+    <!-- ============================================================ -->
+    <!--  PROGRAMAÇÃO — SÁBADO 15/08                                  -->
+    <!-- ============================================================ -->
+    <div class="dia-header" style="margin-top:18px;">
+        <h2>Sábado — Programação Completa</h2>
+        <span class="dia-data">15 de Agosto de 2026</span>
+    </div>
+
+    <div class="turno-label">Manhã</div>
+    <table class="programacao">
+        <tr class="linha-pausa">
+            <td class="col-hora">07:30</td>
+            <td class="col-atividade"><strong>Café da Manhã</strong></td>
+        </tr>
+        <tr class="linha-arte">
+            <td class="col-hora">08:30</td>
+            <td class="col-atividade"><strong>Abertura Artística</strong></td>
+        </tr>
+        <tr>
+            <td class="col-hora">08:45</td>
+            <td class="col-atividade"><strong>Jeremias Lunardelli Neto</strong> <em>(5 min)</em> — Boas-vindas do anfitrião</td>
+        </tr>
+        <tr>
+            <td class="col-hora">08:50</td>
+            <td class="col-atividade"><strong>Ademar Cabral</strong> <em>(5 min)</em> — Grupo AVE / Cidade Amor Maior</td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">09:00</td>
+            <td class="col-atividade">
+                <strong>Dra. Claudia Pacheco</strong> — <em>60 minutos</em><br>
+                <strong>Teologia da Física:</strong> A Ciência do Ser na Obra de Norberto Keppe
+            </td>
+        </tr>
+        <tr class="linha-pausa">
+            <td class="col-hora">10:00</td>
+            <td class="col-atividade"><strong>Coffee Break</strong></td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">10:33</td>
+            <td class="col-atividade">
+                <strong>César Sílvio Colzani</strong> — <em>45 minutos</em><br>
+                <strong>Desinversão Interior:</strong> O Caminho da Consciência para a Liberdade
+            </td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">11:21</td>
+            <td class="col-atividade">
+                <strong>Julieta Kühl</strong> — <em>45 minutos</em><br>
+                <strong>Psicanálise Integral:</strong> O Ser Humano Além do Inconsciente Freudiano
+            </td>
+        </tr>
+        <tr class="linha-pausa">
+            <td class="col-hora">12:30</td>
+            <td class="col-atividade"><strong>Almoço</strong></td>
+        </tr>
+    </table>
+
+    <div class="turno-label">Tarde &amp; Noite</div>
+    <table class="programacao">
+        <tr class="linha-arte">
+            <td class="col-hora">13:40</td>
+            <td class="col-atividade"><strong>Abertura Artística</strong> — Retorno da tarde</td>
+        </tr>
+        <tr>
+            <td class="col-hora">13:50</td>
+            <td class="col-atividade"><strong>Fernando Bacelar</strong> <em>(5 min)</em> — EIA — Escola Internacional de Artes / GAM</td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">14:00</td>
+            <td class="col-atividade">
+                <strong>Eduardo Wolff</strong> — <em>45 minutos</em><br>
+                <strong>Empreendedorismo Trilógico:</strong> Negócios com Propósito e Consciência
+            </td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">14:48</td>
+            <td class="col-atividade">
+                <strong>Rodrigo de Faria e Silva</strong> — <em>45 minutos</em><br>
+                <strong>Keppe Motor:</strong> Tecnologia a Serviço da Desinversão
+            </td>
+        </tr>
+        <tr class="linha-pausa">
+            <td class="col-hora">15:33</td>
+            <td class="col-atividade"><strong>Coffee Break</strong></td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">16:03</td>
+            <td class="col-atividade">
+                <strong>Luciara Leme</strong> — <em>45 minutos</em><br>
+                <strong>Pedagogia Trilógica:</strong> Educação que Liberta e Transforma
+            </td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">16:51</td>
+            <td class="col-atividade">
+                <strong>Sari Nalbant</strong> — <em>45 minutos</em><br>
+                <strong>A Mente Invertida Não Aprende:</strong> Bloqueios no Aprendizado de Idiomas e a Desinversão pela Consciência
+            </td>
+        </tr>
+        <tr class="linha-arte">
+            <td class="col-hora">18:00</td>
+            <td class="col-atividade"><strong>Abertura Artística</strong> — Encerramento do dia</td>
+        </tr>
+        <tr class="linha-pausa">
+            <td class="col-hora">18:15</td>
+            <td class="col-atividade"><strong>Jantar</strong></td>
+        </tr>
+    </table>
+
+</div>
+
+<!-- ============================================================ -->
+<!--  PROGRAMAÇÃO — DOMINGO 16/08                                 -->
+<!-- ============================================================ -->
+<div class="pagina">
+    <div class="cabecalho-interno">
+        <span class="forum-nome">34º Fórum STOP — Imersão 2026</span>
+        <span class="forum-data">Ecovila Santa Branca, Terezópolis de Goiás · Agosto 2026</span>
+    </div>
+
+    <div class="dia-header">
+        <h2>Domingo — Encontro com Empreendedores</h2>
+        <span class="dia-data">16 de Agosto de 2026</span>
+    </div>
+
+    <div class="turno-label">Manhã</div>
+    <table class="programacao">
+        <tr class="linha-pausa">
+            <td class="col-hora">07:30</td>
+            <td class="col-atividade"><strong>Café da Manhã</strong></td>
+        </tr>
+        <tr class="linha-arte">
+            <td class="col-hora">08:30</td>
+            <td class="col-atividade"><strong>Abertura Artística</strong></td>
+        </tr>
+        <tr class="linha-destaque">
+            <td class="col-hora">09:00</td>
+            <td class="col-atividade">
+                <strong>Encontro com Empreendedores</strong> — <em>2 horas</em><br>
+                Rodada de conexões, apresentações de iniciativas e projetos trilógicos
+            </td>
+        </tr>
+        <tr class="linha-encerra">
+            <td class="col-hora">11:00</td>
+            <td class="col-atividade"><strong>Encerramento Oficial do 34º Fórum STOP</strong></td>
+        </tr>
+    </table>
+
+    <div class="turno-label">Tarde</div>
+    <table class="programacao">
+        <tr class="linha-pausa">
+            <td class="col-hora">Tarde</td>
+            <td class="col-atividade"><strong>Tarde Livre</strong> — Integração, descanso e contato com a natureza na Ecovila</td>
+        </tr>
+    </table>
+
+    <!-- ============================================================ -->
+    <!--  PALESTRANTES                                                 -->
+    <!-- ============================================================ -->
+    <div class="sec-titulo" style="margin-top:22px;">Palestrantes</div>
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Dra. Claudia Bernhardt de Souza Pacheco</div>
+            <div class="palestrante-titulo">Teologia da Física: A Ciência do Ser na Obra de Norberto Keppe</div>
+            <div class="palestrante-bio">Escritora, conferencista e diretora do STOP Associação. Codiretora das Clínicas Trilogicas. Autora de mais de 30 livros, incluindo <em>Física Terapêutica</em> e <em>A Libertação da Mulher</em>. Tem dedicado sua vida a divulgar e aplicar a Trilogia Analítica de Norberto Keppe em todo o mundo.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">César Sílvio Colzani</div>
+            <div class="palestrante-titulo">Desinversão Interior: O Caminho da Consciência para a Liberdade</div>
+            <div class="palestrante-bio">Terapeuta trilógico, professor e conferencista. Coordenador de formações em Psicanálise Integral. Atua há mais de 20 anos auxiliando pessoas a identificar e superar os mecanismos de inversão que bloqueiam o desenvolvimento humano.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Julieta Kühl</div>
+            <div class="palestrante-titulo">Psicanálise Integral: O Ser Humano Além do Inconsciente Freudiano</div>
+            <div class="palestrante-bio">Psicanalista integral e professora da Trilogical University. Pesquisadora da obra de Norberto Keppe, com ênfase na dimensão ontológica do ser humano. Conduz grupos de estudo e atendimentos que integram ciência, filosofia e espiritualidade.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Dra. Selma Leme</div>
+            <div class="palestrante-titulo">A Desinversão da Saúde: Cura pela Consciência no Pensamento de Keppe</div>
+            <div class="palestrante-bio">Médica e pesquisadora da Trilogia Analítica. Fundadora e diretora do IECPS (Instituto de Estudos Científicos e Psicossociais). Autora de trabalhos que conectam medicina, consciência e espiritualidade à luz da obra de Norberto Keppe, atuando há décadas na saúde integral.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Eduardo Wolff</div>
+            <div class="palestrante-titulo">Empreendedorismo Trilógico: Negócios com Propósito e Consciência</div>
+            <div class="palestrante-bio">Empreendedor e educador trilógico, fundador de iniciativas voltadas para a transformação social e econômica a partir dos princípios da Trilogia Analítica. Atua com consultoria e formação de líderes conscientes que desejam integrar propósito e resultado nos seus empreendimentos.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Rodrigo de Faria e Silva</div>
+            <div class="palestrante-titulo">Keppe Motor: Tecnologia a Serviço da Desinversão</div>
+            <div class="palestrante-bio">Engenheiro e pesquisador do Keppe Motor — tecnologia de captação de energia desenvolvida a partir dos princípios da Nova Física de Norberto Keppe. Participa ativamente da difusão de tecnologias limpas e desinvertidas que apontam para um novo paradigma energético e científico.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Luciara Leme</div>
+            <div class="palestrante-titulo">Pedagogia Trilógica: Educação que Liberta e Transforma</div>
+            <div class="palestrante-bio">Educadora e terapeuta trilógica, coordenadora de projetos de Pedagogia Trilógica. Trabalha com a formação de educadores e a transformação de ambientes escolares a partir dos princípios de Norberto Keppe, promovendo uma educação que respeita o ser da criança e desenvolve a consciência.</div>
+        </div>
+    </div>
+    <hr class="palestrante-divider">
+
+    <div class="palestrante">
+        <div class="palestrante-info">
+            <div class="palestrante-nome">Sari Nalbant</div>
+            <div class="palestrante-titulo">A Mente Invertida Não Aprende: Bloqueios no Aprendizado de Idiomas e a Desinversão pela Consciência</div>
+            <div class="palestrante-bio">Linguista, professora e pesquisadora trilógica. Estuda os bloqueios psicológicos e relacionais que impedem o aprendizado de idiomas, integrando a Psicanálise Integral de Norberto Keppe à prática pedagógica. Desenvolve um método próprio que une consciência, desejo e linguagem.</div>
+        </div>
+    </div>
+
+    <div class="caixa-keppe">
+        <h3>Sobre Dr. Norberto Keppe (1927–2022)</h3>
+        <p>
+            Filósofo, psicanalista e cientista brasileiro, criador da <strong>Trilogia Analítica</strong> — uma ciência que integra o ser humano em suas dimensões física, psicológica e espiritual. Fundou o STOP Associação e as Clínicas Trilógicas. Autor de mais de 60 obras traduzidas em vários idiomas, Keppe propôs que a <strong>inversão</strong> — a tendência humana a negar o bem, a consciência e a vida — é a raiz de toda patologia individual e coletiva. Sua obra permanece viva e crescente, transformando vidas ao redor do mundo.
+        </p>
+    </div>
+
+    <div class="frase-final">
+        <blockquote>
+            "A doença não existe no corpo, ela existe na alma — é a inveja, o orgulho e a sensualidade que adoecem o ser humano. Tomar consciência disso é o primeiro passo para a cura."
+        </blockquote>
+        <cite>— Dr. Norberto Keppe</cite>
+    </div>
+
+    <footer>
+        34º Fórum STOP — Imersão 2026 &nbsp;·&nbsp; Ecovila Santa Branca, Terezópolis de Goiás / GO &nbsp;·&nbsp; 14 a 16 de Agosto de 2026<br>
+        FATRI Goiás &nbsp;·&nbsp; STOP Associação &nbsp;·&nbsp; IIPC &nbsp;·&nbsp; IECPS &nbsp;·&nbsp; Trilogical University
+    </footer>
+</div>
+
+</body>
+</html>
