@@ -468,11 +468,7 @@
             <span class="hero-badge">Fim de Semana de Imersão</span>
             <span class="hero-badge destaque">R$ 290,00 — Valor Único</span>
             <span class="hero-badge">Refeições Inclusas</span>
-            <span class="hero-badge">⚠️ Últimas vagas disponíveis</span>
-        </div>
-
-        <div class="btn-container">
-            <a href="#inscricao" class="btn-dourado">Quero garantir minha inscrição agora</a>
+            <span class="hero-badge destaque">🔒 Inscrições Encerradas</span>
         </div>
     </header>
 
@@ -482,13 +478,8 @@
 
     <div class="banner-promo">
         <div class="banner-promo-inner">
-            <div class="promo-alerta">⚠️ Vagas Limitadas</div>
-            <div class="promo-precos">
-                <span class="promo-preco-novo">R$ 290,00</span>
-            </div>
-            <div class="promo-vagas">Vagas se esgotando — garanta agora</div>
-            <div class="promo-prazo">Inscrições encerram em <strong style="color:var(--dourado);">12 de agosto de 2026</strong></div>
-            <a href="#inscricao" style="background:var(--dourado);color:var(--azul-escuro);font-weight:800;padding:10px 25px;border-radius:30px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Garantir agora</a>
+            <div class="promo-alerta">🔒 Inscrições Encerradas</div>
+            <div class="promo-prazo" style="color:rgba(255,255,255,0.9);font-size:1rem;">As inscrições para o 34º Fórum STOP foram encerradas. Obrigado a todos os inscritos!</div>
         </div>
     </div>
 
@@ -842,127 +833,13 @@
             </div>
 
             <div class="box-form" id="inscricao">
-                <h3>GARANTA SUA PRESENÇA<br><span>⚠️ Vagas Limitadas — Não perca</span></h3>
-
-                <div class="valor-box">
-                    <span>Valor único — sem taxas adicionais</span>
-                    <strong>R$ 290,00</strong>
-                    <em>Inscrições encerram em 12 de agosto de 2026</em>
+                <h3>🔒 INSCRIÇÕES ENCERRADAS</h3>
+                <p style="font-size:1rem;color:#ccc;margin-bottom:20px;text-align:center;">As inscrições para o 34º Fórum STOP foram encerradas.</p>
+                <div style="background:rgba(220,179,36,0.12);border:1px solid var(--dourado);border-radius:10px;padding:20px;text-align:center;margin-bottom:20px;">
+                    <span style="font-size:2.5rem;display:block;margin-bottom:10px;">🙏</span>
+                    <p style="color:#fff;font-size:1rem;line-height:1.6;margin:0;">Agradecemos o interesse de todos.<br>Acompanhe nossas redes sociais para ficar por dentro dos próximos eventos.</p>
                 </div>
-
-                <p>Realize o pagamento, anexe o comprovante e preencha o formulário.</p>
-        
-                <div class="pagamento-box">
-                    <p style="font-weight:bold;font-size:0.95rem;margin-bottom:8px;">Chave PIX (Transferência):</p>
-                    <span class="pix-key" id="chave-pix">85584794-fa76-492b-b812-ce7b335921bf</span>
-                    <button type="button" onclick="copiarPix()" id="btn-copiar-pix" style="margin-top:10px;display:block;width:100%;padding:8px;background:var(--dourado);color:#000;font-weight:bold;border:none;border-radius:6px;cursor:pointer;font-size:0.9rem;">📋 Copiar Chave PIX</button>
-                    <p style="margin-top:12px;font-size:0.85rem;line-height:1.6;">
-                        <strong>Favorecido:</strong> Jeremias Lunardelli Neto<br>
-                        <strong>Banco:</strong> Caixa Econômica Federal<br>
-                        <strong>Tipo de conta:</strong> Poupança<br>
-                        <strong>Agência:</strong> 1551<br>
-                        <strong>Conta:</strong> 756033915-9
-                    </p>
-                </div>
-
-                <form id="form-inscricao">
-                    <!-- Honeypot: invisível para humanos, bots preenchem e são bloqueados -->
-                    <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off">
-                    <input type="hidden" name="token" value="stop2026fatri">
-                    <input type="text" name="nome" placeholder="Nome Completo" required>
-                    <input type="email" name="email" placeholder="E-mail" required>
-                    <input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
-                    <input type="text" name="cidade" placeholder="Sua Cidade e Estado" required>
-
-                    <label class="upload-label">Comprovante de pagamento (JPG, PNG ou PDF — máx. 5MB):</label>
-                    <input type="file" id="comprovante" name="comprovante" accept=".jpg,.jpeg,.png,.pdf" class="upload-input" required>
-
-                    <select name="interesse" required>
-                        <option value="" disabled selected>Principal Área de Interesse...</option>
-                        <option value="Saude">Saúde / Psicanálise</option>
-                        <option value="Ciencia">Física / Ciência (Keppe Motor)</option>
-                        <option value="Educacao">Educação / Pedagogia</option>
-                        <option value="Negocios">Empreendedorismo / Negócios</option>
-                        <option value="Arte">Artes / Estética</option>
-                    </select>
-
-                    <select name="origem" required>
-                        <option value="" disabled selected>Como ficou sabendo?</option>
-                        <option value="Redes Sociais">Redes Sociais (Instagram/Facebook)</option>
-                        <option value="Email">E-mail</option>
-                        <option value="Indicacao">Indicação de um amigo</option>
-                        <option value="Google">Pesquisa no Google</option>
-                        <option value="Outros">Outros</option>
-                    </select>
-
-                    <button type="submit" id="btn-submit" class="btn-dourado" style="margin-top: 10px;">✦ QUERO PARTICIPAR ✦</button>
-                    <p id="msg-sucesso" style="display: none; color: #8cc34a; font-weight: bold; margin-top: 15px;">Solicitação recebida com sucesso! Nossa equipe entrará em contato.</p>
-                </form>
-
-                <script>
-                    const form = document.getElementById('form-inscricao');
-                    const btnSubmit = document.getElementById('btn-submit');
-                    const msgSucesso = document.getElementById('msg-sucesso');
-
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbwtrsQBewE-9QGWAfWF9avyF9yMMo0VJe1hjvGk7gZHBU9pBUXj1SVH_ZIjUPDMUS1h/exec';
-
-                    function toBase64(file) {
-                        return new Promise((resolve, reject) => {
-                            const reader = new FileReader();
-                            reader.readAsDataURL(file);
-                            reader.onload = () => resolve(reader.result);
-                            reader.onerror = reject;
-                        });
-                    }
-
-                    form.addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        btnSubmit.innerHTML = 'ENVIANDO... ⏳';
-                        btnSubmit.disabled = true;
-
-                        const formData = new FormData(form);
-                        const fileInput = document.getElementById('comprovante');
-
-                        if (fileInput.files[0]) {
-                            const file = fileInput.files[0];
-                            if (file.size > 5 * 1024 * 1024) {
-                                alert('O arquivo é muito grande. Por favor, envie um arquivo de até 5MB.');
-                                btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
-                                btnSubmit.disabled = false;
-                                return;
-                            }
-                            formData.append('comprovante_base64', await toBase64(file));
-                            formData.append('comprovante_nome', file.name);
-                        }
-                        formData.delete('comprovante');
-
-                        fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: formData })
-                        .then(() => {
-                            msgSucesso.style.display = 'block';
-                            btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
-                            btnSubmit.disabled = false;
-                            form.reset();
-                        })
-                        .catch(() => {
-                            alert('Houve um erro ao enviar. Tente novamente.');
-                            btnSubmit.innerHTML = '✦ QUERO PARTICIPAR ✦';
-                            btnSubmit.disabled = false;
-                        });
-                    });
-                </script>
-
-                <script>
-                    function copiarPix() {
-                        const chave = document.getElementById('chave-pix').textContent;
-                        navigator.clipboard.writeText(chave).then(function() {
-                            const btn = document.getElementById('btn-copiar-pix');
-                            btn.textContent = '✅ Chave copiada!';
-                            setTimeout(function() {
-                                btn.innerHTML = '📋 Copiar Chave PIX';
-                            }, 2500);
-                        });
-                    }
-                </script>
+                <a href="https://wa.me/5562981549005" target="_blank" class="btn-dourado">Fale conosco pelo WhatsApp</a>
             </div>
 
         </div>
@@ -978,6 +855,9 @@
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1399.9268950311703!2d-49.08908234504866!3d-16.43431181540264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e979f16ce2b37%3A0x943b8ba50f8f3ac4!2sEcovila%20Santa%20Branca!5e1!3m2!1spt-BR!2sbr!4v1775593227399!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <div style="margin-top: 20px;">
+            <a href="https://maps.app.goo.gl/hdERWpgNB5VxLnAm7" target="_blank" style="display:inline-block;background-color:var(--azul-escuro);color:#fff;font-weight:700;padding:12px 28px;border-radius:30px;font-size:1rem;text-decoration:none;letter-spacing:1px;">📍 Abrir no Google Maps — Casarão Nicolau Lunardelli</a>
+        </div>
     </section>
 
     <!-- CTA Valor Único -->
@@ -990,7 +870,7 @@
             <div style="display:flex;align-items:center;justify-content:center;gap:15px;flex-wrap:wrap;margin:10px 0 5px;">
                 <div class="cta-preco">R$ 290<span style="font-size:1.5rem">,00</span></div>
             </div>
-            <p class="cta-preco-sub" style="color:#e5ac35;font-weight:700;">⚠️ Inscrições encerram em breve — últimas vagas</p>
+            <p class="cta-preco-sub" style="color:#e5ac35;font-weight:700;">🔒 Inscrições Encerradas</p>
             <p class="cta-preco-sub">Valor único — sem taxas adicionais</p>
             <ul class="cta-lista">
                 <li>Fim de semana de Imersão (Sexta noite, Sábado e Domingo de manhã)</li>
@@ -1001,7 +881,9 @@
                 <li>🫖 Coffee Break — Sábado à tarde</li>
                 <li>🌙 Jantar de Encerramento — Sábado</li>
             </ul>
-            <a href="#inscricao" class="btn-dourado">Garantir minha vaga agora</a>
+            <div style="background:#f4f6f8;border-radius:10px;padding:15px;text-align:center;">
+                <span style="font-size:1.1rem;font-weight:800;color:var(--azul-escuro);">🔒 Inscrições Encerradas</span>
+            </div>
         </div>
     </section>
 
@@ -1032,7 +914,7 @@
             </details>
             <details>
                 <summary>Como me inscrevo oficialmente?</summary>
-                <div class="faq-content">Basta preencher o formulário disponível nesta página. Após o envio, nossa equipe entrará em contato via WhatsApp com a confirmação e as instruções para o pagamento.</div>
+                <div class="faq-content">As inscrições para o 34º Fórum STOP foram encerradas. Fique atento às nossas redes sociais e ao WhatsApp para informações sobre os próximos eventos.</div>
             </details>
         </div>
     </section>
